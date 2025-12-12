@@ -339,6 +339,29 @@ body {
     text-decoration: none;
 }
 
+.sidebar-actions {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.sidebar-actions .user-btn {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: var(--primary);
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 600;
+    transition: var(--transition);
+}
+
+.sidebar-actions .user-btn:hover {
+    background: var(--primary-light);
+}
+
 .dark-toggle {
     width: 36px;
     height: 36px;

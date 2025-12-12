@@ -54,7 +54,10 @@
     <nav class="sidebar" id="sidebar">
         <div class="sidebar-header">
             <a href="index.html" class="logo">🇫🇮 Suomi A1</a>
-            <button class="dark-toggle" id="darkToggle">🌙</button>
+            <div class="sidebar-actions">
+                <button class="user-btn" id="userBtnDesktop" onclick="toggleUserModal()">👤</button>
+                <button class="dark-toggle" id="darkToggle">🌙</button>
+            </div>
         </div>
         <ul class="nav-menu">
             <li><a href="index.html" class="nav-link active"><span class="icon">🏠</span> Trang chủ</a></li>
@@ -352,11 +355,13 @@
         // Update user button with current name
         document.addEventListener('DOMContentLoaded', () => {
             const current = userAccount.getCurrentUser();
-            const btn = document.getElementById('userBtn');
-            if (current) {
-                btn.textContent = current.charAt(0).toUpperCase();
-                btn.title = current;
-            }
+            const btns = [document.getElementById('userBtn'), document.getElementById('userBtnDesktop')];
+            btns.forEach(btn => {
+                if (btn && current) {
+                    btn.textContent = current.charAt(0).toUpperCase();
+                    btn.title = current;
+                }
+            });
         });
 
         // Close modal when clicking outside
