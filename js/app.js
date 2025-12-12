@@ -9,52 +9,31 @@
 const SUPABASE_URL = 'https://vfrgdhcltkgxurbalora.supabase.co';
 const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InZmcmdkaGNsdGtneHVyYmFsb3JhIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjU1MTg1NDYsImV4cCI6MjA4MTA5NDU0Nn0.a0OmbOCQOouJoKMS7t0dPT8TrrwMT6cBgj3BFv7stYI';
 
-// User Account System (with password, stored locally)
+// User Account System (fixed accounts - no registration)
 const userAccount = {
+    // Fixed accounts (username: password)
+    ACCOUNTS: {
+        'Ban1': 'ban@123@123',
+        'Ban2': 'ban@123@123'
+    },
+
     getCurrentUser() {
         return localStorage.getItem('currentUser') || null;
     },
 
-    // Get all users (returns object: {username: hashedPassword})
-    getUsers() {
-        return JSON.parse(localStorage.getItem('usersData') || '{}');
-    },
-
-    // Simple hash function for password
-    hashPassword(password) {
-        let hash = 0;
-        for (let i = 0; i < password.length; i++) {
-            const char = password.charCodeAt(i);
-            hash = ((hash << 5) - hash) + char;
-            hash = hash & hash;
-        }
-        return hash.toString();
-    },
-
-    // Register new user
-    register(username, password) {
-        const users = this.getUsers();
-        if (users[username]) {
-            return { success: false, message: 'Tên đã tồn tại!' };
-        }
-        if (!username || username.length < 2) {
-            return { success: false, message: 'Tên phải có ít nhất 2 ký tự!' };
-        }
-        if (!password || password.length < 3) {
-            return { success: false, message: 'Mật khẩu phải có ít nhất 3 ký tự!' };
-        }
-        users[username] = this.hashPassword(password);
-        localStorage.setItem('usersData', JSON.stringify(users));
-        return { success: true };
+    // Get list of usernames
+    getUsernames() {
+        return Object.keys(this.ACCOUNTS);
     },
 
     // Login
     login(username, password) {
-        const users = this.getUsers();
-        if (!users[username]) {
+        // Check if account exists
+        if (!this.ACCOUNTS[username]) {
             return { success: false, message: 'Tài khoản không tồn tại!' };
         }
-        if (users[username] !== this.hashPassword(password)) {
+        // Check password
+        if (this.ACCOUNTS[username] !== password) {
             return { success: false, message: 'Sai mật khẩu!' };
         }
         localStorage.setItem('currentUser', username);
@@ -66,11 +45,6 @@ const userAccount = {
     logout() {
         localStorage.removeItem('currentUser');
         window.location.reload();
-    },
-
-    // Get list of usernames
-    getUsernames() {
-        return Object.keys(this.getUsers());
     }
 };
 window.userAccount = userAccount;

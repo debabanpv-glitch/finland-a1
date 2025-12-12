@@ -13,28 +13,11 @@
     <div class="user-modal" id="userModal">
         <div class="user-modal-content">
             <h3 id="modalTitle">👤 Đăng nhập</h3>
-
-            <!-- Login Form -->
-            <div id="loginForm">
-                <div id="userList"></div>
-                <div class="user-form">
-                    <input type="text" id="loginUsername" placeholder="Tên tài khoản" maxlength="20">
-                    <input type="password" id="loginPassword" placeholder="Mật khẩu" maxlength="30">
-                    <button onclick="loginUser()">Đăng nhập</button>
-                </div>
-                <p class="form-switch">Chưa có tài khoản? <a href="#" onclick="showRegister(); return false;">Đăng ký</a></p>
+            <div id="userList"></div>
+            <div class="user-form" id="loginForm">
+                <input type="password" id="loginPassword" placeholder="Mật khẩu" maxlength="30">
+                <button onclick="loginUser()">Đăng nhập</button>
             </div>
-
-            <!-- Register Form (hidden by default) -->
-            <div id="registerForm" style="display: none;">
-                <div class="user-form">
-                    <input type="text" id="regUsername" placeholder="Tên tài khoản (ít nhất 2 ký tự)" maxlength="20">
-                    <input type="password" id="regPassword" placeholder="Mật khẩu (ít nhất 3 ký tự)" maxlength="30">
-                    <button onclick="registerUser()">Đăng ký</button>
-                </div>
-                <p class="form-switch">Đã có tài khoản? <a href="#" onclick="showLogin(); return false;">Đăng nhập</a></p>
-            </div>
-
             <p id="authMessage" class="auth-message"></p>
         </div>
     </div>
@@ -234,105 +217,67 @@
     <script src="js/data.js"></script>
     <script src="js/app.js"></script>
     <script>
-        // User account functions
+        // Selected user for login
+        let selectedUser = null;
+
         function toggleUserModal() {
             const modal = document.getElementById('userModal');
             modal.classList.toggle('active');
             clearAuthMessage();
+            selectedUser = null;
             renderUserList();
-
-            // If logged in, show logout option
-            const current = userAccount.getCurrentUser();
-            if (current) {
-                document.getElementById('modalTitle').textContent = '👤 ' + current;
-            } else {
-                document.getElementById('modalTitle').textContent = '👤 Đăng nhập';
-                showLogin();
-            }
         }
 
         function renderUserList() {
             const list = document.getElementById('userList');
-            const usernames = userAccount.getUsernames();
             const current = userAccount.getCurrentUser();
 
             // If logged in, show logout button
             if (current) {
+                document.getElementById('modalTitle').textContent = '👤 ' + current;
+                document.getElementById('loginForm').style.display = 'none';
                 list.innerHTML = `
                     <div class="logged-in-info">
                         <p>Đang đăng nhập: <strong>${current}</strong></p>
                         <button class="logout-btn" onclick="logoutUser()">Đăng xuất</button>
                     </div>
                 `;
-                document.getElementById('loginForm').querySelector('.user-form').style.display = 'none';
-                document.getElementById('loginForm').querySelector('.form-switch').style.display = 'none';
                 return;
             }
 
-            // Show existing accounts for quick select
-            document.getElementById('loginForm').querySelector('.user-form').style.display = 'flex';
-            document.getElementById('loginForm').querySelector('.form-switch').style.display = 'block';
-
-            if (usernames.length === 0) {
-                list.innerHTML = '<p style="color: var(--text-light); font-size: 0.85rem;">Chưa có tài khoản nào. Hãy đăng ký!</p>';
-                return;
-            }
-
-            list.innerHTML = '<p style="color: var(--text-light); font-size: 0.85rem; margin-bottom: 8px;">Chọn tài khoản:</p>' +
-                usernames.map(name => `
-                    <div class="user-item" onclick="fillUsername('${name}')">
-                        <span>👤 ${name}</span>
-                    </div>
-                `).join('');
+            // Show user list to select
+            document.getElementById('modalTitle').textContent = '👤 Chọn tài khoản';
+            document.getElementById('loginForm').style.display = 'none';
+            const usernames = userAccount.getUsernames();
+            list.innerHTML = usernames.map(name => `
+                <div class="user-item" onclick="selectUser('${name}')">
+                    <span>👤 ${name}</span>
+                </div>
+            `).join('');
         }
 
-        function fillUsername(name) {
-            document.getElementById('loginUsername').value = name;
+        function selectUser(name) {
+            selectedUser = name;
+            document.getElementById('modalTitle').textContent = '👤 ' + name;
+            document.getElementById('userList').innerHTML = '';
+            document.getElementById('loginForm').style.display = 'flex';
+            document.getElementById('loginPassword').value = '';
             document.getElementById('loginPassword').focus();
         }
 
-        function showLogin() {
-            document.getElementById('loginForm').style.display = 'block';
-            document.getElementById('registerForm').style.display = 'none';
-            document.getElementById('modalTitle').textContent = '👤 Đăng nhập';
-            clearAuthMessage();
-        }
-
-        function showRegister() {
-            document.getElementById('loginForm').style.display = 'none';
-            document.getElementById('registerForm').style.display = 'block';
-            document.getElementById('modalTitle').textContent = '👤 Đăng ký';
-            clearAuthMessage();
-        }
-
         function loginUser() {
-            const username = document.getElementById('loginUsername').value.trim();
+            if (!selectedUser) {
+                showAuthMessage('Vui lòng chọn tài khoản!', 'error');
+                return;
+            }
             const password = document.getElementById('loginPassword').value;
-
-            if (!username || !password) {
-                showAuthMessage('Vui lòng nhập tên và mật khẩu!', 'error');
+            if (!password) {
+                showAuthMessage('Vui lòng nhập mật khẩu!', 'error');
                 return;
             }
 
-            const result = userAccount.login(username, password);
+            const result = userAccount.login(selectedUser, password);
             if (!result.success) {
-                showAuthMessage(result.message, 'error');
-            }
-            // If success, page will reload
-        }
-
-        function registerUser() {
-            const username = document.getElementById('regUsername').value.trim();
-            const password = document.getElementById('regPassword').value;
-
-            const result = userAccount.register(username, password);
-            if (result.success) {
-                showAuthMessage('Đăng ký thành công! Đang đăng nhập...', 'success');
-                // Auto login after register
-                setTimeout(() => {
-                    userAccount.login(username, password);
-                }, 1000);
-            } else {
                 showAuthMessage(result.message, 'error');
             }
         }
@@ -369,13 +314,10 @@
             if (e.target.id === 'userModal') toggleUserModal();
         });
 
-        // Allow Enter key to submit forms
+        // Allow Enter key to submit
         document.addEventListener('DOMContentLoaded', () => {
             document.getElementById('loginPassword').addEventListener('keypress', (e) => {
                 if (e.key === 'Enter') loginUser();
-            });
-            document.getElementById('regPassword').addEventListener('keypress', (e) => {
-                if (e.key === 'Enter') registerUser();
             });
         });
     </script>
