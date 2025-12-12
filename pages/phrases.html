@@ -887,15 +887,22 @@
         }
         updateProgress();
 
-        // Compare modal
-        function playStandard() { speak(currentPhrase); }
-        function playYours() {
+        // Compare modal - expose to window for onclick
+        window.playStandard = function() {
+            speak(currentPhrase);
+        };
+        window.playYours = function() {
             const blob = recordings.get(currentId);
-            if (blob) new Audio(URL.createObjectURL(blob)).play();
-        }
-        function closeCompare() {
+            if (blob) {
+                const audio = new Audio(URL.createObjectURL(blob));
+                audio.play();
+            } else {
+                alert('Chưa có bản ghi âm!');
+            }
+        };
+        window.closeCompare = function() {
             document.getElementById('compareModal').classList.remove('active');
-        }
+        };
 
         // Tabs
         document.querySelectorAll('.tab-btn').forEach(btn => {
