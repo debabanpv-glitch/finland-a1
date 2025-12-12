@@ -807,11 +807,16 @@
 
                 item.querySelector('.play').onclick = (e) => {
                     e.stopPropagation();
+                    console.log('Play button clicked, id:', id);
                     const blob = recordings.get(id);
-                    if (blob) {
+                    console.log('Blob from recordings:', blob);
+                    if (blob && blob.size > 0) {
                         currentPhrase = fi;
                         currentId = id;
-                        new Audio(URL.createObjectURL(blob)).play();
+                        const audio = new Audio(URL.createObjectURL(blob));
+                        audio.play().catch(err => console.error('Play error:', err));
+                    } else {
+                        alert('Chưa có ghi âm cho câu này!');
                     }
                 };
 
@@ -1046,12 +1051,20 @@
             speak(currentPhrase);
         };
         window.playYours = function() {
+            console.log('Playing yours, currentId:', currentId);
+            console.log('Recordings map:', recordings);
             const blob = recordings.get(currentId);
-            if (blob) {
-                const audio = new Audio(URL.createObjectURL(blob));
-                audio.play();
+            console.log('Blob:', blob);
+            if (blob && blob.size > 0) {
+                const url = URL.createObjectURL(blob);
+                console.log('Audio URL:', url);
+                const audio = new Audio(url);
+                audio.play().catch(err => {
+                    console.error('Play error:', err);
+                    alert('Lỗi phát âm: ' + err.message);
+                });
             } else {
-                alert('Chưa có bản ghi âm!');
+                alert('Chưa có bản ghi âm! (currentId: ' + currentId + ')');
             }
         };
         window.closeCompare = function() {
