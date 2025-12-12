@@ -27,7 +27,7 @@ const supabaseStorage = {
         const fileName = `${userId}/${cardId}.webm`;
 
         try {
-            const response = await fetch(`${SUPABASE_URL}/storage/v1/object/recordings/${fileName}`, {
+            const response = await fetch(`${SUPABASE_URL}/storage/v1/object/RECORDINGS/${fileName}`, {
                 method: 'POST',
                 headers: {
                     'Authorization': `Bearer ${SUPABASE_ANON_KEY}`,
@@ -57,7 +57,7 @@ const supabaseStorage = {
         const fileName = `${userId}/${cardId}.webm`;
 
         try {
-            const response = await fetch(`${SUPABASE_URL}/storage/v1/object/public/recordings/${fileName}`, {
+            const response = await fetch(`${SUPABASE_URL}/storage/v1/object/public/RECORDINGS/${fileName}`, {
                 headers: {
                     'apikey': SUPABASE_ANON_KEY
                 }
@@ -80,7 +80,7 @@ const supabaseStorage = {
         const fileName = `${userId}/${cardId}.webm`;
 
         try {
-            const response = await fetch(`${SUPABASE_URL}/storage/v1/object/public/recordings/${fileName}`, {
+            const response = await fetch(`${SUPABASE_URL}/storage/v1/object/public/RECORDINGS/${fileName}`, {
                 method: 'HEAD',
                 headers: {
                     'apikey': SUPABASE_ANON_KEY
