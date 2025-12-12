@@ -1,0 +1,1180 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Luyện tập - Học Tiếng Phần Lan A1</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Mobile Header -->
+    <header class="mobile-header">
+        <a href="../index.html" class="logo">🇫🇮 Suomi A1</a>
+        <button class="menu-toggle" id="menuToggle">
+            <span></span><span></span><span></span>
+        </button>
+    </header>
+
+    <!-- Sidebar Navigation -->
+    <nav class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <a href="../index.html" class="logo">🇫🇮 Suomi A1</a>
+            <button class="dark-toggle" id="darkToggle">🌙</button>
+        </div>
+        <ul class="nav-menu">
+            <li><a href="../index.html" class="nav-link"><span class="icon">🏠</span> Trang chủ</a></li>
+            <li><a href="alphabet.html" class="nav-link"><span class="icon">🔤</span> Bảng chữ cái</a></li>
+            <li><a href="pronunciation.html" class="nav-link"><span class="icon">🎯</span> Phát âm</a></li>
+            <li><a href="grammar.html" class="nav-link"><span class="icon">📖</span> Ngữ pháp</a></li>
+            <li><a href="verbs.html" class="nav-link"><span class="icon">⚡</span> Chia động từ</a></li>
+            <li><a href="vocabulary.html" class="nav-link"><span class="icon">📚</span> Từ vựng</a></li>
+            <li><a href="phrases.html" class="nav-link"><span class="icon">💬</span> Mẫu câu</a></li>
+            <li><a href="practice.html" class="nav-link active"><span class="icon">✏️</span> Luyện tập</a></li>
+            <li><a href="roadmap.html" class="nav-link"><span class="icon">🗺️</span> Lộ trình 30 ngày</a></li>
+        </ul>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <section class="page-header">
+            <h1>✏️ Luyện tập</h1>
+            <p>Flashcards, Quiz và bài tập tương tác</p>
+        </section>
+
+        <!-- Practice Mode Selector -->
+        <section class="practice-modes">
+            <button class="mode-btn active" data-mode="flashcards">
+                <span class="mode-icon">🎴</span>
+                <span class="mode-name">Flashcards</span>
+            </button>
+            <button class="mode-btn" data-mode="quiz">
+                <span class="mode-icon">❓</span>
+                <span class="mode-name">Quiz</span>
+            </button>
+            <button class="mode-btn" data-mode="matching">
+                <span class="mode-icon">🔗</span>
+                <span class="mode-name">Nối từ</span>
+            </button>
+            <button class="mode-btn" data-mode="typing">
+                <span class="mode-icon">⌨️</span>
+                <span class="mode-name">Điền từ</span>
+            </button>
+            <button class="mode-btn" data-mode="recording">
+                <span class="mode-icon">🎙️</span>
+                <span class="mode-name">Luyện phát âm</span>
+            </button>
+        </section>
+
+        <!-- FLASHCARDS MODE -->
+        <section class="practice-section" id="flashcards-mode">
+            <div class="flashcard-settings">
+                <label>Chủ đề:</label>
+                <select id="flashcard-topic">
+                    <option value="greetings">Chào hỏi</option>
+                    <option value="numbers">Số đếm</option>
+                    <option value="family">Gia đình</option>
+                    <option value="food">Đồ ăn</option>
+                    <option value="colors">Màu sắc</option>
+                    <option value="verbs">Động từ</option>
+                    <option value="mixed">Trộn tất cả</option>
+                </select>
+            </div>
+
+            <div class="flashcard-container">
+                <div class="flashcard" id="flashcard" onclick="flipCard()">
+                    <div class="flashcard-inner">
+                        <div class="flashcard-front">
+                            <span class="card-word" id="card-front-text">Hei</span>
+                            <button class="card-speak" onclick="event.stopPropagation(); speakCard()">🔊</button>
+                        </div>
+                        <div class="flashcard-back">
+                            <span class="card-word" id="card-back-text">Xin chào</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flashcard-controls">
+                    <button class="fc-btn wrong" onclick="markCard('wrong')">❌ Chưa nhớ</button>
+                    <button class="fc-btn correct" onclick="markCard('correct')">✓ Đã nhớ</button>
+                </div>
+
+                <div class="flashcard-progress">
+                    <span id="fc-current">1</span> / <span id="fc-total">10</span>
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="fc-progress" style="width: 10%"></div>
+                    </div>
+                </div>
+
+                <div class="flashcard-stats">
+                    <span class="stat correct">✓ <span id="fc-correct">0</span></span>
+                    <span class="stat wrong">❌ <span id="fc-wrong">0</span></span>
+                </div>
+            </div>
+        </section>
+
+        <!-- QUIZ MODE -->
+        <section class="practice-section hidden" id="quiz-mode">
+            <div class="quiz-settings">
+                <label>Loại câu hỏi:</label>
+                <select id="quiz-type">
+                    <option value="fi-vi">Phần Lan → Tiếng Việt</option>
+                    <option value="vi-fi">Tiếng Việt → Phần Lan</option>
+                    <option value="audio">Nghe → Chọn đáp án</option>
+                </select>
+            </div>
+
+            <div class="quiz-container">
+                <div class="quiz-question">
+                    <span class="q-number">Câu <span id="quiz-current">1</span>/<span id="quiz-total">10</span></span>
+                    <div class="q-text" id="quiz-question">
+                        "Hei" nghĩa là gì?
+                    </div>
+                    <button class="quiz-speak" id="quiz-speak-btn" onclick="speakQuiz()">🔊 Nghe</button>
+                </div>
+
+                <div class="quiz-options" id="quiz-options">
+                    <button class="quiz-option" onclick="selectAnswer(this, 0)">A. Tạm biệt</button>
+                    <button class="quiz-option" onclick="selectAnswer(this, 1)">B. Xin chào</button>
+                    <button class="quiz-option" onclick="selectAnswer(this, 2)">C. Cảm ơn</button>
+                    <button class="quiz-option" onclick="selectAnswer(this, 3)">D. Xin lỗi</button>
+                </div>
+
+                <div class="quiz-feedback hidden" id="quiz-feedback">
+                    <div class="feedback-icon" id="feedback-icon">✓</div>
+                    <div class="feedback-text" id="feedback-text">Chính xác!</div>
+                </div>
+
+                <button class="quiz-next hidden" id="quiz-next" onclick="nextQuestion()">Câu tiếp theo →</button>
+            </div>
+
+            <div class="quiz-score hidden" id="quiz-score">
+                <h3>🎉 Kết quả</h3>
+                <div class="score-circle">
+                    <span id="final-score">8</span>/<span id="final-total">10</span>
+                </div>
+                <p id="score-message">Tuyệt vời! Bạn đã làm rất tốt!</p>
+                <button class="btn btn-primary" onclick="restartQuiz()">Làm lại</button>
+            </div>
+        </section>
+
+        <!-- MATCHING MODE -->
+        <section class="practice-section hidden" id="matching-mode">
+            <div class="matching-info">
+                <p>Nối từ tiếng Phần Lan với nghĩa tiếng Việt</p>
+                <div class="matching-stats">
+                    <span>Điểm: <span id="match-score">0</span></span>
+                    <span>Thời gian: <span id="match-time">0:00</span></span>
+                </div>
+            </div>
+
+            <div class="matching-container">
+                <div class="matching-column" id="match-finnish">
+                    <!-- Finnish words will be inserted here -->
+                </div>
+                <div class="matching-column" id="match-vietnamese">
+                    <!-- Vietnamese words will be inserted here -->
+                </div>
+            </div>
+
+            <div class="matching-result hidden" id="matching-result">
+                <h3>🎉 Hoàn thành!</h3>
+                <p>Thời gian: <span id="match-final-time">0:00</span></p>
+                <button class="btn btn-primary" onclick="restartMatching()">Chơi lại</button>
+            </div>
+        </section>
+
+        <!-- TYPING MODE -->
+        <section class="practice-section hidden" id="typing-mode">
+            <div class="typing-settings">
+                <label>Hướng dịch:</label>
+                <select id="typing-direction">
+                    <option value="vi-fi">Tiếng Việt → Phần Lan</option>
+                    <option value="fi-vi">Phần Lan → Tiếng Việt</option>
+                </select>
+            </div>
+
+            <div class="typing-container">
+                <div class="typing-question">
+                    <span class="typing-prompt">Dịch sang tiếng Phần Lan:</span>
+                    <div class="typing-word" id="typing-word">Xin chào</div>
+                    <button class="typing-hint-btn" onclick="showHint()">💡 Gợi ý</button>
+                </div>
+
+                <div class="typing-hint hidden" id="typing-hint">
+                    <span>Gợi ý: H _ _</span>
+                </div>
+
+                <div class="typing-input-container">
+                    <input type="text" id="typing-input" class="typing-input" placeholder="Nhập câu trả lời..." autocomplete="off">
+                    <button class="typing-submit" onclick="checkTyping()">Kiểm tra</button>
+                </div>
+
+                <div class="typing-feedback hidden" id="typing-feedback">
+                    <div class="typing-result" id="typing-result"></div>
+                    <div class="typing-correct-answer" id="typing-correct"></div>
+                </div>
+
+                <button class="typing-next hidden" id="typing-next" onclick="nextTyping()">Từ tiếp theo →</button>
+            </div>
+
+            <div class="typing-progress">
+                <span><span id="typing-current">1</span> / <span id="typing-total">10</span></span>
+                <div class="progress-bar">
+                    <div class="progress-fill" id="typing-progress-bar" style="width: 10%"></div>
+                </div>
+                <span>Đúng: <span id="typing-correct-count">0</span></span>
+            </div>
+        </section>
+
+        <!-- RECORDING MODE - Luyện phát âm -->
+        <section class="practice-section hidden" id="recording-mode">
+            <div class="recording-info">
+                <div class="info-box">
+                    <h3>🎙️ Cách sử dụng</h3>
+                    <ol>
+                        <li>Nhấn <strong>"Nghe mẫu"</strong> để nghe phát âm chuẩn</li>
+                        <li>Nhấn <strong>"Ghi âm"</strong> và đọc theo</li>
+                        <li>Nhấn <strong>"Phát lại"</strong> để nghe giọng của bạn</li>
+                        <li>So sánh với phát âm chuẩn và luyện tập lại!</li>
+                    </ol>
+                </div>
+            </div>
+
+            <div class="recording-settings">
+                <label>Chủ đề:</label>
+                <select id="recording-topic">
+                    <option value="greetings">Chào hỏi</option>
+                    <option value="numbers">Số đếm</option>
+                    <option value="family">Gia đình</option>
+                    <option value="food">Đồ ăn</option>
+                    <option value="phrases">Mẫu câu</option>
+                </select>
+            </div>
+
+            <div class="recording-card">
+                <div class="recording-word">
+                    <span class="word-finnish" id="rec-finnish">Hei</span>
+                    <span class="word-vietnamese" id="rec-vietnamese">Xin chào</span>
+                </div>
+
+                <div class="recording-waveform">
+                    <div class="waveform-container" id="waveform-container">
+                        <div class="waveform-placeholder">
+                            <span>🎵 Sóng âm sẽ hiển thị ở đây</span>
+                        </div>
+                        <canvas id="waveform-canvas" class="hidden"></canvas>
+                    </div>
+                    <div class="recording-timer hidden" id="recording-timer">
+                        <span class="timer-dot"></span>
+                        <span id="timer-text">0:00</span>
+                    </div>
+                </div>
+
+                <div class="recording-controls">
+                    <button class="rec-btn sample" onclick="playSample()">
+                        <span class="rec-icon">🔊</span>
+                        <span>Nghe mẫu</span>
+                    </button>
+                    <button class="rec-btn record" id="record-btn" onclick="toggleRecording()">
+                        <span class="rec-icon" id="record-icon">🎙️</span>
+                        <span id="record-text">Ghi âm</span>
+                    </button>
+                    <button class="rec-btn playback" id="playback-btn" onclick="playRecording()" disabled>
+                        <span class="rec-icon">▶️</span>
+                        <span>Phát lại</span>
+                    </button>
+                </div>
+
+                <div class="recording-comparison hidden" id="recording-comparison">
+                    <h4>🔄 So sánh phát âm</h4>
+                    <div class="comparison-btns">
+                        <button class="compare-btn" onclick="playSample()">
+                            <span>🔊 Phát âm chuẩn</span>
+                        </button>
+                        <button class="compare-btn" onclick="playRecording()">
+                            <span>🎧 Giọng của bạn</span>
+                        </button>
+                    </div>
+                    <div class="comparison-tip">
+                        <p>💡 <strong>Mẹo:</strong> Chú ý độ dài nguyên âm và âm điệu. Tiếng Phần Lan phát âm đều, không có thanh điệu như tiếng Việt.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="recording-nav">
+                <button class="nav-arrow prev" onclick="prevRecordingWord()" id="rec-prev">
+                    ← Từ trước
+                </button>
+                <span class="word-counter">
+                    <span id="rec-current">1</span> / <span id="rec-total">10</span>
+                </span>
+                <button class="nav-arrow next" onclick="nextRecordingWord()" id="rec-next">
+                    Từ tiếp →
+                </button>
+            </div>
+
+            <div class="pronunciation-tips">
+                <h4>📚 Mẹo phát âm tiếng Phần Lan</h4>
+                <div class="tips-grid">
+                    <div class="tip-card">
+                        <span class="tip-icon">📏</span>
+                        <h5>Độ dài nguyên âm</h5>
+                        <p>aa, ee, ii... dài gấp đôi a, e, i. Ví dụ: "tuli" (lửa) vs "tuuli" (gió)</p>
+                    </div>
+                    <div class="tip-card">
+                        <span class="tip-icon">🎵</span>
+                        <h5>Không có thanh điệu</h5>
+                        <p>Phát âm đều, nhấn nhẹ âm tiết đầu. Không lên xuống như tiếng Việt.</p>
+                    </div>
+                    <div class="tip-card">
+                        <span class="tip-icon">🔤</span>
+                        <h5>Đọc như viết</h5>
+                        <p>Tiếng Phần Lan phát âm gần như 100% theo cách viết.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Daily Challenge -->
+        <section class="daily-challenge">
+            <h2>🏆 Thử thách hàng ngày</h2>
+            <div class="challenge-card">
+                <div class="challenge-info">
+                    <span class="challenge-date" id="challenge-date">11/12/2025</span>
+                    <h4>Học 5 từ mới về Gia đình</h4>
+                    <p>Hoàn thành flashcard chủ đề Gia đình</p>
+                </div>
+                <div class="challenge-progress">
+                    <div class="challenge-bar">
+                        <div class="challenge-fill" id="challenge-fill" style="width: 0%"></div>
+                    </div>
+                    <span id="challenge-status">0/5 từ</span>
+                </div>
+                <button class="btn btn-primary" onclick="startChallenge()">Bắt đầu</button>
+            </div>
+        </section>
+
+        <!-- Tips -->
+        <section class="practice-tips">
+            <h3>💡 Mẹo luyện tập hiệu quả</h3>
+            <ul>
+                <li><strong>Spaced Repetition:</strong> Ôn lại sau 1 ngày → 3 ngày → 7 ngày → 30 ngày</li>
+                <li><strong>Đọc to:</strong> Luôn đọc to khi làm flashcard</li>
+                <li><strong>Viết tay:</strong> Kết hợp viết ra giấy để nhớ lâu hơn</li>
+                <li><strong>Ngắn nhưng đều:</strong> 15-20 phút mỗi ngày tốt hơn 2 giờ một tuần</li>
+            </ul>
+        </section>
+
+        <!-- Navigation -->
+        <div class="page-nav">
+            <a href="phrases.html" class="nav-btn prev">← Mẫu câu</a>
+            <a href="roadmap.html" class="nav-btn next">Lộ trình 30 ngày →</a>
+        </div>
+    </main>
+
+    <!-- Overlay for mobile menu -->
+    <div class="overlay" id="overlay"></div>
+
+    <script src="../js/data.js"></script>
+    <script src="../js/app.js"></script>
+    <script>
+        // Practice Data
+        const practiceData = {
+            greetings: [
+                { fi: 'Hei', vi: 'Xin chào' },
+                { fi: 'Moi', vi: 'Chào (thân mật)' },
+                { fi: 'Kiitos', vi: 'Cảm ơn' },
+                { fi: 'Ole hyvä', vi: 'Không có gì' },
+                { fi: 'Anteeksi', vi: 'Xin lỗi' },
+                { fi: 'Näkemiin', vi: 'Tạm biệt' },
+                { fi: 'Hyvää huomenta', vi: 'Chào buổi sáng' },
+                { fi: 'Hyvää päivää', vi: 'Chào buổi trưa' },
+                { fi: 'Hyvää iltaa', vi: 'Chào buổi tối' },
+                { fi: 'Hyvää yötä', vi: 'Chúc ngủ ngon' }
+            ],
+            numbers: [
+                { fi: 'yksi', vi: 'một' },
+                { fi: 'kaksi', vi: 'hai' },
+                { fi: 'kolme', vi: 'ba' },
+                { fi: 'neljä', vi: 'bốn' },
+                { fi: 'viisi', vi: 'năm' },
+                { fi: 'kuusi', vi: 'sáu' },
+                { fi: 'seitsemän', vi: 'bảy' },
+                { fi: 'kahdeksan', vi: 'tám' },
+                { fi: 'yhdeksän', vi: 'chín' },
+                { fi: 'kymmenen', vi: 'mười' }
+            ],
+            family: [
+                { fi: 'perhe', vi: 'gia đình' },
+                { fi: 'äiti', vi: 'mẹ' },
+                { fi: 'isä', vi: 'bố' },
+                { fi: 'veli', vi: 'anh/em trai' },
+                { fi: 'sisko', vi: 'chị/em gái' },
+                { fi: 'lapsi', vi: 'con' },
+                { fi: 'poika', vi: 'con trai' },
+                { fi: 'tyttö', vi: 'con gái' },
+                { fi: 'mummo', vi: 'bà' },
+                { fi: 'pappa', vi: 'ông' }
+            ],
+            food: [
+                { fi: 'ruoka', vi: 'đồ ăn' },
+                { fi: 'leipä', vi: 'bánh mì' },
+                { fi: 'vesi', vi: 'nước' },
+                { fi: 'kahvi', vi: 'cà phê' },
+                { fi: 'maito', vi: 'sữa' },
+                { fi: 'liha', vi: 'thịt' },
+                { fi: 'kala', vi: 'cá' },
+                { fi: 'peruna', vi: 'khoai tây' },
+                { fi: 'omena', vi: 'táo' },
+                { fi: 'juusto', vi: 'phô mai' }
+            ],
+            colors: [
+                { fi: 'valkoinen', vi: 'trắng' },
+                { fi: 'musta', vi: 'đen' },
+                { fi: 'punainen', vi: 'đỏ' },
+                { fi: 'sininen', vi: 'xanh dương' },
+                { fi: 'vihreä', vi: 'xanh lá' },
+                { fi: 'keltainen', vi: 'vàng' },
+                { fi: 'oranssi', vi: 'cam' },
+                { fi: 'ruskea', vi: 'nâu' },
+                { fi: 'harmaa', vi: 'xám' },
+                { fi: 'violetti', vi: 'tím' }
+            ],
+            verbs: [
+                { fi: 'olla', vi: 'là/ở' },
+                { fi: 'puhua', vi: 'nói' },
+                { fi: 'syödä', vi: 'ăn' },
+                { fi: 'juoda', vi: 'uống' },
+                { fi: 'lukea', vi: 'đọc' },
+                { fi: 'kirjoittaa', vi: 'viết' },
+                { fi: 'mennä', vi: 'đi' },
+                { fi: 'tulla', vi: 'đến' },
+                { fi: 'opiskella', vi: 'học' },
+                { fi: 'työskennellä', vi: 'làm việc' }
+            ]
+        };
+
+        // Current state
+        let currentCards = [];
+        let currentIndex = 0;
+        let correctCount = 0;
+        let wrongCount = 0;
+        let isFlipped = false;
+
+        // Mode switching
+        document.querySelectorAll('.mode-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                document.querySelectorAll('.mode-btn').forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+
+                const mode = btn.dataset.mode;
+                document.querySelectorAll('.practice-section').forEach(s => s.classList.add('hidden'));
+                document.getElementById(`${mode}-mode`).classList.remove('hidden');
+
+                // Initialize the mode
+                if (mode === 'flashcards') initFlashcards();
+                else if (mode === 'quiz') initQuiz();
+                else if (mode === 'matching') initMatching();
+                else if (mode === 'typing') initTyping();
+                else if (mode === 'recording') initRecording();
+            });
+        });
+
+        // FLASHCARDS
+        function initFlashcards() {
+            const topic = document.getElementById('flashcard-topic').value;
+            if (topic === 'mixed') {
+                currentCards = Object.values(practiceData).flat();
+            } else {
+                currentCards = [...practiceData[topic]];
+            }
+            shuffleArray(currentCards);
+            currentIndex = 0;
+            correctCount = 0;
+            wrongCount = 0;
+            isFlipped = false;
+            updateFlashcard();
+        }
+
+        function updateFlashcard() {
+            if (currentIndex >= currentCards.length) {
+                alert(`Hoàn thành! Đúng: ${correctCount}, Sai: ${wrongCount}`);
+                initFlashcards();
+                return;
+            }
+
+            const card = currentCards[currentIndex];
+            document.getElementById('card-front-text').textContent = card.fi;
+            document.getElementById('card-back-text').textContent = card.vi;
+            document.getElementById('fc-current').textContent = currentIndex + 1;
+            document.getElementById('fc-total').textContent = currentCards.length;
+            document.getElementById('fc-progress').style.width = `${((currentIndex + 1) / currentCards.length) * 100}%`;
+            document.getElementById('fc-correct').textContent = correctCount;
+            document.getElementById('fc-wrong').textContent = wrongCount;
+
+            // Reset flip state
+            document.getElementById('flashcard').classList.remove('flipped');
+            isFlipped = false;
+        }
+
+        function flipCard() {
+            document.getElementById('flashcard').classList.toggle('flipped');
+            isFlipped = !isFlipped;
+        }
+
+        function speakCard() {
+            const text = currentCards[currentIndex].fi;
+            speak(text);
+        }
+
+        function markCard(result) {
+            if (result === 'correct') correctCount++;
+            else wrongCount++;
+            currentIndex++;
+            updateFlashcard();
+        }
+
+        document.getElementById('flashcard-topic').addEventListener('change', initFlashcards);
+
+        // QUIZ
+        let quizQuestions = [];
+        let quizIndex = 0;
+        let quizScore = 0;
+        let quizAnswered = false;
+
+        function initQuiz() {
+            const allData = Object.values(practiceData).flat();
+            shuffleArray(allData);
+            quizQuestions = allData.slice(0, 10);
+            quizIndex = 0;
+            quizScore = 0;
+            quizAnswered = false;
+
+            document.getElementById('quiz-score').classList.add('hidden');
+            document.querySelector('.quiz-container').style.display = 'block';
+            loadQuizQuestion();
+        }
+
+        function loadQuizQuestion() {
+            if (quizIndex >= quizQuestions.length) {
+                showQuizResult();
+                return;
+            }
+
+            quizAnswered = false;
+            const q = quizQuestions[quizIndex];
+            const quizType = document.getElementById('quiz-type').value;
+
+            document.getElementById('quiz-current').textContent = quizIndex + 1;
+            document.getElementById('quiz-total').textContent = quizQuestions.length;
+
+            let questionText, correctAnswer, options;
+
+            if (quizType === 'fi-vi' || quizType === 'audio') {
+                questionText = quizType === 'audio' ? 'Nghe và chọn nghĩa đúng' : `"${q.fi}" nghĩa là gì?`;
+                correctAnswer = q.vi;
+                document.getElementById('quiz-speak-btn').style.display = quizType === 'audio' ? 'block' : 'none';
+                if (quizType === 'audio') speak(q.fi);
+            } else {
+                questionText = `"${q.vi}" trong tiếng Phần Lan là gì?`;
+                correctAnswer = q.fi;
+                document.getElementById('quiz-speak-btn').style.display = 'none';
+            }
+
+            document.getElementById('quiz-question').textContent = questionText;
+
+            // Generate options
+            const allAnswers = Object.values(practiceData).flat().map(item => quizType === 'vi-fi' ? item.fi : item.vi);
+            options = [correctAnswer];
+            while (options.length < 4) {
+                const rand = allAnswers[Math.floor(Math.random() * allAnswers.length)];
+                if (!options.includes(rand)) options.push(rand);
+            }
+            shuffleArray(options);
+
+            const optionsContainer = document.getElementById('quiz-options');
+            optionsContainer.innerHTML = '';
+            const letters = ['A', 'B', 'C', 'D'];
+            options.forEach((opt, i) => {
+                const btn = document.createElement('button');
+                btn.className = 'quiz-option';
+                btn.textContent = `${letters[i]}. ${opt}`;
+                btn.onclick = () => selectAnswer(btn, opt === correctAnswer);
+                btn.dataset.correct = opt === correctAnswer;
+                optionsContainer.appendChild(btn);
+            });
+
+            document.getElementById('quiz-feedback').classList.add('hidden');
+            document.getElementById('quiz-next').classList.add('hidden');
+        }
+
+        function selectAnswer(btn, isCorrect) {
+            if (quizAnswered) return;
+            quizAnswered = true;
+
+            document.querySelectorAll('.quiz-option').forEach(opt => {
+                opt.disabled = true;
+                if (opt.dataset.correct === 'true') {
+                    opt.classList.add('correct');
+                }
+            });
+
+            if (isCorrect) {
+                btn.classList.add('correct');
+                quizScore++;
+                document.getElementById('feedback-icon').textContent = '✓';
+                document.getElementById('feedback-text').textContent = 'Chính xác!';
+                document.getElementById('quiz-feedback').className = 'quiz-feedback correct';
+            } else {
+                btn.classList.add('wrong');
+                document.getElementById('feedback-icon').textContent = '✗';
+                document.getElementById('feedback-text').textContent = 'Sai rồi!';
+                document.getElementById('quiz-feedback').className = 'quiz-feedback wrong';
+            }
+
+            document.getElementById('quiz-feedback').classList.remove('hidden');
+            document.getElementById('quiz-next').classList.remove('hidden');
+        }
+
+        function nextQuestion() {
+            quizIndex++;
+            loadQuizQuestion();
+        }
+
+        function showQuizResult() {
+            document.querySelector('.quiz-container').style.display = 'none';
+            document.getElementById('quiz-score').classList.remove('hidden');
+            document.getElementById('final-score').textContent = quizScore;
+            document.getElementById('final-total').textContent = quizQuestions.length;
+
+            let message = '';
+            const percent = (quizScore / quizQuestions.length) * 100;
+            if (percent >= 90) message = 'Xuất sắc! Bạn thật giỏi!';
+            else if (percent >= 70) message = 'Tốt lắm! Tiếp tục cố gắng!';
+            else if (percent >= 50) message = 'Khá ổn! Cần ôn luyện thêm.';
+            else message = 'Cố gắng hơn nhé! Hãy ôn lại bài.';
+
+            document.getElementById('score-message').textContent = message;
+        }
+
+        function restartQuiz() {
+            initQuiz();
+        }
+
+        function speakQuiz() {
+            const q = quizQuestions[quizIndex];
+            speak(q.fi);
+        }
+
+        // MATCHING
+        let matchingPairs = [];
+        let selectedFi = null;
+        let selectedVi = null;
+        let matchedCount = 0;
+        let matchTimer = null;
+        let matchSeconds = 0;
+
+        function initMatching() {
+            const allData = Object.values(practiceData).flat();
+            shuffleArray(allData);
+            matchingPairs = allData.slice(0, 6);
+            matchedCount = 0;
+            selectedFi = null;
+            selectedVi = null;
+            matchSeconds = 0;
+
+            document.getElementById('match-score').textContent = '0';
+            document.getElementById('match-time').textContent = '0:00';
+            document.getElementById('matching-result').classList.add('hidden');
+
+            // Render columns
+            const fiColumn = document.getElementById('match-finnish');
+            const viColumn = document.getElementById('match-vietnamese');
+            fiColumn.innerHTML = '';
+            viColumn.innerHTML = '';
+
+            const shuffledFi = [...matchingPairs];
+            const shuffledVi = [...matchingPairs];
+            shuffleArray(shuffledFi);
+            shuffleArray(shuffledVi);
+
+            shuffledFi.forEach((item, i) => {
+                const btn = document.createElement('button');
+                btn.className = 'match-item fi';
+                btn.textContent = item.fi;
+                btn.dataset.pair = matchingPairs.indexOf(item);
+                btn.onclick = () => selectMatchItem(btn, 'fi');
+                fiColumn.appendChild(btn);
+            });
+
+            shuffledVi.forEach((item, i) => {
+                const btn = document.createElement('button');
+                btn.className = 'match-item vi';
+                btn.textContent = item.vi;
+                btn.dataset.pair = matchingPairs.indexOf(item);
+                btn.onclick = () => selectMatchItem(btn, 'vi');
+                viColumn.appendChild(btn);
+            });
+
+            // Start timer
+            if (matchTimer) clearInterval(matchTimer);
+            matchTimer = setInterval(() => {
+                matchSeconds++;
+                const mins = Math.floor(matchSeconds / 60);
+                const secs = matchSeconds % 60;
+                document.getElementById('match-time').textContent = `${mins}:${secs.toString().padStart(2, '0')}`;
+            }, 1000);
+        }
+
+        function selectMatchItem(btn, type) {
+            if (btn.classList.contains('matched')) return;
+
+            if (type === 'fi') {
+                if (selectedFi) selectedFi.classList.remove('selected');
+                selectedFi = btn;
+                btn.classList.add('selected');
+            } else {
+                if (selectedVi) selectedVi.classList.remove('selected');
+                selectedVi = btn;
+                btn.classList.add('selected');
+            }
+
+            // Check if both selected
+            if (selectedFi && selectedVi) {
+                if (selectedFi.dataset.pair === selectedVi.dataset.pair) {
+                    selectedFi.classList.add('matched');
+                    selectedVi.classList.add('matched');
+                    selectedFi.classList.remove('selected');
+                    selectedVi.classList.remove('selected');
+                    matchedCount++;
+                    document.getElementById('match-score').textContent = matchedCount;
+
+                    if (matchedCount === matchingPairs.length) {
+                        clearInterval(matchTimer);
+                        document.getElementById('match-final-time').textContent = document.getElementById('match-time').textContent;
+                        document.getElementById('matching-result').classList.remove('hidden');
+                    }
+                } else {
+                    selectedFi.classList.add('wrong');
+                    selectedVi.classList.add('wrong');
+                    setTimeout(() => {
+                        selectedFi.classList.remove('wrong', 'selected');
+                        selectedVi.classList.remove('wrong', 'selected');
+                        selectedFi = null;
+                        selectedVi = null;
+                    }, 500);
+                    return;
+                }
+                selectedFi = null;
+                selectedVi = null;
+            }
+        }
+
+        function restartMatching() {
+            initMatching();
+        }
+
+        // TYPING
+        let typingData = [];
+        let typingIndex = 0;
+        let typingCorrect = 0;
+
+        function initTyping() {
+            const allData = Object.values(practiceData).flat();
+            shuffleArray(allData);
+            typingData = allData.slice(0, 10);
+            typingIndex = 0;
+            typingCorrect = 0;
+            loadTypingQuestion();
+        }
+
+        function loadTypingQuestion() {
+            if (typingIndex >= typingData.length) {
+                alert(`Hoàn thành! Đúng: ${typingCorrect}/${typingData.length}`);
+                initTyping();
+                return;
+            }
+
+            const item = typingData[typingIndex];
+            const direction = document.getElementById('typing-direction').value;
+
+            if (direction === 'vi-fi') {
+                document.querySelector('.typing-prompt').textContent = 'Dịch sang tiếng Phần Lan:';
+                document.getElementById('typing-word').textContent = item.vi;
+            } else {
+                document.querySelector('.typing-prompt').textContent = 'Dịch sang tiếng Việt:';
+                document.getElementById('typing-word').textContent = item.fi;
+            }
+
+            document.getElementById('typing-input').value = '';
+            document.getElementById('typing-input').focus();
+            document.getElementById('typing-feedback').classList.add('hidden');
+            document.getElementById('typing-next').classList.add('hidden');
+            document.getElementById('typing-hint').classList.add('hidden');
+
+            document.getElementById('typing-current').textContent = typingIndex + 1;
+            document.getElementById('typing-total').textContent = typingData.length;
+            document.getElementById('typing-progress-bar').style.width = `${((typingIndex + 1) / typingData.length) * 100}%`;
+            document.getElementById('typing-correct-count').textContent = typingCorrect;
+        }
+
+        function showHint() {
+            const item = typingData[typingIndex];
+            const direction = document.getElementById('typing-direction').value;
+            const answer = direction === 'vi-fi' ? item.fi : item.vi;
+
+            let hint = answer[0];
+            for (let i = 1; i < answer.length; i++) {
+                hint += answer[i] === ' ' ? ' ' : ' _';
+            }
+
+            document.getElementById('typing-hint').innerHTML = `<span>Gợi ý: ${hint}</span>`;
+            document.getElementById('typing-hint').classList.remove('hidden');
+        }
+
+        function checkTyping() {
+            const item = typingData[typingIndex];
+            const direction = document.getElementById('typing-direction').value;
+            const correctAnswer = direction === 'vi-fi' ? item.fi : item.vi;
+            const userAnswer = document.getElementById('typing-input').value.trim().toLowerCase();
+
+            const isCorrect = userAnswer === correctAnswer.toLowerCase();
+
+            document.getElementById('typing-feedback').classList.remove('hidden');
+            if (isCorrect) {
+                typingCorrect++;
+                document.getElementById('typing-result').innerHTML = '<span class="correct">✓ Chính xác!</span>';
+                document.getElementById('typing-correct').textContent = '';
+            } else {
+                document.getElementById('typing-result').innerHTML = '<span class="wrong">✗ Chưa đúng!</span>';
+                document.getElementById('typing-correct').textContent = `Đáp án: ${correctAnswer}`;
+            }
+
+            document.getElementById('typing-next').classList.remove('hidden');
+            document.getElementById('typing-correct-count').textContent = typingCorrect;
+        }
+
+        function nextTyping() {
+            typingIndex++;
+            loadTypingQuestion();
+        }
+
+        document.getElementById('typing-input').addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') checkTyping();
+        });
+
+        document.getElementById('typing-direction').addEventListener('change', initTyping);
+
+        // ============================
+        // RECORDING MODE - Luyện phát âm
+        // ============================
+        const recordingData = {
+            greetings: [
+                { fi: 'Hei', vi: 'Xin chào' },
+                { fi: 'Moi', vi: 'Chào (thân mật)' },
+                { fi: 'Hyvää huomenta', vi: 'Chào buổi sáng' },
+                { fi: 'Hyvää päivää', vi: 'Chào buổi trưa' },
+                { fi: 'Hyvää iltaa', vi: 'Chào buổi tối' },
+                { fi: 'Näkemiin', vi: 'Tạm biệt' },
+                { fi: 'Kiitos', vi: 'Cảm ơn' },
+                { fi: 'Ole hyvä', vi: 'Không có gì' },
+                { fi: 'Anteeksi', vi: 'Xin lỗi' },
+                { fi: 'Mitä kuuluu?', vi: 'Bạn khỏe không?' }
+            ],
+            numbers: [
+                { fi: 'yksi', vi: 'một' },
+                { fi: 'kaksi', vi: 'hai' },
+                { fi: 'kolme', vi: 'ba' },
+                { fi: 'neljä', vi: 'bốn' },
+                { fi: 'viisi', vi: 'năm' },
+                { fi: 'kuusi', vi: 'sáu' },
+                { fi: 'seitsemän', vi: 'bảy' },
+                { fi: 'kahdeksan', vi: 'tám' },
+                { fi: 'yhdeksän', vi: 'chín' },
+                { fi: 'kymmenen', vi: 'mười' }
+            ],
+            family: [
+                { fi: 'perhe', vi: 'gia đình' },
+                { fi: 'äiti', vi: 'mẹ' },
+                { fi: 'isä', vi: 'bố' },
+                { fi: 'veli', vi: 'anh/em trai' },
+                { fi: 'sisko', vi: 'chị/em gái' },
+                { fi: 'lapsi', vi: 'con' },
+                { fi: 'poika', vi: 'con trai' },
+                { fi: 'tyttö', vi: 'con gái' },
+                { fi: 'mummo', vi: 'bà' },
+                { fi: 'pappa', vi: 'ông' }
+            ],
+            food: [
+                { fi: 'ruoka', vi: 'đồ ăn' },
+                { fi: 'leipä', vi: 'bánh mì' },
+                { fi: 'vesi', vi: 'nước' },
+                { fi: 'kahvi', vi: 'cà phê' },
+                { fi: 'maito', vi: 'sữa' },
+                { fi: 'liha', vi: 'thịt' },
+                { fi: 'kala', vi: 'cá' },
+                { fi: 'peruna', vi: 'khoai tây' },
+                { fi: 'omena', vi: 'táo' },
+                { fi: 'juusto', vi: 'phô mai' }
+            ],
+            phrases: [
+                { fi: 'Minun nimeni on...', vi: 'Tên tôi là...' },
+                { fi: 'Olen vietnamilainen', vi: 'Tôi là người Việt Nam' },
+                { fi: 'Puhutko englantia?', vi: 'Bạn nói tiếng Anh không?' },
+                { fi: 'En ymmärrä', vi: 'Tôi không hiểu' },
+                { fi: 'Voitko toistaa?', vi: 'Bạn có thể nhắc lại không?' },
+                { fi: 'Missä on...?', vi: 'Ở đâu có...?' },
+                { fi: 'Paljonko tämä maksaa?', vi: 'Cái này giá bao nhiêu?' },
+                { fi: 'Haluaisin...', vi: 'Tôi muốn...' },
+                { fi: 'Tarvitsen apua', vi: 'Tôi cần giúp đỡ' },
+                { fi: 'Hyvää matkaa!', vi: 'Thượng lộ bình an!' }
+            ]
+        };
+
+        let recWords = [];
+        let recIndex = 0;
+        let mediaRecorder = null;
+        let audioChunks = [];
+        let recordedBlob = null;
+        let isRecording = false;
+        let recordingTimer = null;
+        let recordingSeconds = 0;
+        let audioContext = null;
+        let analyser = null;
+        let animationId = null;
+
+        function initRecording() {
+            const topic = document.getElementById('recording-topic').value;
+            recWords = [...recordingData[topic]];
+            recIndex = 0;
+            recordedBlob = null;
+            updateRecordingDisplay();
+            resetRecordingUI();
+        }
+
+        function updateRecordingDisplay() {
+            if (recIndex >= recWords.length) {
+                recIndex = 0;
+            }
+            if (recIndex < 0) {
+                recIndex = recWords.length - 1;
+            }
+
+            const word = recWords[recIndex];
+            document.getElementById('rec-finnish').textContent = word.fi;
+            document.getElementById('rec-vietnamese').textContent = word.vi;
+            document.getElementById('rec-current').textContent = recIndex + 1;
+            document.getElementById('rec-total').textContent = recWords.length;
+
+            // Reset for new word
+            resetRecordingUI();
+        }
+
+        function resetRecordingUI() {
+            recordedBlob = null;
+            document.getElementById('playback-btn').disabled = true;
+            document.getElementById('recording-comparison').classList.add('hidden');
+            document.getElementById('record-icon').textContent = '🎙️';
+            document.getElementById('record-text').textContent = 'Ghi âm';
+            document.getElementById('record-btn').classList.remove('recording');
+            document.getElementById('recording-timer').classList.add('hidden');
+            document.getElementById('waveform-canvas').classList.add('hidden');
+            document.querySelector('.waveform-placeholder').classList.remove('hidden');
+            stopWaveformAnimation();
+        }
+
+        function playSample() {
+            const word = recWords[recIndex];
+            speak(word.fi);
+        }
+
+        async function toggleRecording() {
+            if (isRecording) {
+                stopRecording();
+            } else {
+                await startRecording();
+            }
+        }
+
+        async function startRecording() {
+            try {
+                const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+
+                mediaRecorder = new MediaRecorder(stream);
+                audioChunks = [];
+
+                mediaRecorder.ondataavailable = (e) => {
+                    audioChunks.push(e.data);
+                };
+
+                mediaRecorder.onstop = () => {
+                    recordedBlob = new Blob(audioChunks, { type: 'audio/webm' });
+                    document.getElementById('playback-btn').disabled = false;
+                    document.getElementById('recording-comparison').classList.remove('hidden');
+
+                    // Stop all tracks
+                    stream.getTracks().forEach(track => track.stop());
+                };
+
+                mediaRecorder.start();
+                isRecording = true;
+
+                // Update UI
+                document.getElementById('record-icon').textContent = '⏹️';
+                document.getElementById('record-text').textContent = 'Dừng';
+                document.getElementById('record-btn').classList.add('recording');
+                document.getElementById('recording-timer').classList.remove('hidden');
+
+                // Start timer
+                recordingSeconds = 0;
+                updateTimerDisplay();
+                recordingTimer = setInterval(() => {
+                    recordingSeconds++;
+                    updateTimerDisplay();
+
+                    // Auto stop after 10 seconds
+                    if (recordingSeconds >= 10) {
+                        stopRecording();
+                    }
+                }, 1000);
+
+                // Start waveform visualization
+                startWaveformAnimation(stream);
+
+            } catch (err) {
+                console.error('Error accessing microphone:', err);
+                alert('Không thể truy cập microphone. Vui lòng cho phép quyền truy cập microphone trong trình duyệt.');
+            }
+        }
+
+        function stopRecording() {
+            if (mediaRecorder && isRecording) {
+                mediaRecorder.stop();
+                isRecording = false;
+
+                // Update UI
+                document.getElementById('record-icon').textContent = '🎙️';
+                document.getElementById('record-text').textContent = 'Ghi lại';
+                document.getElementById('record-btn').classList.remove('recording');
+
+                // Stop timer
+                clearInterval(recordingTimer);
+
+                // Stop waveform
+                stopWaveformAnimation();
+            }
+        }
+
+        function updateTimerDisplay() {
+            const mins = Math.floor(recordingSeconds / 60);
+            const secs = recordingSeconds % 60;
+            document.getElementById('timer-text').textContent = `${mins}:${secs.toString().padStart(2, '0')}`;
+        }
+
+        function playRecording() {
+            if (recordedBlob) {
+                const audio = new Audio(URL.createObjectURL(recordedBlob));
+                audio.play();
+            }
+        }
+
+        function startWaveformAnimation(stream) {
+            const canvas = document.getElementById('waveform-canvas');
+            const ctx = canvas.getContext('2d');
+
+            canvas.classList.remove('hidden');
+            document.querySelector('.waveform-placeholder').classList.add('hidden');
+
+            // Set canvas size
+            canvas.width = canvas.offsetWidth * 2;
+            canvas.height = canvas.offsetHeight * 2;
+            ctx.scale(2, 2);
+
+            audioContext = new (window.AudioContext || window.webkitAudioContext)();
+            analyser = audioContext.createAnalyser();
+            const source = audioContext.createMediaStreamSource(stream);
+            source.connect(analyser);
+
+            analyser.fftSize = 256;
+            const bufferLength = analyser.frequencyBinCount;
+            const dataArray = new Uint8Array(bufferLength);
+
+            function draw() {
+                animationId = requestAnimationFrame(draw);
+
+                analyser.getByteFrequencyData(dataArray);
+
+                const width = canvas.offsetWidth;
+                const height = canvas.offsetHeight;
+
+                ctx.fillStyle = 'rgba(248, 250, 252, 0.1)';
+                ctx.fillRect(0, 0, width, height);
+
+                const barWidth = (width / bufferLength) * 2.5;
+                let x = 0;
+
+                for (let i = 0; i < bufferLength; i++) {
+                    const barHeight = (dataArray[i] / 255) * height * 0.8;
+
+                    // Gradient from primary to accent
+                    const hue = 210 + (i / bufferLength) * 30;
+                    ctx.fillStyle = `hsl(${hue}, 70%, 50%)`;
+
+                    ctx.fillRect(x, height - barHeight, barWidth - 1, barHeight);
+                    x += barWidth;
+                }
+            }
+
+            draw();
+        }
+
+        function stopWaveformAnimation() {
+            if (animationId) {
+                cancelAnimationFrame(animationId);
+                animationId = null;
+            }
+            if (audioContext) {
+                audioContext.close();
+                audioContext = null;
+            }
+        }
+
+        function prevRecordingWord() {
+            recIndex--;
+            updateRecordingDisplay();
+        }
+
+        function nextRecordingWord() {
+            recIndex++;
+            updateRecordingDisplay();
+        }
+
+        // Event listener for topic change
+        document.getElementById('recording-topic').addEventListener('change', initRecording);
+
+        // Daily Challenge
+        function startChallenge() {
+            document.querySelectorAll('.mode-btn')[0].click();
+            document.getElementById('flashcard-topic').value = 'family';
+            initFlashcards();
+        }
+
+        // Update challenge date
+        const today = new Date();
+        document.getElementById('challenge-date').textContent = today.toLocaleDateString('vi-VN');
+
+        // Helper functions
+        function shuffleArray(array) {
+            for (let i = array.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [array[i], array[j]] = [array[j], array[i]];
+            }
+        }
+
+        // Initialize
+        initFlashcards();
+    </script>
+</body>
+</html>

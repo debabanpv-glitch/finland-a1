@@ -1,0 +1,1181 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Lộ Trình 30 Ngày - Học Tiếng Phần Lan A1</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Mobile Header -->
+    <header class="mobile-header">
+        <a href="../index.html" class="logo">🇫🇮 Suomi A1</a>
+        <button class="menu-toggle" id="menuToggle">
+            <span></span><span></span><span></span>
+        </button>
+    </header>
+
+    <!-- Sidebar -->
+    <nav class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <a href="../index.html" class="logo">🇫🇮 Suomi A1</a>
+            <button class="dark-toggle" id="darkToggle">🌙</button>
+        </div>
+        <ul class="nav-menu">
+            <li><a href="../index.html" class="nav-link"><span class="icon">🏠</span> Trang chủ</a></li>
+            <li><a href="alphabet.html" class="nav-link"><span class="icon">🔤</span> Bảng chữ cái</a></li>
+            <li><a href="pronunciation.html" class="nav-link"><span class="icon">🎯</span> Phát âm</a></li>
+            <li><a href="grammar.html" class="nav-link"><span class="icon">📖</span> Ngữ pháp</a></li>
+            <li><a href="verbs.html" class="nav-link"><span class="icon">⚡</span> Chia động từ</a></li>
+            <li><a href="vocabulary.html" class="nav-link"><span class="icon">📚</span> Từ vựng</a></li>
+            <li><a href="phrases.html" class="nav-link"><span class="icon">💬</span> Mẫu câu</a></li>
+            <li><a href="practice.html" class="nav-link"><span class="icon">✏️</span> Luyện tập</a></li>
+            <li><a href="roadmap.html" class="nav-link active"><span class="icon">🗺️</span> Lộ trình 30 ngày</a></li>
+        </ul>
+        <div class="sidebar-footer">
+            <p>Tiến độ: <span id="roadmapProgress">0</span>/30 ngày</p>
+            <div class="progress-bar"><div class="progress-fill" id="roadmapFill"></div></div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="page-header">
+            <h1>🗺️ Lộ Trình 30 Ngày</h1>
+            <p>Kế hoạch học chi tiết từng ngày - 20 phút/ngày</p>
+        </div>
+
+        <div class="page-content">
+            <div class="info-box tip">
+                <strong>💡 Cách sử dụng:</strong> Click vào từng ngày để xem nội dung chi tiết. Đánh dấu "Hoàn thành" khi học xong để theo dõi tiến độ!
+            </div>
+
+            <div class="roadmap">
+                <!-- Week 1 -->
+                <div class="week-section">
+                    <div class="week-header">
+                        <h2>📅 TUẦN 1: Nền tảng cơ bản</h2>
+                        <p>Bảng chữ cái, phát âm, chào hỏi cơ bản</p>
+                    </div>
+
+                    <!-- Day 1 -->
+                    <div class="day-card" data-day="1">
+                        <div class="day-header" onclick="toggleDay(this)">
+                            <span class="day-number">1</span>
+                            <div class="day-title">
+                                <h3>Bảng chữ cái A-M</h3>
+                            </div>
+                            <span class="day-time">⏱️ 20 phút</span>
+                            <span class="toggle-icon">▼</span>
+                        </div>
+                        <div class="day-content">
+                            <div class="lesson-block">
+                                <h4>📚 Nội dung học</h4>
+                                <ul class="lesson-list">
+                                    <li>13 chữ cái đầu tiên: A, B, C, D, E, F, G, H, I, J, K, L, M</li>
+                                    <li>Cách phát âm từng chữ</li>
+                                    <li><strong>Đặc biệt chú ý:</strong> J đọc như "Y" tiếng Việt!</li>
+                                </ul>
+                            </div>
+
+                            <div class="lesson-block">
+                                <h4>🎯 Từ vựng hôm nay (10 từ)</h4>
+                                <div class="vocab-grid" style="margin-top: 0.5rem;">
+                                    <div class="vocab-item" onclick="speak('Hei')">
+                                        <span class="word">Hei</span>
+                                        <span class="meaning">Xin chào</span>
+                                    </div>
+                                    <div class="vocab-item" onclick="speak('Kiitos')">
+                                        <span class="word">Kiitos</span>
+                                        <span class="meaning">Cảm ơn</span>
+                                    </div>
+                                    <div class="vocab-item" onclick="speak('Kyllä')">
+                                        <span class="word">Kyllä</span>
+                                        <span class="meaning">Có/Vâng</span>
+                                    </div>
+                                    <div class="vocab-item" onclick="speak('Ei')">
+                                        <span class="word">Ei</span>
+                                        <span class="meaning">Không</span>
+                                    </div>
+                                    <div class="vocab-item" onclick="speak('Minä')">
+                                        <span class="word">Minä</span>
+                                        <span class="meaning">Tôi</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="lesson-block">
+                                <h4>✏️ Bài tập</h4>
+                                <div class="exercise-box">
+                                    <h5>1. Viết ra giấy 13 chữ cái, đọc to 5 lần mỗi chữ</h5>
+                                    <h5>2. Nghe và lặp lại:</h5>
+                                    <div class="exercise-item" onclick="speak('Hei, minä olen...')">
+                                        🔊 "Hei, minä olen..." (Xin chào, tôi là...)
+                                    </div>
+                                    <div class="exercise-item" onclick="speak('Kiitos paljon')">
+                                        🔊 "Kiitos paljon!" (Cảm ơn nhiều!)
+                                    </div>
+                                    <h5>3. Quiz: J trong tiếng Phần Lan đọc như chữ gì tiếng Việt?</h5>
+                                    <div class="exercise-item">Đáp án: Y (ja đọc là "ya")</div>
+                                </div>
+                            </div>
+
+                            <div class="day-checkbox">
+                                <input type="checkbox" id="day1" onchange="updateProgress()">
+                                <label for="day1">✅ Đã hoàn thành Ngày 1</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Day 2 -->
+                    <div class="day-card" data-day="2">
+                        <div class="day-header" onclick="toggleDay(this)">
+                            <span class="day-number">2</span>
+                            <div class="day-title">
+                                <h3>Bảng chữ cái N-Ö + Chữ đặc biệt</h3>
+                            </div>
+                            <span class="day-time">⏱️ 20 phút</span>
+                            <span class="toggle-icon">▼</span>
+                        </div>
+                        <div class="day-content">
+                            <div class="lesson-block">
+                                <h4>📚 Nội dung học</h4>
+                                <ul class="lesson-list">
+                                    <li>16 chữ cái còn lại: N, O, P, Q, R, S, T, U, V, W, X, Y, Z, Å, Ä, Ö</li>
+                                    <li><strong>Y</strong> = đọc như "Ü" (tròn môi)</li>
+                                    <li><strong>Ä</strong> = đọc như "E" tiếng Việt</li>
+                                    <li><strong>Ö</strong> = đọc như "Ơ" tiếng Việt</li>
+                                </ul>
+                            </div>
+
+                            <div class="lesson-block">
+                                <h4>🎯 Từ vựng hôm nay</h4>
+                                <div class="vocab-grid" style="margin-top: 0.5rem;">
+                                    <div class="vocab-item" onclick="speak('Yksi')">
+                                        <span class="word">Yksi</span>
+                                        <span class="meaning">Một (1)</span>
+                                    </div>
+                                    <div class="vocab-item" onclick="speak('Kaksi')">
+                                        <span class="word">Kaksi</span>
+                                        <span class="meaning">Hai (2)</span>
+                                    </div>
+                                    <div class="vocab-item" onclick="speak('Kolme')">
+                                        <span class="word">Kolme</span>
+                                        <span class="meaning">Ba (3)</span>
+                                    </div>
+                                    <div class="vocab-item" onclick="speak('Äiti')">
+                                        <span class="word">Äiti</span>
+                                        <span class="meaning">Mẹ</span>
+                                    </div>
+                                    <div class="vocab-item" onclick="speak('Isä')">
+                                        <span class="word">Isä</span>
+                                        <span class="meaning">Bố</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="lesson-block">
+                                <h4>✏️ Bài tập</h4>
+                                <div class="exercise-box">
+                                    <h5>1. Đọc to các từ có Y, Ä, Ö:</h5>
+                                    <div class="exercise-item" onclick="speak('Hyvä')">🔊 hyvä (tốt)</div>
+                                    <div class="exercise-item" onclick="speak('Päivä')">🔊 päivä (ngày)</div>
+                                    <div class="exercise-item" onclick="speak('Työ')">🔊 työ (công việc)</div>
+                                    <h5>2. Đếm từ 1-3 bằng tiếng Phần Lan 10 lần</h5>
+                                    <h5>3. Ôn lại: Viết lại 29 chữ cái</h5>
+                                </div>
+                            </div>
+
+                            <div class="day-checkbox">
+                                <input type="checkbox" id="day2" onchange="updateProgress()">
+                                <label for="day2">✅ Đã hoàn thành Ngày 2</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Day 3 -->
+                    <div class="day-card" data-day="3">
+                        <div class="day-header" onclick="toggleDay(this)">
+                            <span class="day-number">3</span>
+                            <div class="day-title">
+                                <h3>Quy tắc phát âm cơ bản</h3>
+                            </div>
+                            <span class="day-time">⏱️ 20 phút</span>
+                            <span class="toggle-icon">▼</span>
+                        </div>
+                        <div class="day-content">
+                            <div class="lesson-block">
+                                <h4>📚 Nội dung học</h4>
+                                <ul class="lesson-list">
+                                    <li><strong>Nguyên âm đôi:</strong> AA, EE, II, OO, UU, ÄÄ, ÖÖ, YY → Kéo dài gấp đôi</li>
+                                    <li><strong>Phụ âm đôi:</strong> KK, PP, TT, SS → Dừng ngắn rồi phát</li>
+                                    <li><strong>H:</strong> Luôn phát âm, bật hơi nhẹ</li>
+                                    <li><strong>R:</strong> Rung lưỡi nhẹ</li>
+                                </ul>
+                            </div>
+
+                            <div class="lesson-block">
+                                <h4>🎯 Luyện phát âm</h4>
+                                <div class="vocab-grid" style="margin-top: 0.5rem;">
+                                    <div class="vocab-item" onclick="speak('Maa')">
+                                        <span class="word">maa (đất)</span>
+                                        <span class="meaning">aa = kéo dài 'a'</span>
+                                    </div>
+                                    <div class="vocab-item" onclick="speak('Viisi')">
+                                        <span class="word">viisi (năm)</span>
+                                        <span class="meaning">ii = kéo dài 'i'</span>
+                                    </div>
+                                    <div class="vocab-item" onclick="speak('Kukka')">
+                                        <span class="word">kukka (hoa)</span>
+                                        <span class="meaning">kk = dừng rồi phát</span>
+                                    </div>
+                                    <div class="vocab-item" onclick="speak('Pappa')">
+                                        <span class="word">pappa (ông)</span>
+                                        <span class="meaning">pp = dừng rồi phát</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="lesson-block">
+                                <h4>✏️ Bài tập</h4>
+                                <div class="exercise-box">
+                                    <h5>So sánh phát âm:</h5>
+                                    <div class="exercise-item" onclick="speak('Tuli')">🔊 tuli (lửa) vs</div>
+                                    <div class="exercise-item" onclick="speak('Tuuli')">🔊 tuuli (gió)</div>
+                                    <div class="exercise-item" onclick="speak('Kuka')">🔊 kuka (ai) vs</div>
+                                    <div class="exercise-item" onclick="speak('Kukka')">🔊 kukka (hoa)</div>
+                                </div>
+                            </div>
+
+                            <div class="day-checkbox">
+                                <input type="checkbox" id="day3" onchange="updateProgress()">
+                                <label for="day3">✅ Đã hoàn thành Ngày 3</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Day 4 -->
+                    <div class="day-card" data-day="4">
+                        <div class="day-header" onclick="toggleDay(this)">
+                            <span class="day-number">4</span>
+                            <div class="day-title">
+                                <h3>Nguyên âm kép (Diftongit)</h3>
+                            </div>
+                            <span class="day-time">⏱️ 20 phút</span>
+                            <span class="toggle-icon">▼</span>
+                        </div>
+                        <div class="day-content">
+                            <div class="lesson-block">
+                                <h4>📚 Nội dung học - 3 nguyên âm kép QUAN TRỌNG NHẤT</h4>
+                                <ul class="lesson-list">
+                                    <li><strong>IE</strong> (i-e): tie (đường), mies (đàn ông)</li>
+                                    <li><strong>UO</strong> (u-o): Suomi (Phần Lan), vuosi (năm)</li>
+                                    <li><strong>YÖ</strong> (ü-ö): työ (công việc), yö (đêm)</li>
+                                </ul>
+                                <div class="info-box warning">
+                                    <strong>⚠️ Lưu ý:</strong> Đọc CẢ HAI nguyên âm liền nhau, KHÔNG ghép thành 1 âm!
+                                </div>
+                            </div>
+
+                            <div class="lesson-block">
+                                <h4>🎯 Luyện phát âm</h4>
+                                <div class="vocab-grid" style="margin-top: 0.5rem;">
+                                    <div class="vocab-item" onclick="speak('Suomi')">
+                                        <span class="word">Suomi</span>
+                                        <span class="meaning">Phần Lan (Su-o-mi)</span>
+                                    </div>
+                                    <div class="vocab-item" onclick="speak('Tie')">
+                                        <span class="word">tie</span>
+                                        <span class="meaning">đường (ti-e)</span>
+                                    </div>
+                                    <div class="vocab-item" onclick="speak('Työ')">
+                                        <span class="word">työ</span>
+                                        <span class="meaning">công việc (tü-ö)</span>
+                                    </div>
+                                    <div class="vocab-item" onclick="speak('Vuosi')">
+                                        <span class="word">vuosi</span>
+                                        <span class="meaning">năm (vu-o-si)</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="lesson-block">
+                                <h4>✏️ Bài tập</h4>
+                                <div class="exercise-box">
+                                    <h5>Đọc to 10 lần mỗi từ:</h5>
+                                    <div class="exercise-item" onclick="speak('Minä asun Suomessa')">
+                                        🔊 "Minä asun Suomessa." (Tôi sống ở Phần Lan)
+                                    </div>
+                                    <div class="exercise-item" onclick="speak('Menen töihin')">
+                                        🔊 "Menen töihin." (Tôi đi làm)
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="day-checkbox">
+                                <input type="checkbox" id="day4" onchange="updateProgress()">
+                                <label for="day4">✅ Đã hoàn thành Ngày 4</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Day 5 -->
+                    <div class="day-card" data-day="5">
+                        <div class="day-header" onclick="toggleDay(this)">
+                            <span class="day-number">5</span>
+                            <div class="day-title">
+                                <h3>Đại từ nhân xưng</h3>
+                            </div>
+                            <span class="day-time">⏱️ 20 phút</span>
+                            <span class="toggle-icon">▼</span>
+                        </div>
+                        <div class="day-content">
+                            <div class="lesson-block">
+                                <h4>📚 6 Đại từ nhân xưng</h4>
+                                <table class="conj-table">
+                                    <tr onclick="speak('Minä')"><td class="finnish">Minä</td><td>Tôi</td></tr>
+                                    <tr onclick="speak('Sinä')"><td class="finnish">Sinä</td><td>Bạn</td></tr>
+                                    <tr onclick="speak('Hän')"><td class="finnish">Hän</td><td>Anh/Chị ấy (cả nam lẫn nữ!)</td></tr>
+                                    <tr onclick="speak('Me')"><td class="finnish">Me</td><td>Chúng tôi</td></tr>
+                                    <tr onclick="speak('Te')"><td class="finnish">Te</td><td>Các bạn</td></tr>
+                                    <tr onclick="speak('He')"><td class="finnish">He</td><td>Họ</td></tr>
+                                </table>
+                            </div>
+
+                            <div class="lesson-block">
+                                <h4>✏️ Bài tập</h4>
+                                <div class="exercise-box">
+                                    <h5>Dịch sang tiếng Phần Lan:</h5>
+                                    <div class="exercise-item">1. Tôi → <strong>Minä</strong></div>
+                                    <div class="exercise-item">2. Anh ấy/Cô ấy → <strong>Hän</strong></div>
+                                    <div class="exercise-item">3. Chúng tôi → <strong>Me</strong></div>
+                                    <h5>Đọc to 5 lần:</h5>
+                                    <div class="exercise-item" onclick="speak('Minä, Sinä, Hän, Me, Te, He')">
+                                        🔊 Minä, Sinä, Hän, Me, Te, He
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="day-checkbox">
+                                <input type="checkbox" id="day5" onchange="updateProgress()">
+                                <label for="day5">✅ Đã hoàn thành Ngày 5</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Day 6 -->
+                    <div class="day-card" data-day="6">
+                        <div class="day-header" onclick="toggleDay(this)">
+                            <span class="day-number">6</span>
+                            <div class="day-title">
+                                <h3>Động từ OLLA (Là/Ở)</h3>
+                            </div>
+                            <span class="day-time">⏱️ 20 phút</span>
+                            <span class="toggle-icon">▼</span>
+                        </div>
+                        <div class="day-content">
+                            <div class="lesson-block">
+                                <h4>📚 Chia động từ OLLA</h4>
+                                <table class="conj-table">
+                                    <tr onclick="speak('Minä olen')"><td>Minä</td><td class="finnish">olen</td><td>Tôi là/ở</td></tr>
+                                    <tr onclick="speak('Sinä olet')"><td>Sinä</td><td class="finnish">olet</td><td>Bạn là/ở</td></tr>
+                                    <tr onclick="speak('Hän on')"><td>Hän</td><td class="finnish">on</td><td>Anh/Chị ấy là/ở</td></tr>
+                                    <tr onclick="speak('Me olemme')"><td>Me</td><td class="finnish">olemme</td><td>Chúng tôi là/ở</td></tr>
+                                    <tr onclick="speak('Te olette')"><td>Te</td><td class="finnish">olette</td><td>Các bạn là/ở</td></tr>
+                                    <tr onclick="speak('He ovat')"><td>He</td><td class="finnish">ovat</td><td>Họ là/ở</td></tr>
+                                </table>
+                            </div>
+
+                            <div class="lesson-block">
+                                <h4>🎯 Câu ví dụ thực tế</h4>
+                                <div class="vocab-grid" style="margin-top: 0.5rem;">
+                                    <div class="vocab-item" onclick="speak('Minä olen opiskelija')">
+                                        <span class="word">Minä olen opiskelija.</span>
+                                        <span class="meaning">Tôi là sinh viên.</span>
+                                    </div>
+                                    <div class="vocab-item" onclick="speak('Hän on opettaja')">
+                                        <span class="word">Hän on opettaja.</span>
+                                        <span class="meaning">Anh ấy là giáo viên.</span>
+                                    </div>
+                                    <div class="vocab-item" onclick="speak('Me olemme Suomessa')">
+                                        <span class="word">Me olemme Suomessa.</span>
+                                        <span class="meaning">Chúng tôi ở Phần Lan.</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="lesson-block">
+                                <h4>✏️ Bài tập</h4>
+                                <div class="exercise-box">
+                                    <h5>Điền vào chỗ trống:</h5>
+                                    <div class="exercise-item">1. Minä ___ vietnamilainen. → <strong>olen</strong></div>
+                                    <div class="exercise-item">2. He ___ opiskelijat. → <strong>ovat</strong></div>
+                                    <div class="exercise-item">3. Sinä ___ kaunis. → <strong>olet</strong></div>
+                                </div>
+                            </div>
+
+                            <div class="day-checkbox">
+                                <input type="checkbox" id="day6" onchange="updateProgress()">
+                                <label for="day6">✅ Đã hoàn thành Ngày 6</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Day 7 -->
+                    <div class="day-card" data-day="7">
+                        <div class="day-header" onclick="toggleDay(this)">
+                            <span class="day-number">7</span>
+                            <div class="day-title">
+                                <h3>ÔN TẬP TUẦN 1 + Giới thiệu bản thân</h3>
+                            </div>
+                            <span class="day-time">⏱️ 25 phút</span>
+                            <span class="toggle-icon">▼</span>
+                        </div>
+                        <div class="day-content">
+                            <div class="lesson-block">
+                                <h4>📚 Ôn tập</h4>
+                                <ul class="lesson-list">
+                                    <li>29 chữ cái (đặc biệt J, Y, Ä, Ö)</li>
+                                    <li>Nguyên âm đôi, phụ âm đôi</li>
+                                    <li>Nguyên âm kép: IE, UO, YÖ</li>
+                                    <li>6 đại từ nhân xưng</li>
+                                    <li>Động từ OLLA</li>
+                                </ul>
+                            </div>
+
+                            <div class="lesson-block">
+                                <h4>🎯 Giới thiệu bản thân</h4>
+                                <div class="exercise-box">
+                                    <div class="exercise-item" onclick="speak('Hei! Minun nimeni on...')">
+                                        🔊 Hei! Minun nimeni on... (Xin chào! Tên tôi là...)
+                                    </div>
+                                    <div class="exercise-item" onclick="speak('Olen vietnamilainen')">
+                                        🔊 Olen vietnamilainen. (Tôi là người Việt Nam.)
+                                    </div>
+                                    <div class="exercise-item" onclick="speak('Asun Helsingissä')">
+                                        🔊 Asun Helsingissä. (Tôi sống ở Helsinki.)
+                                    </div>
+                                    <div class="exercise-item" onclick="speak('Hauska tutustua')">
+                                        🔊 Hauska tutustua! (Rất vui được gặp!)
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="lesson-block">
+                                <h4>✏️ Bài tập cuối tuần</h4>
+                                <div class="exercise-box">
+                                    <h5>Viết đoạn giới thiệu bản thân bằng tiếng Phần Lan (3-5 câu)</h5>
+                                    <h5>Ghi âm và nghe lại để sửa phát âm</h5>
+                                </div>
+                            </div>
+
+                            <div class="day-checkbox">
+                                <input type="checkbox" id="day7" onchange="updateProgress()">
+                                <label for="day7">✅ Đã hoàn thành Ngày 7</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Week 2 -->
+                <div class="week-section">
+                    <div class="week-header">
+                        <h2>📅 TUẦN 2: Chia động từ cơ bản</h2>
+                        <p>Loại 1, 2, 3 + Câu phủ định</p>
+                    </div>
+
+                    <!-- Day 8-14 -->
+                    <div class="day-card" data-day="8">
+                        <div class="day-header" onclick="toggleDay(this)">
+                            <span class="day-number">8</span>
+                            <div class="day-title"><h3>Động từ Loại 1 (puhua, asua)</h3></div>
+                            <span class="day-time">⏱️ 20 phút</span>
+                            <span class="toggle-icon">▼</span>
+                        </div>
+                        <div class="day-content">
+                            <div class="lesson-block">
+                                <h4>📚 Quy tắc Loại 1: Nguyên âm + A/Ä</h4>
+                                <p>Bỏ -a/-ä cuối để tìm gốc, rồi thêm đuôi</p>
+                                <table class="conj-table">
+                                    <tr onclick="speak('Minä puhun')"><td>Minä</td><td class="finnish">puhun</td><td>Tôi nói</td></tr>
+                                    <tr onclick="speak('Sinä puhut')"><td>Sinä</td><td class="finnish">puhut</td><td>Bạn nói</td></tr>
+                                    <tr onclick="speak('Hän puhuu')"><td>Hän</td><td class="finnish">puhuu</td><td>Anh ấy nói</td></tr>
+                                    <tr onclick="speak('Me puhumme')"><td>Me</td><td class="finnish">puhumme</td><td>Chúng tôi nói</td></tr>
+                                    <tr onclick="speak('Te puhutte')"><td>Te</td><td class="finnish">puhutte</td><td>Các bạn nói</td></tr>
+                                    <tr onclick="speak('He puhuvat')"><td>He</td><td class="finnish">puhuvat</td><td>Họ nói</td></tr>
+                                </table>
+                            </div>
+                            <div class="lesson-block">
+                                <h4>🎯 Luyện tập với ASUA (sống)</h4>
+                                <div class="exercise-box">
+                                    <div class="exercise-item" onclick="speak('Minä asun Suomessa')">🔊 Minä asun Suomessa. (Tôi sống ở Phần Lan)</div>
+                                    <div class="exercise-item" onclick="speak('Hän asuu Helsingissä')">🔊 Hän asuu Helsingissä. (Anh ấy sống ở Helsinki)</div>
+                                    <div class="exercise-item" onclick="speak('Me asumme täällä')">🔊 Me asumme täällä. (Chúng tôi sống ở đây)</div>
+                                </div>
+                            </div>
+                            <div class="day-checkbox">
+                                <input type="checkbox" id="day8" onchange="updateProgress()">
+                                <label for="day8">✅ Đã hoàn thành Ngày 8</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="day-card" data-day="9">
+                        <div class="day-header" onclick="toggleDay(this)">
+                            <span class="day-number">9</span>
+                            <div class="day-title"><h3>Động từ Loại 2 (syödä, juoda)</h3></div>
+                            <span class="day-time">⏱️ 20 phút</span>
+                            <span class="toggle-icon">▼</span>
+                        </div>
+                        <div class="day-content">
+                            <div class="lesson-block">
+                                <h4>📚 Quy tắc Loại 2: Kết thúc -DA/-DÄ</h4>
+                                <p>Bỏ -da/-dä để tìm gốc. <strong>Ngôi Hän KHÔNG kéo dài!</strong></p>
+                                <table class="conj-table">
+                                    <tr onclick="speak('Minä syön')"><td>Minä</td><td class="finnish">syön</td><td>Tôi ăn</td></tr>
+                                    <tr onclick="speak('Hän syö')"><td>Hän</td><td class="finnish">syö ⚠️</td><td>Anh ấy ăn</td></tr>
+                                    <tr onclick="speak('He syövät')"><td>He</td><td class="finnish">syövät</td><td>Họ ăn</td></tr>
+                                </table>
+                            </div>
+                            <div class="lesson-block">
+                                <h4>🎯 Luyện tập</h4>
+                                <div class="exercise-box">
+                                    <div class="exercise-item" onclick="speak('Minä juon kahvia')">🔊 Minä juon kahvia. (Tôi uống cà phê)</div>
+                                    <div class="exercise-item" onclick="speak('Hän syö kalaa')">🔊 Hän syö kalaa. (Anh ấy ăn cá)</div>
+                                </div>
+                            </div>
+                            <div class="day-checkbox">
+                                <input type="checkbox" id="day9" onchange="updateProgress()">
+                                <label for="day9">✅ Đã hoàn thành Ngày 9</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="day-card" data-day="10">
+                        <div class="day-header" onclick="toggleDay(this)">
+                            <span class="day-number">10</span>
+                            <div class="day-title"><h3>Động từ Loại 3 (tulla, mennä)</h3></div>
+                            <span class="day-time">⏱️ 20 phút</span>
+                            <span class="toggle-icon">▼</span>
+                        </div>
+                        <div class="day-content">
+                            <div class="lesson-block">
+                                <h4>📚 Quy tắc Loại 3: Phụ âm + A/Ä</h4>
+                                <p>Bỏ -a/-ä, thêm -e để tìm gốc</p>
+                                <table class="conj-table">
+                                    <tr onclick="speak('Minä tulen')"><td>Minä</td><td class="finnish">tulen</td><td>Tôi đến</td></tr>
+                                    <tr onclick="speak('Hän tulee')"><td>Hän</td><td class="finnish">tulee</td><td>Anh ấy đến</td></tr>
+                                    <tr onclick="speak('He tulevat')"><td>He</td><td class="finnish">tulevat</td><td>Họ đến</td></tr>
+                                </table>
+                            </div>
+                            <div class="lesson-block">
+                                <h4>🎯 Luyện tập với MENNÄ (đi)</h4>
+                                <div class="exercise-box">
+                                    <div class="exercise-item" onclick="speak('Minä menen kouluun')">🔊 Minä menen kouluun. (Tôi đi học)</div>
+                                    <div class="exercise-item" onclick="speak('Hän menee töihin')">🔊 Hän menee töihin. (Anh ấy đi làm)</div>
+                                </div>
+                            </div>
+                            <div class="day-checkbox">
+                                <input type="checkbox" id="day10" onchange="updateProgress()">
+                                <label for="day10">✅ Đã hoàn thành Ngày 10</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="day-card" data-day="11">
+                        <div class="day-header" onclick="toggleDay(this)">
+                            <span class="day-number">11</span>
+                            <div class="day-title"><h3>Câu phủ định với EI</h3></div>
+                            <span class="day-time">⏱️ 20 phút</span>
+                            <span class="toggle-icon">▼</span>
+                        </div>
+                        <div class="day-content">
+                            <div class="lesson-block">
+                                <h4>📚 Chia EI theo ngôi + Gốc động từ</h4>
+                                <table class="conj-table">
+                                    <tr onclick="speak('Minä en puhu')"><td>Minä</td><td class="finnish">en puhu</td><td>Tôi không nói</td></tr>
+                                    <tr onclick="speak('Sinä et puhu')"><td>Sinä</td><td class="finnish">et puhu</td><td>Bạn không nói</td></tr>
+                                    <tr onclick="speak('Hän ei puhu')"><td>Hän</td><td class="finnish">ei puhu</td><td>Anh ấy không nói</td></tr>
+                                    <tr onclick="speak('Me emme puhu')"><td>Me</td><td class="finnish">emme puhu</td><td>Chúng tôi không nói</td></tr>
+                                    <tr onclick="speak('Te ette puhu')"><td>Te</td><td class="finnish">ette puhu</td><td>Các bạn không nói</td></tr>
+                                    <tr onclick="speak('He eivät puhu')"><td>He</td><td class="finnish">eivät puhu</td><td>Họ không nói</td></tr>
+                                </table>
+                            </div>
+                            <div class="lesson-block">
+                                <h4>✏️ Bài tập</h4>
+                                <div class="exercise-box">
+                                    <div class="exercise-item" onclick="speak('Minä en puhu suomea')">🔊 Minä en puhu suomea. (Tôi không nói tiếng Phần Lan)</div>
+                                    <div class="exercise-item" onclick="speak('Hän ei syö lihaa')">🔊 Hän ei syö lihaa. (Anh ấy không ăn thịt)</div>
+                                </div>
+                            </div>
+                            <div class="day-checkbox">
+                                <input type="checkbox" id="day11" onchange="updateProgress()">
+                                <label for="day11">✅ Đã hoàn thành Ngày 11</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="day-card" data-day="12">
+                        <div class="day-header" onclick="toggleDay(this)">
+                            <span class="day-number">12</span>
+                            <div class="day-title"><h3>Số đếm 1-20</h3></div>
+                            <span class="day-time">⏱️ 20 phút</span>
+                            <span class="toggle-icon">▼</span>
+                        </div>
+                        <div class="day-content">
+                            <div class="lesson-block">
+                                <h4>📚 Số đếm cơ bản</h4>
+                                <div class="vocab-grid" style="margin-top: 0.5rem;">
+                                    <div class="vocab-item" onclick="speak('yksi')"><span class="word">1 - yksi</span></div>
+                                    <div class="vocab-item" onclick="speak('kaksi')"><span class="word">2 - kaksi</span></div>
+                                    <div class="vocab-item" onclick="speak('kolme')"><span class="word">3 - kolme</span></div>
+                                    <div class="vocab-item" onclick="speak('neljä')"><span class="word">4 - neljä</span></div>
+                                    <div class="vocab-item" onclick="speak('viisi')"><span class="word">5 - viisi</span></div>
+                                    <div class="vocab-item" onclick="speak('kuusi')"><span class="word">6 - kuusi</span></div>
+                                    <div class="vocab-item" onclick="speak('seitsemän')"><span class="word">7 - seitsemän</span></div>
+                                    <div class="vocab-item" onclick="speak('kahdeksan')"><span class="word">8 - kahdeksan</span></div>
+                                    <div class="vocab-item" onclick="speak('yhdeksän')"><span class="word">9 - yhdeksän</span></div>
+                                    <div class="vocab-item" onclick="speak('kymmenen')"><span class="word">10 - kymmenen</span></div>
+                                </div>
+                            </div>
+                            <div class="day-checkbox">
+                                <input type="checkbox" id="day12" onchange="updateProgress()">
+                                <label for="day12">✅ Đã hoàn thành Ngày 12</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="day-card" data-day="13">
+                        <div class="day-header" onclick="toggleDay(this)">
+                            <span class="day-number">13</span>
+                            <div class="day-title"><h3>Ngày trong tuần</h3></div>
+                            <span class="day-time">⏱️ 20 phút</span>
+                            <span class="toggle-icon">▼</span>
+                        </div>
+                        <div class="day-content">
+                            <div class="lesson-block">
+                                <h4>📚 7 ngày trong tuần</h4>
+                                <div class="vocab-grid" style="margin-top: 0.5rem;">
+                                    <div class="vocab-item" onclick="speak('maanantai')"><span class="word">maanantai</span><span class="meaning">Thứ 2</span></div>
+                                    <div class="vocab-item" onclick="speak('tiistai')"><span class="word">tiistai</span><span class="meaning">Thứ 3</span></div>
+                                    <div class="vocab-item" onclick="speak('keskiviikko')"><span class="word">keskiviikko</span><span class="meaning">Thứ 4</span></div>
+                                    <div class="vocab-item" onclick="speak('torstai')"><span class="word">torstai</span><span class="meaning">Thứ 5</span></div>
+                                    <div class="vocab-item" onclick="speak('perjantai')"><span class="word">perjantai</span><span class="meaning">Thứ 6</span></div>
+                                    <div class="vocab-item" onclick="speak('lauantai')"><span class="word">lauantai</span><span class="meaning">Thứ 7</span></div>
+                                    <div class="vocab-item" onclick="speak('sunnuntai')"><span class="word">sunnuntai</span><span class="meaning">Chủ nhật</span></div>
+                                </div>
+                                <div class="info-box tip">💡 Tip: Tất cả kết thúc -TAI trừ keskiviikko!</div>
+                            </div>
+                            <div class="day-checkbox">
+                                <input type="checkbox" id="day13" onchange="updateProgress()">
+                                <label for="day13">✅ Đã hoàn thành Ngày 13</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="day-card" data-day="14">
+                        <div class="day-header" onclick="toggleDay(this)">
+                            <span class="day-number">14</span>
+                            <div class="day-title"><h3>ÔN TẬP TUẦN 2</h3></div>
+                            <span class="day-time">⏱️ 25 phút</span>
+                            <span class="toggle-icon">▼</span>
+                        </div>
+                        <div class="day-content">
+                            <div class="lesson-block">
+                                <h4>📚 Ôn tập</h4>
+                                <ul class="lesson-list">
+                                    <li>Động từ Loại 1, 2, 3</li>
+                                    <li>Câu phủ định với EI</li>
+                                    <li>Số đếm 1-20</li>
+                                    <li>Ngày trong tuần</li>
+                                </ul>
+                            </div>
+                            <div class="lesson-block">
+                                <h4>✏️ Bài tập tổng hợp</h4>
+                                <div class="exercise-box">
+                                    <h5>Dịch sang tiếng Phần Lan:</h5>
+                                    <div class="exercise-item">1. Tôi nói tiếng Phần Lan. → Minä puhun suomea.</div>
+                                    <div class="exercise-item">2. Anh ấy không ăn thịt. → Hän ei syö lihaa.</div>
+                                    <div class="exercise-item">3. Chúng tôi đi làm. → Me menemme töihin.</div>
+                                </div>
+                            </div>
+                            <div class="day-checkbox">
+                                <input type="checkbox" id="day14" onchange="updateProgress()">
+                                <label for="day14">✅ Đã hoàn thành Ngày 14</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Week 3 -->
+                <div class="week-section">
+                    <div class="week-header">
+                        <h2>📅 TUẦN 3: Các cách (Cases) & Từ vựng</h2>
+                        <p>Cách chỉ vị trí, MINULLA ON, từ vựng theo chủ đề</p>
+                    </div>
+
+                    <div class="day-card" data-day="15">
+                        <div class="day-header" onclick="toggleDay(this)">
+                            <span class="day-number">15</span>
+                            <div class="day-title"><h3>Cách chỉ vị trí "trong" (-ssa/-ssä)</h3></div>
+                            <span class="day-time">⏱️ 20 phút</span>
+                            <span class="toggle-icon">▼</span>
+                        </div>
+                        <div class="day-content">
+                            <div class="lesson-block">
+                                <h4>📚 Inessiivi: Ở trong (-ssa/-ssä)</h4>
+                                <div class="exercise-box">
+                                    <div class="exercise-item" onclick="speak('Olen Suomessa')">🔊 Olen Suomessa. (Tôi ở Phần Lan)</div>
+                                    <div class="exercise-item" onclick="speak('Hän on kaupassa')">🔊 Hän on kaupassa. (Anh ấy ở cửa hàng)</div>
+                                    <div class="exercise-item" onclick="speak('Kirja on laukussa')">🔊 Kirja on laukussa. (Sách ở trong túi)</div>
+                                </div>
+                            </div>
+                            <div class="day-checkbox">
+                                <input type="checkbox" id="day15" onchange="updateProgress()">
+                                <label for="day15">✅ Đã hoàn thành Ngày 15</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="day-card" data-day="16">
+                        <div class="day-header" onclick="toggleDay(this)">
+                            <span class="day-number">16</span>
+                            <div class="day-title"><h3>Cách chỉ nguồn gốc (-sta/-stä, -lta/-ltä)</h3></div>
+                            <span class="day-time">⏱️ 20 phút</span>
+                            <span class="toggle-icon">▼</span>
+                        </div>
+                        <div class="day-content">
+                            <div class="lesson-block">
+                                <h4>📚 Elatiivi & Ablatiivi: Từ đâu?</h4>
+                                <div class="exercise-box">
+                                    <div class="exercise-item" onclick="speak('Tulen Vietnamista')">🔊 Tulen Vietnamista. (Tôi đến từ Việt Nam)</div>
+                                    <div class="exercise-item" onclick="speak('Hän tulee kaupasta')">🔊 Hän tulee kaupasta. (Anh ấy đi từ cửa hàng ra)</div>
+                                    <div class="exercise-item" onclick="speak('Tulen torilta')">🔊 Tulen torilta. (Tôi đi từ chợ)</div>
+                                </div>
+                            </div>
+                            <div class="day-checkbox">
+                                <input type="checkbox" id="day16" onchange="updateProgress()">
+                                <label for="day16">✅ Đã hoàn thành Ngày 16</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="day-card" data-day="17">
+                        <div class="day-header" onclick="toggleDay(this)">
+                            <span class="day-number">17</span>
+                            <div class="day-title"><h3>Cách chỉ đích đến (-an/-en, -lle)</h3></div>
+                            <span class="day-time">⏱️ 20 phút</span>
+                            <span class="toggle-icon">▼</span>
+                        </div>
+                        <div class="day-content">
+                            <div class="lesson-block">
+                                <h4>📚 Illatiivi & Allatiivi: Đi đâu?</h4>
+                                <div class="exercise-box">
+                                    <div class="exercise-item" onclick="speak('Menen kauppaan')">🔊 Menen kauppaan. (Tôi đi vào cửa hàng)</div>
+                                    <div class="exercise-item" onclick="speak('Hän menee Suomeen')">🔊 Hän menee Suomeen. (Anh ấy đi đến Phần Lan)</div>
+                                    <div class="exercise-item" onclick="speak('Menen torille')">🔊 Menen torille. (Tôi đi đến chợ)</div>
+                                </div>
+                            </div>
+                            <div class="day-checkbox">
+                                <input type="checkbox" id="day17" onchange="updateProgress()">
+                                <label for="day17">✅ Đã hoàn thành Ngày 17</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="day-card" data-day="18">
+                        <div class="day-header" onclick="toggleDay(this)">
+                            <span class="day-number">18</span>
+                            <div class="day-title"><h3>MINULLA ON (Tôi có)</h3></div>
+                            <span class="day-time">⏱️ 20 phút</span>
+                            <span class="toggle-icon">▼</span>
+                        </div>
+                        <div class="day-content">
+                            <div class="lesson-block">
+                                <h4>📚 Cấu trúc sở hữu</h4>
+                                <div class="exercise-box">
+                                    <div class="exercise-item" onclick="speak('Minulla on auto')">🔊 Minulla on auto. (Tôi có ô tô)</div>
+                                    <div class="exercise-item" onclick="speak('Minulla on nälkä')">🔊 Minulla on nälkä. (Tôi đói)</div>
+                                    <div class="exercise-item" onclick="speak('Hänellä on koira')">🔊 Hänellä on koira. (Anh ấy có chó)</div>
+                                    <div class="exercise-item" onclick="speak('Minulla ei ole aikaa')">🔊 Minulla ei ole aikaa. (Tôi không có thời gian)</div>
+                                </div>
+                            </div>
+                            <div class="day-checkbox">
+                                <input type="checkbox" id="day18" onchange="updateProgress()">
+                                <label for="day18">✅ Đã hoàn thành Ngày 18</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="day-card" data-day="19">
+                        <div class="day-header" onclick="toggleDay(this)">
+                            <span class="day-number">19</span>
+                            <div class="day-title"><h3>Từ vựng: Gia đình</h3></div>
+                            <span class="day-time">⏱️ 20 phút</span>
+                            <span class="toggle-icon">▼</span>
+                        </div>
+                        <div class="day-content">
+                            <div class="lesson-block">
+                                <h4>📚 Từ vựng gia đình</h4>
+                                <div class="vocab-grid" style="margin-top: 0.5rem;">
+                                    <div class="vocab-item" onclick="speak('perhe')"><span class="word">perhe</span><span class="meaning">gia đình</span></div>
+                                    <div class="vocab-item" onclick="speak('äiti')"><span class="word">äiti</span><span class="meaning">mẹ</span></div>
+                                    <div class="vocab-item" onclick="speak('isä')"><span class="word">isä</span><span class="meaning">bố</span></div>
+                                    <div class="vocab-item" onclick="speak('veli')"><span class="word">veli</span><span class="meaning">anh/em trai</span></div>
+                                    <div class="vocab-item" onclick="speak('sisko')"><span class="word">sisko</span><span class="meaning">chị/em gái</span></div>
+                                    <div class="vocab-item" onclick="speak('lapsi')"><span class="word">lapsi</span><span class="meaning">con</span></div>
+                                </div>
+                            </div>
+                            <div class="lesson-block">
+                                <h4>🎯 Câu ví dụ</h4>
+                                <div class="exercise-box">
+                                    <div class="exercise-item" onclick="speak('Minulla on kaksi siskoa')">🔊 Minulla on kaksi siskoa. (Tôi có 2 chị/em gái)</div>
+                                    <div class="exercise-item" onclick="speak('Äitini on opettaja')">🔊 Äitini on opettaja. (Mẹ tôi là giáo viên)</div>
+                                </div>
+                            </div>
+                            <div class="day-checkbox">
+                                <input type="checkbox" id="day19" onchange="updateProgress()">
+                                <label for="day19">✅ Đã hoàn thành Ngày 19</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="day-card" data-day="20">
+                        <div class="day-header" onclick="toggleDay(this)">
+                            <span class="day-number">20</span>
+                            <div class="day-title"><h3>Từ vựng: Đồ ăn & Thức uống</h3></div>
+                            <span class="day-time">⏱️ 20 phút</span>
+                            <span class="toggle-icon">▼</span>
+                        </div>
+                        <div class="day-content">
+                            <div class="lesson-block">
+                                <div class="vocab-grid" style="margin-top: 0.5rem;">
+                                    <div class="vocab-item" onclick="speak('kahvi')"><span class="word">kahvi</span><span class="meaning">cà phê</span></div>
+                                    <div class="vocab-item" onclick="speak('tee')"><span class="word">tee</span><span class="meaning">trà</span></div>
+                                    <div class="vocab-item" onclick="speak('vesi')"><span class="word">vesi</span><span class="meaning">nước</span></div>
+                                    <div class="vocab-item" onclick="speak('leipä')"><span class="word">leipä</span><span class="meaning">bánh mì</span></div>
+                                    <div class="vocab-item" onclick="speak('kala')"><span class="word">kala</span><span class="meaning">cá</span></div>
+                                    <div class="vocab-item" onclick="speak('liha')"><span class="word">liha</span><span class="meaning">thịt</span></div>
+                                </div>
+                            </div>
+                            <div class="lesson-block">
+                                <h4>🎯 Câu ví dụ</h4>
+                                <div class="exercise-box">
+                                    <div class="exercise-item" onclick="speak('Haluatko kahvia')">🔊 Haluatko kahvia? (Bạn muốn cà phê không?)</div>
+                                    <div class="exercise-item" onclick="speak('Kyllä kiitos')">🔊 Kyllä, kiitos! (Có, cảm ơn!)</div>
+                                </div>
+                            </div>
+                            <div class="day-checkbox">
+                                <input type="checkbox" id="day20" onchange="updateProgress()">
+                                <label for="day20">✅ Đã hoàn thành Ngày 20</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="day-card" data-day="21">
+                        <div class="day-header" onclick="toggleDay(this)">
+                            <span class="day-number">21</span>
+                            <div class="day-title"><h3>ÔN TẬP TUẦN 3</h3></div>
+                            <span class="day-time">⏱️ 25 phút</span>
+                            <span class="toggle-icon">▼</span>
+                        </div>
+                        <div class="day-content">
+                            <div class="lesson-block">
+                                <h4>📚 Ôn tập tuần 3</h4>
+                                <ul class="lesson-list">
+                                    <li>Các cách chỉ vị trí: -ssa/-ssä, -sta/-stä, -an/-lle</li>
+                                    <li>Cấu trúc MINULLA ON</li>
+                                    <li>Từ vựng: Gia đình, Đồ ăn & Thức uống</li>
+                                </ul>
+                            </div>
+                            <div class="day-checkbox">
+                                <input type="checkbox" id="day21" onchange="updateProgress()">
+                                <label for="day21">✅ Đã hoàn thành Ngày 21</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Week 4 -->
+                <div class="week-section">
+                    <div class="week-header">
+                        <h2>📅 TUẦN 4: Giao tiếp thực tế</h2>
+                        <p>Câu hỏi, mẫu câu giao tiếp, tình huống thực tế</p>
+                    </div>
+
+                    <div class="day-card" data-day="22">
+                        <div class="day-header" onclick="toggleDay(this)">
+                            <span class="day-number">22</span>
+                            <div class="day-title"><h3>Từ để hỏi cơ bản</h3></div>
+                            <span class="day-time">⏱️ 20 phút</span>
+                            <span class="toggle-icon">▼</span>
+                        </div>
+                        <div class="day-content">
+                            <div class="lesson-block">
+                                <div class="vocab-grid" style="margin-top: 0.5rem;">
+                                    <div class="vocab-item" onclick="speak('Mikä')"><span class="word">Mikä?</span><span class="meaning">Cái gì?</span></div>
+                                    <div class="vocab-item" onclick="speak('Kuka')"><span class="word">Kuka?</span><span class="meaning">Ai?</span></div>
+                                    <div class="vocab-item" onclick="speak('Missä')"><span class="word">Missä?</span><span class="meaning">Ở đâu?</span></div>
+                                    <div class="vocab-item" onclick="speak('Milloin')"><span class="word">Milloin?</span><span class="meaning">Khi nào?</span></div>
+                                    <div class="vocab-item" onclick="speak('Miksi')"><span class="word">Miksi?</span><span class="meaning">Tại sao?</span></div>
+                                    <div class="vocab-item" onclick="speak('Miten')"><span class="word">Miten?</span><span class="meaning">Như thế nào?</span></div>
+                                </div>
+                            </div>
+                            <div class="day-checkbox">
+                                <input type="checkbox" id="day22" onchange="updateProgress()">
+                                <label for="day22">✅ Đã hoàn thành Ngày 22</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="day-card" data-day="23">
+                        <div class="day-header" onclick="toggleDay(this)">
+                            <span class="day-number">23</span>
+                            <div class="day-title"><h3>Câu hỏi Yes/No với -KO/-KÖ</h3></div>
+                            <span class="day-time">⏱️ 20 phút</span>
+                            <span class="toggle-icon">▼</span>
+                        </div>
+                        <div class="day-content">
+                            <div class="lesson-block">
+                                <h4>📚 Thêm -KO/-KÖ vào động từ</h4>
+                                <div class="exercise-box">
+                                    <div class="exercise-item" onclick="speak('Puhutko suomea')">🔊 Puhutko suomea? (Bạn nói tiếng Phần Lan không?)</div>
+                                    <div class="exercise-item" onclick="speak('Haluatko kahvia')">🔊 Haluatko kahvia? (Bạn muốn cà phê không?)</div>
+                                    <div class="exercise-item" onclick="speak('Oletko suomalainen')">🔊 Oletko suomalainen? (Bạn là người Phần Lan không?)</div>
+                                </div>
+                            </div>
+                            <div class="day-checkbox">
+                                <input type="checkbox" id="day23" onchange="updateProgress()">
+                                <label for="day23">✅ Đã hoàn thành Ngày 23</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="day-card" data-day="24">
+                        <div class="day-header" onclick="toggleDay(this)">
+                            <span class="day-number">24</span>
+                            <div class="day-title"><h3>Giao tiếp: Mua sắm</h3></div>
+                            <span class="day-time">⏱️ 20 phút</span>
+                            <span class="toggle-icon">▼</span>
+                        </div>
+                        <div class="day-content">
+                            <div class="lesson-block">
+                                <div class="exercise-box">
+                                    <div class="exercise-item" onclick="speak('Paljonko tämä maksaa')">🔊 Paljonko tämä maksaa? (Cái này bao nhiêu?)</div>
+                                    <div class="exercise-item" onclick="speak('Se maksaa viisi euroa')">🔊 Se maksaa viisi euroa. (Nó có giá 5 euro)</div>
+                                    <div class="exercise-item" onclick="speak('Otan tämän')">🔊 Otan tämän. (Tôi lấy cái này)</div>
+                                    <div class="exercise-item" onclick="speak('Voinko maksaa kortilla')">🔊 Voinko maksaa kortilla? (Tôi trả bằng thẻ được không?)</div>
+                                </div>
+                            </div>
+                            <div class="day-checkbox">
+                                <input type="checkbox" id="day24" onchange="updateProgress()">
+                                <label for="day24">✅ Đã hoàn thành Ngày 24</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="day-card" data-day="25">
+                        <div class="day-header" onclick="toggleDay(this)">
+                            <span class="day-number">25</span>
+                            <div class="day-title"><h3>Giao tiếp: Nhà hàng</h3></div>
+                            <span class="day-time">⏱️ 20 phút</span>
+                            <span class="toggle-icon">▼</span>
+                        </div>
+                        <div class="day-content">
+                            <div class="lesson-block">
+                                <div class="exercise-box">
+                                    <div class="exercise-item" onclick="speak('Saisinko ruokalistan')">🔊 Saisinko ruokalistan? (Cho tôi xin thực đơn?)</div>
+                                    <div class="exercise-item" onclick="speak('Haluaisin tilata')">🔊 Haluaisin tilata... (Tôi muốn gọi...)</div>
+                                    <div class="exercise-item" onclick="speak('Yksi kahvi kiitos')">🔊 Yksi kahvi, kiitos! (Một cà phê, cảm ơn!)</div>
+                                    <div class="exercise-item" onclick="speak('Lasku kiitos')">🔊 Lasku, kiitos! (Tính tiền, cảm ơn!)</div>
+                                </div>
+                            </div>
+                            <div class="day-checkbox">
+                                <input type="checkbox" id="day25" onchange="updateProgress()">
+                                <label for="day25">✅ Đã hoàn thành Ngày 25</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="day-card" data-day="26">
+                        <div class="day-header" onclick="toggleDay(this)">
+                            <span class="day-number">26</span>
+                            <div class="day-title"><h3>Giao tiếp: Hỏi đường</h3></div>
+                            <span class="day-time">⏱️ 20 phút</span>
+                            <span class="toggle-icon">▼</span>
+                        </div>
+                        <div class="day-content">
+                            <div class="lesson-block">
+                                <div class="exercise-box">
+                                    <div class="exercise-item" onclick="speak('Missä on vessa')">🔊 Missä on vessa? (Nhà vệ sinh ở đâu?)</div>
+                                    <div class="exercise-item" onclick="speak('Miten pääsen rautatieasemalle')">🔊 Miten pääsen rautatieasemalle? (Làm sao đến ga tàu?)</div>
+                                    <div class="exercise-item" onclick="speak('Mene suoraan')">🔊 Mene suoraan. (Đi thẳng)</div>
+                                    <div class="exercise-item" onclick="speak('Käänny oikealle')">🔊 Käänny oikealle. (Rẽ phải)</div>
+                                </div>
+                            </div>
+                            <div class="day-checkbox">
+                                <input type="checkbox" id="day26" onchange="updateProgress()">
+                                <label for="day26">✅ Đã hoàn thành Ngày 26</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="day-card" data-day="27">
+                        <div class="day-header" onclick="toggleDay(this)">
+                            <span class="day-number">27</span>
+                            <div class="day-title"><h3>Động từ Loại 4, 5, 6</h3></div>
+                            <span class="day-time">⏱️ 20 phút</span>
+                            <span class="toggle-icon">▼</span>
+                        </div>
+                        <div class="day-content">
+                            <div class="lesson-block">
+                                <h4>📚 Tổng quan 3 loại còn lại</h4>
+                                <ul class="lesson-list">
+                                    <li><strong>Loại 4 (-ata/-ätä):</strong> haluta → haluan (tôi muốn)</li>
+                                    <li><strong>Loại 5 (-ita/-itä):</strong> tarvita → tarvitsen (tôi cần)</li>
+                                    <li><strong>Loại 6 (-eta/-etä):</strong> vanheta → vanhenen (tôi già đi)</li>
+                                </ul>
+                            </div>
+                            <div class="lesson-block">
+                                <h4>🎯 Câu ví dụ quan trọng</h4>
+                                <div class="exercise-box">
+                                    <div class="exercise-item" onclick="speak('Minä haluan oppia suomea')">🔊 Minä haluan oppia suomea. (Tôi muốn học tiếng Phần Lan)</div>
+                                    <div class="exercise-item" onclick="speak('Tarvitsen apua')">🔊 Tarvitsen apua! (Tôi cần giúp đỡ!)</div>
+                                </div>
+                            </div>
+                            <div class="day-checkbox">
+                                <input type="checkbox" id="day27" onchange="updateProgress()">
+                                <label for="day27">✅ Đã hoàn thành Ngày 27</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="day-card" data-day="28">
+                        <div class="day-header" onclick="toggleDay(this)">
+                            <span class="day-number">28</span>
+                            <div class="day-title"><h3>ÔN TẬP TUẦN 4</h3></div>
+                            <span class="day-time">⏱️ 25 phút</span>
+                            <span class="toggle-icon">▼</span>
+                        </div>
+                        <div class="day-content">
+                            <div class="lesson-block">
+                                <h4>📚 Ôn tập tuần 4</h4>
+                                <ul class="lesson-list">
+                                    <li>Từ để hỏi và câu hỏi Yes/No</li>
+                                    <li>Giao tiếp: Mua sắm, Nhà hàng, Hỏi đường</li>
+                                    <li>Động từ Loại 4, 5, 6</li>
+                                </ul>
+                            </div>
+                            <div class="day-checkbox">
+                                <input type="checkbox" id="day28" onchange="updateProgress()">
+                                <label for="day28">✅ Đã hoàn thành Ngày 28</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="day-card" data-day="29">
+                        <div class="day-header" onclick="toggleDay(this)">
+                            <span class="day-number">29</span>
+                            <div class="day-title"><h3>TỔNG ÔN TẬP (Phần 1)</h3></div>
+                            <span class="day-time">⏱️ 30 phút</span>
+                            <span class="toggle-icon">▼</span>
+                        </div>
+                        <div class="day-content">
+                            <div class="lesson-block">
+                                <h4>📚 Ôn tập tổng hợp</h4>
+                                <ul class="lesson-list">
+                                    <li>Bảng chữ cái và phát âm</li>
+                                    <li>Đại từ nhân xưng + OLLA</li>
+                                    <li>6 loại động từ</li>
+                                    <li>Câu phủ định với EI</li>
+                                </ul>
+                            </div>
+                            <div class="day-checkbox">
+                                <input type="checkbox" id="day29" onchange="updateProgress()">
+                                <label for="day29">✅ Đã hoàn thành Ngày 29</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="day-card" data-day="30">
+                        <div class="day-header" onclick="toggleDay(this)">
+                            <span class="day-number">30</span>
+                            <div class="day-title"><h3>🎉 TỔNG ÔN TẬP (Phần 2) + HOÀN THÀNH!</h3></div>
+                            <span class="day-time">⏱️ 30 phút</span>
+                            <span class="toggle-icon">▼</span>
+                        </div>
+                        <div class="day-content">
+                            <div class="lesson-block">
+                                <h4>🎊 CHÚC MỪNG BẠN ĐÃ HOÀN THÀNH 30 NGÀY!</h4>
+                                <p>Bạn đã học được:</p>
+                                <ul class="lesson-list">
+                                    <li>✅ 29 chữ cái và quy tắc phát âm</li>
+                                    <li>✅ 6 loại động từ</li>
+                                    <li>✅ 9 cách (cases) cơ bản</li>
+                                    <li>✅ 200+ từ vựng</li>
+                                    <li>✅ 50+ mẫu câu giao tiếp</li>
+                                </ul>
+                            </div>
+                            <div class="lesson-block">
+                                <h4>🚀 Bước tiếp theo</h4>
+                                <ul class="lesson-list">
+                                    <li>Tiếp tục luyện tập hàng ngày</li>
+                                    <li>Xem phim/nghe nhạc Phần Lan</li>
+                                    <li>Tìm partner để luyện nói</li>
+                                    <li>Đăng ký khóa học A1 chính thức</li>
+                                </ul>
+                            </div>
+                            <div class="exercise-box" style="text-align: center; padding: 2rem;">
+                                <h3 style="color: var(--primary);">🇫🇮 Onnea! Olet mahtava! 🎉</h3>
+                                <p>(Chúc mừng! Bạn thật tuyệt vời!)</p>
+                            </div>
+                            <div class="day-checkbox">
+                                <input type="checkbox" id="day30" onchange="updateProgress()">
+                                <label for="day30">✅ Đã hoàn thành Ngày 30 - HOÀN THÀNH KHÓA HỌC!</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <div class="overlay" id="overlay"></div>
+
+    <script src="../js/data.js"></script>
+    <script src="../js/app.js"></script>
+    <script>
+        function toggleDay(header) {
+            const card = header.parentElement;
+            card.classList.toggle('active');
+        }
+
+        function updateProgress() {
+            let completed = 0;
+            for (let i = 1; i <= 30; i++) {
+                const checkbox = document.getElementById('day' + i);
+                if (checkbox && checkbox.checked) {
+                    completed++;
+                }
+                // Save to localStorage
+                localStorage.setItem('day' + i, checkbox ? checkbox.checked : false);
+            }
+            document.getElementById('roadmapProgress').textContent = completed;
+            document.getElementById('roadmapFill').style.width = (completed / 30 * 100) + '%';
+            localStorage.setItem('roadmapCompleted', completed);
+        }
+
+        // Load progress on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            for (let i = 1; i <= 30; i++) {
+                const checkbox = document.getElementById('day' + i);
+                if (checkbox) {
+                    checkbox.checked = localStorage.getItem('day' + i) === 'true';
+                }
+            }
+            updateProgress();
+        });
+    </script>
+</body>
+</html>

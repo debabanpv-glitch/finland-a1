@@ -1,0 +1,692 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Chia Động Từ - Học Tiếng Phần Lan A1</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Mobile Header -->
+    <header class="mobile-header">
+        <a href="../index.html" class="logo">🇫🇮 Suomi A1</a>
+        <button class="menu-toggle" id="menuToggle">
+            <span></span><span></span><span></span>
+        </button>
+    </header>
+
+    <!-- Sidebar -->
+    <nav class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <a href="../index.html" class="logo">🇫🇮 Suomi A1</a>
+            <button class="dark-toggle" id="darkToggle">🌙</button>
+        </div>
+        <ul class="nav-menu">
+            <li><a href="../index.html" class="nav-link"><span class="icon">🏠</span> Trang chủ</a></li>
+            <li><a href="alphabet.html" class="nav-link"><span class="icon">🔤</span> Bảng chữ cái</a></li>
+            <li><a href="pronunciation.html" class="nav-link"><span class="icon">🎯</span> Phát âm</a></li>
+            <li><a href="grammar.html" class="nav-link"><span class="icon">📖</span> Ngữ pháp</a></li>
+            <li><a href="verbs.html" class="nav-link active"><span class="icon">⚡</span> Chia động từ</a></li>
+            <li><a href="vocabulary.html" class="nav-link"><span class="icon">📚</span> Từ vựng</a></li>
+            <li><a href="phrases.html" class="nav-link"><span class="icon">💬</span> Mẫu câu</a></li>
+            <li><a href="practice.html" class="nav-link"><span class="icon">✏️</span> Luyện tập</a></li>
+            <li><a href="roadmap.html" class="nav-link"><span class="icon">🗺️</span> Lộ trình 30 ngày</a></li>
+        </ul>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="page-header">
+            <h1>⚡ Chia Động Từ Tiếng Phần Lan</h1>
+            <p>6 loại động từ với sơ đồ cây dễ hiểu - QUAN TRỌNG NHẤT!</p>
+        </div>
+
+        <div class="page-content">
+            <!-- Overview -->
+            <div class="info-box important">
+                <strong>⭐ Đây là phần QUAN TRỌNG NHẤT trong tiếng Phần Lan!</strong>
+                <p>Nắm vững 6 loại động từ = Bạn có thể nói bất cứ điều gì!</p>
+            </div>
+
+            <!-- Common Endings -->
+            <section style="margin-bottom: 2rem;">
+                <h2 style="color: var(--primary); margin-bottom: 1rem;">📋 Bảng Đuôi Chia CHUNG Cho Tất Cả Động Từ</h2>
+                <table class="conj-table">
+                    <thead>
+                        <tr>
+                            <th>Ngôi</th>
+                            <th>Đuôi</th>
+                            <th>Ví dụ: puhu- (nói)</th>
+                            <th>Ví dụ: syö- (ăn)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr onclick="speak('Minä puhun. Minä syön.')">
+                            <td><strong>Minä</strong></td>
+                            <td class="finnish">-n</td>
+                            <td>puhu<strong>n</strong> (tôi nói)</td>
+                            <td>syö<strong>n</strong> (tôi ăn)</td>
+                        </tr>
+                        <tr onclick="speak('Sinä puhut. Sinä syöt.')">
+                            <td><strong>Sinä</strong></td>
+                            <td class="finnish">-t</td>
+                            <td>puhu<strong>t</strong> (bạn nói)</td>
+                            <td>syö<strong>t</strong> (bạn ăn)</td>
+                        </tr>
+                        <tr onclick="speak('Hän puhuu. Hän syö.')">
+                            <td><strong>Hän</strong></td>
+                            <td class="finnish">kéo dài nguyên âm *</td>
+                            <td>puhu<strong>u</strong> (anh ấy nói)</td>
+                            <td>syö (anh ấy ăn) *</td>
+                        </tr>
+                        <tr onclick="speak('Me puhumme. Me syömme.')">
+                            <td><strong>Me</strong></td>
+                            <td class="finnish">-mme</td>
+                            <td>puhu<strong>mme</strong> (chúng tôi nói)</td>
+                            <td>syö<strong>mme</strong> (chúng tôi ăn)</td>
+                        </tr>
+                        <tr onclick="speak('Te puhutte. Te syötte.')">
+                            <td><strong>Te</strong></td>
+                            <td class="finnish">-tte</td>
+                            <td>puhu<strong>tte</strong> (các bạn nói)</td>
+                            <td>syö<strong>tte</strong> (các bạn ăn)</td>
+                        </tr>
+                        <tr onclick="speak('He puhuvat. He syövät.')">
+                            <td><strong>He</strong></td>
+                            <td class="finnish">-vat/-vät</td>
+                            <td>puhu<strong>vat</strong> (họ nói)</td>
+                            <td>syö<strong>vät</strong> (họ ăn)</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="info-box tip">
+                    <strong>* Lưu ý ngôi Hän:</strong> Nếu gốc đã có nguyên âm kép (ie, uo, yö) thì KHÔNG kéo dài thêm!
+                </div>
+            </section>
+
+            <!-- Verb Types Tree -->
+            <div class="tree">
+                <div class="tree-root">🌳 6 LOẠI ĐỘNG TỪ TIẾNG PHẦN LAN</div>
+
+                <div class="tree-branches">
+                    <!-- Type 1 -->
+                    <div class="tree-branch">
+                        <div class="branch-header" onclick="toggleBranch(this)" style="border-left-color: #10b981;">
+                            <h3>🟢 LOẠI 1: Nguyên âm + A/Ä</h3>
+                            <p>puhu<strong>a</strong>, asu<strong>a</strong>, luke<strong>a</strong>, osta<strong>a</strong> - PHỔ BIẾN NHẤT</p>
+                        </div>
+                        <div class="branch-content">
+                            <div class="info-box tip">
+                                <strong>🔍 Nhận biết:</strong> Kết thúc bằng -ua, -aa, -ea, -oa, -iä, -yä, -ää...<br>
+                                <strong>📝 Tìm gốc:</strong> Bỏ -A/-Ä cuối → puhua → <strong>puhu</strong>-
+                            </div>
+
+                            <h4 style="color: var(--primary); margin: 1rem 0;">📖 PUHUA (nói) - Ví dụ đầy đủ:</h4>
+                            <table class="conj-table">
+                                <thead>
+                                    <tr><th>Ngôi</th><th>Chia</th><th>Câu ví dụ</th></tr>
+                                </thead>
+                                <tbody>
+                                    <tr onclick="speak('Minä puhun suomea')">
+                                        <td>Minä</td>
+                                        <td class="finnish">puhun</td>
+                                        <td><span class="fi">Minä puhun suomea.</span> <span class="vi">(Tôi nói tiếng Phần Lan)</span></td>
+                                    </tr>
+                                    <tr onclick="speak('Sinä puhut hyvin')">
+                                        <td>Sinä</td>
+                                        <td class="finnish">puhut</td>
+                                        <td><span class="fi">Sinä puhut hyvin.</span> <span class="vi">(Bạn nói giỏi)</span></td>
+                                    </tr>
+                                    <tr onclick="speak('Hän puhuu englantia')">
+                                        <td>Hän</td>
+                                        <td class="finnish">puhuu</td>
+                                        <td><span class="fi">Hän puhuu englantia.</span> <span class="vi">(Anh ấy nói tiếng Anh)</span></td>
+                                    </tr>
+                                    <tr onclick="speak('Me puhumme paljon')">
+                                        <td>Me</td>
+                                        <td class="finnish">puhumme</td>
+                                        <td><span class="fi">Me puhumme paljon.</span> <span class="vi">(Chúng tôi nói nhiều)</span></td>
+                                    </tr>
+                                    <tr onclick="speak('Te puhutte liian nopeasti')">
+                                        <td>Te</td>
+                                        <td class="finnish">puhutte</td>
+                                        <td><span class="fi">Te puhutte liian nopeasti.</span> <span class="vi">(Các bạn nói quá nhanh)</span></td>
+                                    </tr>
+                                    <tr onclick="speak('He puhuvat vietnamia')">
+                                        <td>He</td>
+                                        <td class="finnish">puhuvat</td>
+                                        <td><span class="fi">He puhuvat vietnamia.</span> <span class="vi">(Họ nói tiếng Việt)</span></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+                            <h4 style="color: var(--primary); margin: 1.5rem 0 1rem;">🔄 Các động từ Loại 1 khác:</h4>
+                            <div class="vocab-grid">
+                                <div class="vocab-item" onclick="speak('Minä asun Helsingissä')">
+                                    <span class="word">asua (sống)</span>
+                                    <div class="example">
+                                        <span class="fi">Minä asun Helsingissä.</span>
+                                        <span class="vi">Tôi sống ở Helsinki.</span>
+                                    </div>
+                                </div>
+                                <div class="vocab-item" onclick="speak('Hän lukee kirjaa')">
+                                    <span class="word">lukea (đọc)</span>
+                                    <div class="example">
+                                        <span class="fi">Hän lukee kirjaa.</span>
+                                        <span class="vi">Anh ấy đọc sách.</span>
+                                    </div>
+                                </div>
+                                <div class="vocab-item" onclick="speak('Me ostamme ruokaa')">
+                                    <span class="word">ostaa (mua)</span>
+                                    <div class="example">
+                                        <span class="fi">Me ostamme ruokaa.</span>
+                                        <span class="vi">Chúng tôi mua đồ ăn.</span>
+                                    </div>
+                                </div>
+                                <div class="vocab-item" onclick="speak('Sinä annat lahjan')">
+                                    <span class="word">antaa (cho)</span>
+                                    <div class="example">
+                                        <span class="fi">Sinä annat lahjan.</span>
+                                        <span class="vi">Bạn tặng quà.</span>
+                                    </div>
+                                </div>
+                                <div class="vocab-item" onclick="speak('He sanovat kiitos')">
+                                    <span class="word">sanoa (nói)</span>
+                                    <div class="example">
+                                        <span class="fi">He sanovat "kiitos".</span>
+                                        <span class="vi">Họ nói "cảm ơn".</span>
+                                    </div>
+                                </div>
+                                <div class="vocab-item" onclick="speak('Minä kuuntelen musiikkia')">
+                                    <span class="word">kuunnella (nghe)</span>
+                                    <div class="example">
+                                        <span class="fi">Minä kuuntelen musiikkia.</span>
+                                        <span class="vi">Tôi nghe nhạc.</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Type 2 -->
+                    <div class="tree-branch">
+                        <div class="branch-header" onclick="toggleBranch(this)" style="border-left-color: #3b82f6;">
+                            <h3>🔵 LOẠI 2: Kết thúc -DA/-DÄ</h3>
+                            <p>syö<strong>dä</strong>, juo<strong>da</strong>, vie<strong>dä</strong>, saa<strong>da</strong></p>
+                        </div>
+                        <div class="branch-content">
+                            <div class="info-box tip">
+                                <strong>🔍 Nhận biết:</strong> Kết thúc bằng -da hoặc -dä<br>
+                                <strong>📝 Tìm gốc:</strong> Bỏ -DA/-DÄ → syödä → <strong>syö</strong>-
+                            </div>
+                            <div class="info-box warning">
+                                <strong>⚠️ LƯU Ý:</strong> Ngôi Hän KHÔNG kéo dài nguyên âm vì gốc đã có nguyên âm kép!
+                            </div>
+
+                            <h4 style="color: var(--primary); margin: 1rem 0;">📖 SYÖDÄ (ăn) - Ví dụ đầy đủ:</h4>
+                            <table class="conj-table">
+                                <thead>
+                                    <tr><th>Ngôi</th><th>Chia</th><th>Câu ví dụ</th></tr>
+                                </thead>
+                                <tbody>
+                                    <tr onclick="speak('Minä syön aamupalaa')">
+                                        <td>Minä</td>
+                                        <td class="finnish">syön</td>
+                                        <td><span class="fi">Minä syön aamupalaa.</span> <span class="vi">(Tôi ăn sáng)</span></td>
+                                    </tr>
+                                    <tr onclick="speak('Sinä syöt nopeasti')">
+                                        <td>Sinä</td>
+                                        <td class="finnish">syöt</td>
+                                        <td><span class="fi">Sinä syöt nopeasti.</span> <span class="vi">(Bạn ăn nhanh)</span></td>
+                                    </tr>
+                                    <tr onclick="speak('Hän syö kalaa')">
+                                        <td>Hän</td>
+                                        <td class="finnish">syö ⚠️</td>
+                                        <td><span class="fi">Hän syö kalaa.</span> <span class="vi">(Anh ấy ăn cá)</span></td>
+                                    </tr>
+                                    <tr onclick="speak('Me syömme yhdessä')">
+                                        <td>Me</td>
+                                        <td class="finnish">syömme</td>
+                                        <td><span class="fi">Me syömme yhdessä.</span> <span class="vi">(Chúng tôi ăn cùng nhau)</span></td>
+                                    </tr>
+                                    <tr onclick="speak('Te syötte paljon')">
+                                        <td>Te</td>
+                                        <td class="finnish">syötte</td>
+                                        <td><span class="fi">Te syötte paljon.</span> <span class="vi">(Các bạn ăn nhiều)</span></td>
+                                    </tr>
+                                    <tr onclick="speak('He syövät ravintolassa')">
+                                        <td>He</td>
+                                        <td class="finnish">syövät</td>
+                                        <td><span class="fi">He syövät ravintolassa.</span> <span class="vi">(Họ ăn ở nhà hàng)</span></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+                            <h4 style="color: var(--primary); margin: 1.5rem 0 1rem;">🔄 Các động từ Loại 2 khác:</h4>
+                            <div class="vocab-grid">
+                                <div class="vocab-item" onclick="speak('Minä juon kahvia')">
+                                    <span class="word">juoda (uống)</span>
+                                    <div class="example">
+                                        <span class="fi">Minä juon kahvia.</span>
+                                        <span class="vi">Tôi uống cà phê.</span>
+                                    </div>
+                                </div>
+                                <div class="vocab-item" onclick="speak('Hän vie lapset kouluun')">
+                                    <span class="word">viedä (mang đi)</span>
+                                    <div class="example">
+                                        <span class="fi">Hän vie lapset kouluun.</span>
+                                        <span class="vi">Anh ấy đưa con đến trường.</span>
+                                    </div>
+                                </div>
+                                <div class="vocab-item" onclick="speak('Sinä tuot lahjoja')">
+                                    <span class="word">tuoda (mang đến)</span>
+                                    <div class="example">
+                                        <span class="fi">Sinä tuot lahjoja.</span>
+                                        <span class="vi">Bạn mang quà đến.</span>
+                                    </div>
+                                </div>
+                                <div class="vocab-item" onclick="speak('Me saamme rahaa')">
+                                    <span class="word">saada (được/nhận)</span>
+                                    <div class="example">
+                                        <span class="fi">Me saamme rahaa.</span>
+                                        <span class="vi">Chúng tôi nhận tiền.</span>
+                                    </div>
+                                </div>
+                                <div class="vocab-item" onclick="speak('He käyvät kaupassa')">
+                                    <span class="word">käydä (đi/ghé)</span>
+                                    <div class="example">
+                                        <span class="fi">He käyvät kaupassa.</span>
+                                        <span class="vi">Họ ghé cửa hàng.</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Type 3 -->
+                    <div class="tree-branch">
+                        <div class="branch-header" onclick="toggleBranch(this)" style="border-left-color: #8b5cf6;">
+                            <h3>🟣 LOẠI 3: Phụ âm + A/Ä</h3>
+                            <p>tu<strong>lla</strong>, men<strong>nä</strong>, o<strong>lla</strong>, nous<strong>ta</strong></p>
+                        </div>
+                        <div class="branch-content">
+                            <div class="info-box tip">
+                                <strong>🔍 Nhận biết:</strong> Có PHỤ ÂM trước -a/-ä (như -lla, -nna, -sta, -rra)<br>
+                                <strong>📝 Tìm gốc:</strong> Bỏ -A/-Ä, thêm -E → tulla → <strong>tule</strong>-
+                            </div>
+                            <div class="info-box important">
+                                <strong>⚠️ OLLA là BẤT QUY TẮC:</strong> Hän = <strong>on</strong>, He = <strong>ovat</strong>
+                            </div>
+
+                            <h4 style="color: var(--primary); margin: 1rem 0;">📖 TULLA (đến) - Ví dụ đầy đủ:</h4>
+                            <table class="conj-table">
+                                <thead>
+                                    <tr><th>Ngôi</th><th>Chia</th><th>Câu ví dụ</th></tr>
+                                </thead>
+                                <tbody>
+                                    <tr onclick="speak('Minä tulen kotiin')">
+                                        <td>Minä</td>
+                                        <td class="finnish">tulen</td>
+                                        <td><span class="fi">Minä tulen kotiin.</span> <span class="vi">(Tôi về nhà)</span></td>
+                                    </tr>
+                                    <tr onclick="speak('Sinä tulet huomenna')">
+                                        <td>Sinä</td>
+                                        <td class="finnish">tulet</td>
+                                        <td><span class="fi">Sinä tulet huomenna.</span> <span class="vi">(Bạn đến ngày mai)</span></td>
+                                    </tr>
+                                    <tr onclick="speak('Hän tulee Suomesta')">
+                                        <td>Hän</td>
+                                        <td class="finnish">tulee</td>
+                                        <td><span class="fi">Hän tulee Suomesta.</span> <span class="vi">(Anh ấy đến từ Phần Lan)</span></td>
+                                    </tr>
+                                    <tr onclick="speak('Me tulemme myöhään')">
+                                        <td>Me</td>
+                                        <td class="finnish">tulemme</td>
+                                        <td><span class="fi">Me tulemme myöhään.</span> <span class="vi">(Chúng tôi đến muộn)</span></td>
+                                    </tr>
+                                    <tr onclick="speak('Te tulette ajoissa')">
+                                        <td>Te</td>
+                                        <td class="finnish">tulette</td>
+                                        <td><span class="fi">Te tulette ajoissa.</span> <span class="vi">(Các bạn đến đúng giờ)</span></td>
+                                    </tr>
+                                    <tr onclick="speak('He tulevat bussilla')">
+                                        <td>He</td>
+                                        <td class="finnish">tulevat</td>
+                                        <td><span class="fi">He tulevat bussilla.</span> <span class="vi">(Họ đến bằng xe buýt)</span></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+                            <h4 style="color: var(--primary); margin: 1.5rem 0 1rem;">🔄 Các động từ Loại 3 khác:</h4>
+                            <div class="vocab-grid">
+                                <div class="vocab-item" onclick="speak('Minä menen kouluun')">
+                                    <span class="word">mennä (đi)</span>
+                                    <div class="example">
+                                        <span class="fi">Minä menen kouluun.</span>
+                                        <span class="vi">Tôi đi học.</span>
+                                    </div>
+                                </div>
+                                <div class="vocab-item" onclick="speak('Hän on kotona')">
+                                    <span class="word">olla (là/ở) ⚠️</span>
+                                    <div class="example">
+                                        <span class="fi">Hän <strong>on</strong> kotona.</span>
+                                        <span class="vi">Anh ấy ở nhà.</span>
+                                    </div>
+                                </div>
+                                <div class="vocab-item" onclick="speak('Me nousemme aikaisin')">
+                                    <span class="word">nousta (đứng dậy)</span>
+                                    <div class="example">
+                                        <span class="fi">Me nousemme aikaisin.</span>
+                                        <span class="vi">Chúng tôi dậy sớm.</span>
+                                    </div>
+                                </div>
+                                <div class="vocab-item" onclick="speak('Sinä peset kädet')">
+                                    <span class="word">pestä (rửa)</span>
+                                    <div class="example">
+                                        <span class="fi">Sinä peset kädet.</span>
+                                        <span class="vi">Bạn rửa tay.</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Type 4 -->
+                    <div class="tree-branch">
+                        <div class="branch-header" onclick="toggleBranch(this)" style="border-left-color: #f59e0b;">
+                            <h3>🟠 LOẠI 4: Nguyên âm + TA/TÄ</h3>
+                            <p>halu<strong>ta</strong>, tava<strong>ta</strong>, herä<strong>tä</strong></p>
+                        </div>
+                        <div class="branch-content">
+                            <div class="info-box tip">
+                                <strong>🔍 Nhận biết:</strong> NGUYÊN ÂM + ta/tä (như -ata, -ota, -ätä)<br>
+                                <strong>📝 Tìm gốc:</strong> Bỏ -TA/-TÄ, thêm -A/-Ä → haluta → <strong>halua</strong>-
+                            </div>
+                            <div class="info-box warning">
+                                <strong>⚠️ Có thể có biến đổi phụ âm (consonant gradation)</strong>
+                            </div>
+
+                            <h4 style="color: var(--primary); margin: 1rem 0;">📖 HALUTA (muốn) - Ví dụ đầy đủ:</h4>
+                            <table class="conj-table">
+                                <thead>
+                                    <tr><th>Ngôi</th><th>Chia</th><th>Câu ví dụ</th></tr>
+                                </thead>
+                                <tbody>
+                                    <tr onclick="speak('Minä haluan kahvia')">
+                                        <td>Minä</td>
+                                        <td class="finnish">haluan</td>
+                                        <td><span class="fi">Minä haluan kahvia.</span> <span class="vi">(Tôi muốn cà phê)</span></td>
+                                    </tr>
+                                    <tr onclick="speak('Sinä haluat nukkua')">
+                                        <td>Sinä</td>
+                                        <td class="finnish">haluat</td>
+                                        <td><span class="fi">Sinä haluat nukkua.</span> <span class="vi">(Bạn muốn ngủ)</span></td>
+                                    </tr>
+                                    <tr onclick="speak('Hän haluaa oppia suomea')">
+                                        <td>Hän</td>
+                                        <td class="finnish">haluaa</td>
+                                        <td><span class="fi">Hän haluaa oppia suomea.</span> <span class="vi">(Anh ấy muốn học tiếng Phần Lan)</span></td>
+                                    </tr>
+                                    <tr onclick="speak('Me haluamme matkustaa')">
+                                        <td>Me</td>
+                                        <td class="finnish">haluamme</td>
+                                        <td><span class="fi">Me haluamme matkustaa.</span> <span class="vi">(Chúng tôi muốn du lịch)</span></td>
+                                    </tr>
+                                    <tr onclick="speak('Te haluatte syödä')">
+                                        <td>Te</td>
+                                        <td class="finnish">haluatte</td>
+                                        <td><span class="fi">Te haluatte syödä.</span> <span class="vi">(Các bạn muốn ăn)</span></td>
+                                    </tr>
+                                    <tr onclick="speak('He haluavat tanssia')">
+                                        <td>He</td>
+                                        <td class="finnish">haluavat</td>
+                                        <td><span class="fi">He haluavat tanssia.</span> <span class="vi">(Họ muốn nhảy)</span></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+                            <h4 style="color: var(--primary); margin: 1.5rem 0 1rem;">🔄 Các động từ Loại 4 khác:</h4>
+                            <div class="vocab-grid">
+                                <div class="vocab-item" onclick="speak('Minä tapaan ystäviä')">
+                                    <span class="word">tavata (gặp)</span>
+                                    <div class="example">
+                                        <span class="fi">Minä tapaan ystäviä.</span>
+                                        <span class="vi">Tôi gặp bạn bè.</span>
+                                    </div>
+                                </div>
+                                <div class="vocab-item" onclick="speak('Hän herää aikaisin')">
+                                    <span class="word">herätä (thức dậy)</span>
+                                    <div class="example">
+                                        <span class="fi">Hän herää aikaisin.</span>
+                                        <span class="vi">Anh ấy thức dậy sớm.</span>
+                                    </div>
+                                </div>
+                                <div class="vocab-item" onclick="speak('Me pelkäämme koiraa')">
+                                    <span class="word">pelätä (sợ)</span>
+                                    <div class="example">
+                                        <span class="fi">Me pelkäämme koiraa.</span>
+                                        <span class="vi">Chúng tôi sợ chó.</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Type 5 -->
+                    <div class="tree-branch">
+                        <div class="branch-header" onclick="toggleBranch(this)" style="border-left-color: #ec4899;">
+                            <h3>🔴 LOẠI 5: Kết thúc -ITA/-ITÄ</h3>
+                            <p>tarv<strong>ita</strong>, val<strong>ita</strong>, häir<strong>itä</strong></p>
+                        </div>
+                        <div class="branch-content">
+                            <div class="info-box tip">
+                                <strong>🔍 Nhận biết:</strong> Kết thúc bằng -ita hoặc -itä<br>
+                                <strong>📝 Tìm gốc:</strong> Bỏ -TA/-TÄ, thêm -TSE → tarvita → <strong>tarvitse</strong>-
+                            </div>
+
+                            <h4 style="color: var(--primary); margin: 1rem 0;">📖 TARVITA (cần) - Ví dụ đầy đủ:</h4>
+                            <table class="conj-table">
+                                <thead>
+                                    <tr><th>Ngôi</th><th>Chia</th><th>Câu ví dụ</th></tr>
+                                </thead>
+                                <tbody>
+                                    <tr onclick="speak('Minä tarvitsen apua')">
+                                        <td>Minä</td>
+                                        <td class="finnish">tarvitsen</td>
+                                        <td><span class="fi">Minä tarvitsen apua.</span> <span class="vi">(Tôi cần giúp đỡ)</span></td>
+                                    </tr>
+                                    <tr onclick="speak('Sinä tarvitset rahaa')">
+                                        <td>Sinä</td>
+                                        <td class="finnish">tarvitset</td>
+                                        <td><span class="fi">Sinä tarvitset rahaa.</span> <span class="vi">(Bạn cần tiền)</span></td>
+                                    </tr>
+                                    <tr onclick="speak('Hän tarvitsee aikaa')">
+                                        <td>Hän</td>
+                                        <td class="finnish">tarvitsee</td>
+                                        <td><span class="fi">Hän tarvitsee aikaa.</span> <span class="vi">(Anh ấy cần thời gian)</span></td>
+                                    </tr>
+                                    <tr onclick="speak('Me tarvitsemme autoa')">
+                                        <td>Me</td>
+                                        <td class="finnish">tarvitsemme</td>
+                                        <td><span class="fi">Me tarvitsemme autoa.</span> <span class="vi">(Chúng tôi cần ô tô)</span></td>
+                                    </tr>
+                                    <tr onclick="speak('Te tarvitsette lääkäriä')">
+                                        <td>Te</td>
+                                        <td class="finnish">tarvitsette</td>
+                                        <td><span class="fi">Te tarvitsette lääkäriä.</span> <span class="vi">(Các bạn cần bác sĩ)</span></td>
+                                    </tr>
+                                    <tr onclick="speak('He tarvitsevat lepoa')">
+                                        <td>He</td>
+                                        <td class="finnish">tarvitsevat</td>
+                                        <td><span class="fi">He tarvitsevat lepoa.</span> <span class="vi">(Họ cần nghỉ ngơi)</span></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+                            <h4 style="color: var(--primary); margin: 1.5rem 0 1rem;">🔄 Các động từ Loại 5 khác:</h4>
+                            <div class="vocab-grid">
+                                <div class="vocab-item" onclick="speak('Minä valitsen tämän')">
+                                    <span class="word">valita (chọn)</span>
+                                    <div class="example">
+                                        <span class="fi">Minä valitsen tämän.</span>
+                                        <span class="vi">Tôi chọn cái này.</span>
+                                    </div>
+                                </div>
+                                <div class="vocab-item" onclick="speak('Älä häiritse minua')">
+                                    <span class="word">häiritä (làm phiền)</span>
+                                    <div class="example">
+                                        <span class="fi">Älä häiritse minua!</span>
+                                        <span class="vi">Đừng làm phiền tôi!</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Type 6 -->
+                    <div class="tree-branch">
+                        <div class="branch-header" onclick="toggleBranch(this)" style="border-left-color: #6366f1;">
+                            <h3>🔷 LOẠI 6: Kết thúc -ETA/-ETÄ</h3>
+                            <p>vanh<strong>eta</strong>, pa<strong>eta</strong>, kylm<strong>etä</strong></p>
+                        </div>
+                        <div class="branch-content">
+                            <div class="info-box tip">
+                                <strong>🔍 Nhận biết:</strong> Kết thúc bằng -eta hoặc -etä<br>
+                                <strong>📝 Tìm gốc:</strong> Bỏ -TA/-TÄ, thêm -NE → vanheta → <strong>vanhene</strong>-
+                            </div>
+
+                            <h4 style="color: var(--primary); margin: 1rem 0;">📖 VANHETA (già đi) - Ví dụ đầy đủ:</h4>
+                            <table class="conj-table">
+                                <thead>
+                                    <tr><th>Ngôi</th><th>Chia</th><th>Câu ví dụ</th></tr>
+                                </thead>
+                                <tbody>
+                                    <tr onclick="speak('Minä vanhenen joka päivä')">
+                                        <td>Minä</td>
+                                        <td class="finnish">vanhenen</td>
+                                        <td><span class="fi">Minä vanhenen joka päivä.</span> <span class="vi">(Tôi già đi mỗi ngày)</span></td>
+                                    </tr>
+                                    <tr onclick="speak('Sinä et vanhene')">
+                                        <td>Sinä</td>
+                                        <td class="finnish">vanhenet</td>
+                                        <td><span class="fi">Sinä et vanhene!</span> <span class="vi">(Bạn không già đi!)</span></td>
+                                    </tr>
+                                    <tr onclick="speak('Hän vanhenee nopeasti')">
+                                        <td>Hän</td>
+                                        <td class="finnish">vanhenee</td>
+                                        <td><span class="fi">Hän vanhenee nopeasti.</span> <span class="vi">(Anh ấy già nhanh)</span></td>
+                                    </tr>
+                                    <tr onclick="speak('Me vanhenemme yhdessä')">
+                                        <td>Me</td>
+                                        <td class="finnish">vanhenemme</td>
+                                        <td><span class="fi">Me vanhenemme yhdessä.</span> <span class="vi">(Chúng ta già đi cùng nhau)</span></td>
+                                    </tr>
+                                    <tr onclick="speak('Te vanhenette kauniisti')">
+                                        <td>Te</td>
+                                        <td class="finnish">vanhenette</td>
+                                        <td><span class="fi">Te vanhenette kauniisti.</span> <span class="vi">(Các bạn già đi đẹp)</span></td>
+                                    </tr>
+                                    <tr onclick="speak('He vanhenevat')">
+                                        <td>He</td>
+                                        <td class="finnish">vanhenevat</td>
+                                        <td><span class="fi">He vanhenevat.</span> <span class="vi">(Họ già đi)</span></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+                            <h4 style="color: var(--primary); margin: 1.5rem 0 1rem;">🔄 Các động từ Loại 6 khác:</h4>
+                            <div class="vocab-grid">
+                                <div class="vocab-item" onclick="speak('Hän pakenee')">
+                                    <span class="word">paeta (chạy trốn)</span>
+                                    <div class="example">
+                                        <span class="fi">Hän pakenee.</span>
+                                        <span class="vi">Anh ấy chạy trốn.</span>
+                                    </div>
+                                </div>
+                                <div class="vocab-item" onclick="speak('Sää kylmenee')">
+                                    <span class="word">kylmetä (lạnh đi)</span>
+                                    <div class="example">
+                                        <span class="fi">Sää kylmenee.</span>
+                                        <span class="vi">Thời tiết lạnh đi.</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Quick Reference -->
+            <section style="margin-top: 2rem;">
+                <h2 style="color: var(--primary); margin-bottom: 1rem;">📊 Bảng Tóm Tắt Nhanh</h2>
+                <table class="conj-table">
+                    <thead>
+                        <tr>
+                            <th>Loại</th>
+                            <th>Nhận biết</th>
+                            <th>Tìm gốc</th>
+                            <th>Ví dụ</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr style="background: rgba(16, 185, 129, 0.1);">
+                            <td><strong>1</strong></td>
+                            <td>Nguyên âm + a/ä</td>
+                            <td>Bỏ -a/-ä</td>
+                            <td>puhua → puhu-</td>
+                        </tr>
+                        <tr style="background: rgba(59, 130, 246, 0.1);">
+                            <td><strong>2</strong></td>
+                            <td>-da/-dä</td>
+                            <td>Bỏ -da/-dä</td>
+                            <td>syödä → syö-</td>
+                        </tr>
+                        <tr style="background: rgba(139, 92, 246, 0.1);">
+                            <td><strong>3</strong></td>
+                            <td>Phụ âm + a/ä</td>
+                            <td>Bỏ -a/-ä, thêm -e</td>
+                            <td>tulla → tule-</td>
+                        </tr>
+                        <tr style="background: rgba(245, 158, 11, 0.1);">
+                            <td><strong>4</strong></td>
+                            <td>Nguyên âm + ta/tä</td>
+                            <td>Bỏ -ta/-tä, thêm -a/-ä</td>
+                            <td>haluta → halua-</td>
+                        </tr>
+                        <tr style="background: rgba(236, 72, 153, 0.1);">
+                            <td><strong>5</strong></td>
+                            <td>-ita/-itä</td>
+                            <td>Bỏ -ta/-tä, thêm -tse</td>
+                            <td>tarvita → tarvitse-</td>
+                        </tr>
+                        <tr style="background: rgba(99, 102, 241, 0.1);">
+                            <td><strong>6</strong></td>
+                            <td>-eta/-etä</td>
+                            <td>Bỏ -ta/-tä, thêm -ne</td>
+                            <td>vanheta → vanhene-</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <!-- Navigation -->
+            <div style="display: flex; justify-content: space-between; margin-top: 2rem; padding-top: 2rem; border-top: 1px solid var(--border);">
+                <a href="grammar.html" class="btn btn-secondary">← Ngữ pháp</a>
+                <a href="vocabulary.html" class="btn btn-primary">Từ vựng →</a>
+            </div>
+        </div>
+    </main>
+
+    <div class="overlay" id="overlay"></div>
+
+    <script src="../js/data.js"></script>
+    <script src="../js/app.js"></script>
+    <script>
+        function toggleBranch(header) {
+            const content = header.nextElementSibling;
+            content.classList.toggle('active');
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Bảng chữ cái - Học Tiếng Phần Lan A1</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Mobile Header -->
+    <header class="mobile-header">
+        <a href="../index.html" class="logo">🇫🇮 Suomi A1</a>
+        <button class="menu-toggle" id="menuToggle">
+            <span></span><span></span><span></span>
+        </button>
+    </header>
+
+    <!-- Sidebar Navigation -->
+    <nav class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <a href="../index.html" class="logo">🇫🇮 Suomi A1</a>
+            <button class="dark-toggle" id="darkToggle">🌙</button>
+        </div>
+        <ul class="nav-menu">
+            <li><a href="../index.html" class="nav-link"><span class="icon">🏠</span> Trang chủ</a></li>
+            <li><a href="alphabet.html" class="nav-link active"><span class="icon">🔤</span> Bảng chữ cái</a></li>
+            <li><a href="pronunciation.html" class="nav-link"><span class="icon">🎯</span> Phát âm</a></li>
+            <li><a href="grammar.html" class="nav-link"><span class="icon">📖</span> Ngữ pháp</a></li>
+            <li><a href="verbs.html" class="nav-link"><span class="icon">⚡</span> Chia động từ</a></li>
+            <li><a href="vocabulary.html" class="nav-link"><span class="icon">📚</span> Từ vựng</a></li>
+            <li><a href="phrases.html" class="nav-link"><span class="icon">💬</span> Mẫu câu</a></li>
+            <li><a href="practice.html" class="nav-link"><span class="icon">✏️</span> Luyện tập</a></li>
+            <li><a href="roadmap.html" class="nav-link"><span class="icon">🗺️</span> Lộ trình 30 ngày</a></li>
+        </ul>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <section class="page-header">
+            <h1>🔤 Bảng chữ cái tiếng Phần Lan</h1>
+            <p>29 chữ cái với phát âm chi tiết - Nhấn vào từng chữ để nghe</p>
+        </section>
+
+        <!-- Quick Info -->
+        <section class="info-box">
+            <h3>📌 Thông tin quan trọng</h3>
+            <ul>
+                <li>Tiếng Phần Lan có <strong>29 chữ cái</strong> (26 chữ Latin + Å, Ä, Ö)</li>
+                <li>Chữ <strong>Å</strong> chỉ dùng trong tên riêng gốc Thụy Điển</li>
+                <li>Các chữ đặc biệt cần chú ý: <strong>J, Y, Ä, Ö</strong></li>
+                <li>Tiếng Phần Lan phát âm gần như <strong>đọc sao viết vậy</strong></li>
+            </ul>
+        </section>
+
+        <!-- Alphabet Grid -->
+        <section class="alphabet-section">
+            <h2 class="section-title">Bảng chữ cái đầy đủ</h2>
+            <div class="alphabet-grid">
+                <div class="letter-card" onclick="speak('A')">
+                    <span class="letter">A a</span>
+                    <span class="pronunciation">/a/</span>
+                    <span class="vietnamese">như "a" trong "ba"</span>
+                    <div class="example">auto = ô tô</div>
+                    <button class="speak-btn">🔊</button>
+                </div>
+                <div class="letter-card" onclick="speak('B')">
+                    <span class="letter">B b</span>
+                    <span class="pronunciation">/be/</span>
+                    <span class="vietnamese">như "b" trong "bé"</span>
+                    <div class="example">bussi = xe buýt</div>
+                    <button class="speak-btn">🔊</button>
+                </div>
+                <div class="letter-card" onclick="speak('C')">
+                    <span class="letter">C c</span>
+                    <span class="pronunciation">/se/</span>
+                    <span class="vietnamese">như "s" hoặc "k"</span>
+                    <div class="example">celsius (từ mượn)</div>
+                    <button class="speak-btn">🔊</button>
+                </div>
+                <div class="letter-card" onclick="speak('D')">
+                    <span class="letter">D d</span>
+                    <span class="pronunciation">/de/</span>
+                    <span class="vietnamese">như "d" trong tiếng Việt</span>
+                    <div class="example">disko = vũ trường</div>
+                    <button class="speak-btn">🔊</button>
+                </div>
+                <div class="letter-card" onclick="speak('E')">
+                    <span class="letter">E e</span>
+                    <span class="pronunciation">/e/</span>
+                    <span class="vietnamese">như "e" trong "xe"</span>
+                    <div class="example">elokuva = phim</div>
+                    <button class="speak-btn">🔊</button>
+                </div>
+                <div class="letter-card" onclick="speak('F')">
+                    <span class="letter">F f</span>
+                    <span class="pronunciation">/ef/</span>
+                    <span class="vietnamese">như "ph" trong tiếng Việt</span>
+                    <div class="example">filmi = phim</div>
+                    <button class="speak-btn">🔊</button>
+                </div>
+                <div class="letter-card" onclick="speak('G')">
+                    <span class="letter">G g</span>
+                    <span class="pronunciation">/ge/</span>
+                    <span class="vietnamese">như "g" cứng</span>
+                    <div class="example">galleria = phòng tranh</div>
+                    <button class="speak-btn">🔊</button>
+                </div>
+                <div class="letter-card" onclick="speak('H')">
+                    <span class="letter">H h</span>
+                    <span class="pronunciation">/ho/</span>
+                    <span class="vietnamese">như "h" trong "hoa"</span>
+                    <div class="example">hei = xin chào</div>
+                    <button class="speak-btn">🔊</button>
+                </div>
+                <div class="letter-card" onclick="speak('I')">
+                    <span class="letter">I i</span>
+                    <span class="pronunciation">/i/</span>
+                    <span class="vietnamese">như "i" trong "di"</span>
+                    <div class="example">isä = bố</div>
+                    <button class="speak-btn">🔊</button>
+                </div>
+                <div class="letter-card special" onclick="speak('J')">
+                    <span class="letter">J j</span>
+                    <span class="pronunciation">/ji/</span>
+                    <span class="vietnamese">⚠️ như "y" trong "yêu"</span>
+                    <div class="example">ja = và</div>
+                    <button class="speak-btn">🔊</button>
+                </div>
+                <div class="letter-card" onclick="speak('K')">
+                    <span class="letter">K k</span>
+                    <span class="pronunciation">/ko/</span>
+                    <span class="vietnamese">như "c" trong "ca"</span>
+                    <div class="example">koti = nhà</div>
+                    <button class="speak-btn">🔊</button>
+                </div>
+                <div class="letter-card" onclick="speak('L')">
+                    <span class="letter">L l</span>
+                    <span class="pronunciation">/el/</span>
+                    <span class="vietnamese">như "l" trong "la"</span>
+                    <div class="example">lapsi = trẻ em</div>
+                    <button class="speak-btn">🔊</button>
+                </div>
+                <div class="letter-card" onclick="speak('M')">
+                    <span class="letter">M m</span>
+                    <span class="pronunciation">/em/</span>
+                    <span class="vietnamese">như "m" trong "me"</span>
+                    <div class="example">minä = tôi</div>
+                    <button class="speak-btn">🔊</button>
+                </div>
+                <div class="letter-card" onclick="speak('N')">
+                    <span class="letter">N n</span>
+                    <span class="pronunciation">/en/</span>
+                    <span class="vietnamese">như "n" trong "na"</span>
+                    <div class="example">nimi = tên</div>
+                    <button class="speak-btn">🔊</button>
+                </div>
+                <div class="letter-card" onclick="speak('O')">
+                    <span class="letter">O o</span>
+                    <span class="pronunciation">/o/</span>
+                    <span class="vietnamese">như "ô" trong "bô"</span>
+                    <div class="example">olla = là/ở</div>
+                    <button class="speak-btn">🔊</button>
+                </div>
+                <div class="letter-card" onclick="speak('P')">
+                    <span class="letter">P p</span>
+                    <span class="pronunciation">/pe/</span>
+                    <span class="vietnamese">như "p" nhẹ</span>
+                    <div class="example">puhua = nói</div>
+                    <button class="speak-btn">🔊</button>
+                </div>
+                <div class="letter-card" onclick="speak('Q')">
+                    <span class="letter">Q q</span>
+                    <span class="pronunciation">/ku/</span>
+                    <span class="vietnamese">hiếm dùng</span>
+                    <div class="example">(từ mượn)</div>
+                    <button class="speak-btn">🔊</button>
+                </div>
+                <div class="letter-card" onclick="speak('R')">
+                    <span class="letter">R r</span>
+                    <span class="pronunciation">/er/</span>
+                    <span class="vietnamese">rung lưỡi nhẹ</span>
+                    <div class="example">ruoka = đồ ăn</div>
+                    <button class="speak-btn">🔊</button>
+                </div>
+                <div class="letter-card" onclick="speak('S')">
+                    <span class="letter">S s</span>
+                    <span class="pronunciation">/es/</span>
+                    <span class="vietnamese">như "x" trong "xa"</span>
+                    <div class="example">suomi = tiếng Phần Lan</div>
+                    <button class="speak-btn">🔊</button>
+                </div>
+                <div class="letter-card" onclick="speak('T')">
+                    <span class="letter">T t</span>
+                    <span class="pronunciation">/te/</span>
+                    <span class="vietnamese">như "t" trong "ta"</span>
+                    <div class="example">talo = nhà</div>
+                    <button class="speak-btn">🔊</button>
+                </div>
+                <div class="letter-card" onclick="speak('U')">
+                    <span class="letter">U u</span>
+                    <span class="pronunciation">/u/</span>
+                    <span class="vietnamese">như "u" trong "bu"</span>
+                    <div class="example">uusi = mới</div>
+                    <button class="speak-btn">🔊</button>
+                </div>
+                <div class="letter-card" onclick="speak('V')">
+                    <span class="letter">V v</span>
+                    <span class="pronunciation">/ve/</span>
+                    <span class="vietnamese">như "v" trong "va"</span>
+                    <div class="example">vesi = nước</div>
+                    <button class="speak-btn">🔊</button>
+                </div>
+                <div class="letter-card" onclick="speak('W')">
+                    <span class="letter">W w</span>
+                    <span class="pronunciation">/ve/</span>
+                    <span class="vietnamese">hiếm dùng (như V)</span>
+                    <div class="example">(từ mượn)</div>
+                    <button class="speak-btn">🔊</button>
+                </div>
+                <div class="letter-card" onclick="speak('X')">
+                    <span class="letter">X x</span>
+                    <span class="pronunciation">/eks/</span>
+                    <span class="vietnamese">hiếm dùng</span>
+                    <div class="example">(từ mượn)</div>
+                    <button class="speak-btn">🔊</button>
+                </div>
+                <div class="letter-card special" onclick="speak('Y')">
+                    <span class="letter">Y y</span>
+                    <span class="pronunciation">/y/</span>
+                    <span class="vietnamese">⚠️ như "uy" trong "thủy"</span>
+                    <div class="example">yksi = một</div>
+                    <button class="speak-btn">🔊</button>
+                </div>
+                <div class="letter-card" onclick="speak('Z')">
+                    <span class="letter">Z z</span>
+                    <span class="pronunciation">/tset/</span>
+                    <span class="vietnamese">hiếm dùng</span>
+                    <div class="example">(từ mượn)</div>
+                    <button class="speak-btn">🔊</button>
+                </div>
+                <div class="letter-card rare" onclick="speak('Å')">
+                    <span class="letter">Å å</span>
+                    <span class="pronunciation">/o/</span>
+                    <span class="vietnamese">như "o" (gốc Thụy Điển)</span>
+                    <div class="example">Åland (địa danh)</div>
+                    <button class="speak-btn">🔊</button>
+                </div>
+                <div class="letter-card special" onclick="speak('Ä')">
+                    <span class="letter">Ä ä</span>
+                    <span class="pronunciation">/æ/</span>
+                    <span class="vietnamese">⚠️ như "e" mở rộng</span>
+                    <div class="example">äiti = mẹ</div>
+                    <button class="speak-btn">🔊</button>
+                </div>
+                <div class="letter-card special" onclick="speak('Ö')">
+                    <span class="letter">Ö ö</span>
+                    <span class="pronunciation">/ø/</span>
+                    <span class="vietnamese">⚠️ như "ơ" tròn môi</span>
+                    <div class="example">öljy = dầu</div>
+                    <button class="speak-btn">🔊</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Special Letters -->
+        <section class="special-section">
+            <h2 class="section-title">⭐ Chữ cái đặc biệt cần chú ý</h2>
+
+            <div class="special-grid">
+                <div class="special-card">
+                    <div class="special-letter">J j</div>
+                    <div class="special-content">
+                        <h4>Phát âm như "Y" trong tiếng Việt</h4>
+                        <p><strong>KHÔNG</strong> đọc như "J" trong tiếng Anh!</p>
+                        <div class="special-examples">
+                            <div class="example-item" onclick="speak('ja')">
+                                <span class="fi">ja</span> = và → đọc "ya"
+                            </div>
+                            <div class="example-item" onclick="speak('joki')">
+                                <span class="fi">joki</span> = sông → đọc "yo-ki"
+                            </div>
+                            <div class="example-item" onclick="speak('juusto')">
+                                <span class="fi">juusto</span> = phô mai → đọc "yuu-sto"
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="special-card">
+                    <div class="special-letter">Y y</div>
+                    <div class="special-content">
+                        <h4>Phát âm như "UY" trong "thuỷ"</h4>
+                        <p>Môi tròn, lưỡi cao như "i"</p>
+                        <div class="special-examples">
+                            <div class="example-item" onclick="speak('yksi')">
+                                <span class="fi">yksi</span> = một → đọc "uy-ksi"
+                            </div>
+                            <div class="example-item" onclick="speak('hyvä')">
+                                <span class="fi">hyvä</span> = tốt → đọc "huy-vä"
+                            </div>
+                            <div class="example-item" onclick="speak('työ')">
+                                <span class="fi">työ</span> = công việc → đọc "tuy-ö"
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="special-card">
+                    <div class="special-letter">Ä ä</div>
+                    <div class="special-content">
+                        <h4>Phát âm như "E" mở rộng miệng</h4>
+                        <p>Giống "a" trong "cat" tiếng Anh</p>
+                        <div class="special-examples">
+                            <div class="example-item" onclick="speak('äiti')">
+                                <span class="fi">äiti</span> = mẹ → đọc "ä-i-ti"
+                            </div>
+                            <div class="example-item" onclick="speak('hyvää')">
+                                <span class="fi">hyvää</span> = tốt → đọc "huy-vää"
+                            </div>
+                            <div class="example-item" onclick="speak('päivä')">
+                                <span class="fi">päivä</span> = ngày → đọc "päi-vä"
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="special-card">
+                    <div class="special-letter">Ö ö</div>
+                    <div class="special-content">
+                        <h4>Phát âm như "Ơ" với môi tròn</h4>
+                        <p>Giống "ö" trong tiếng Đức</p>
+                        <div class="special-examples">
+                            <div class="example-item" onclick="speak('öljy')">
+                                <span class="fi">öljy</span> = dầu → đọc "öl-jy"
+                            </div>
+                            <div class="example-item" onclick="speak('yö')">
+                                <span class="fi">yö</span> = đêm → đọc "uy-ö"
+                            </div>
+                            <div class="example-item" onclick="speak('silmät')">
+                                <span class="fi">silmät</span> = mắt → đọc "sil-mät"
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Vowel Harmony -->
+        <section class="harmony-section">
+            <h2 class="section-title">🎵 Quy tắc hài hòa nguyên âm</h2>
+            <div class="harmony-content">
+                <div class="harmony-groups">
+                    <div class="harmony-group back">
+                        <h4>Nguyên âm SAU (Back vowels)</h4>
+                        <div class="vowels">A - O - U</div>
+                        <p>Ví dụ: <span onclick="speak('talo')">talo</span>, <span onclick="speak('auto')">auto</span>, <span onclick="speak('koulu')">koulu</span></p>
+                    </div>
+                    <div class="harmony-group front">
+                        <h4>Nguyên âm TRƯỚC (Front vowels)</h4>
+                        <div class="vowels">Ä - Ö - Y</div>
+                        <p>Ví dụ: <span onclick="speak('äiti')">äiti</span>, <span onclick="speak('yö')">yö</span>, <span onclick="speak('työ')">työ</span></p>
+                    </div>
+                    <div class="harmony-group neutral">
+                        <h4>Nguyên âm TRUNG TÍNH (Neutral)</h4>
+                        <div class="vowels">E - I</div>
+                        <p>Có thể kết hợp với cả hai nhóm</p>
+                    </div>
+                </div>
+                <div class="harmony-rule">
+                    <p><strong>📌 Quy tắc:</strong> Trong một từ gốc Phần Lan, chỉ có thể dùng nguyên âm SAU hoặc nguyên âm TRƯỚC, không trộn lẫn!</p>
+                    <div class="harmony-examples">
+                        <span class="correct">✓ talossa (trong nhà)</span>
+                        <span class="correct">✓ äidissä (ở mẹ)</span>
+                        <span class="wrong">✗ tälossa (sai!)</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Practice Section -->
+        <section class="practice-alphabet">
+            <h2 class="section-title">✏️ Luyện tập</h2>
+            <div class="practice-content">
+                <p>Nhấn vào các từ dưới đây để nghe và tập đọc:</p>
+                <div class="practice-words">
+                    <div class="practice-word" onclick="speak('Hei')">
+                        <span class="fi">Hei!</span>
+                        <span class="vi">Xin chào!</span>
+                    </div>
+                    <div class="practice-word" onclick="speak('Kiitos')">
+                        <span class="fi">Kiitos!</span>
+                        <span class="vi">Cảm ơn!</span>
+                    </div>
+                    <div class="practice-word" onclick="speak('Hyvää päivää')">
+                        <span class="fi">Hyvää päivää!</span>
+                        <span class="vi">Chào buổi trưa!</span>
+                    </div>
+                    <div class="practice-word" onclick="speak('Minun nimeni on')">
+                        <span class="fi">Minun nimeni on...</span>
+                        <span class="vi">Tên tôi là...</span>
+                    </div>
+                    <div class="practice-word" onclick="speak('Näkemiin')">
+                        <span class="fi">Näkemiin!</span>
+                        <span class="vi">Tạm biệt!</span>
+                    </div>
+                    <div class="practice-word" onclick="speak('Joo')">
+                        <span class="fi">Joo</span>
+                        <span class="vi">Vâng (thân mật)</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Navigation -->
+        <div class="page-nav">
+            <a href="../index.html" class="nav-btn prev">← Trang chủ</a>
+            <a href="pronunciation.html" class="nav-btn next">Phát âm →</a>
+        </div>
+    </main>
+
+    <!-- Overlay for mobile menu -->
+    <div class="overlay" id="overlay"></div>
+
+    <script src="../js/data.js"></script>
+    <script src="../js/app.js"></script>
+</body>
+</html>

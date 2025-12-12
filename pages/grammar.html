@@ -1,0 +1,678 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Ngữ Pháp - Học Tiếng Phần Lan A1</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Mobile Header -->
+    <header class="mobile-header">
+        <a href="../index.html" class="logo">🇫🇮 Suomi A1</a>
+        <button class="menu-toggle" id="menuToggle">
+            <span></span><span></span><span></span>
+        </button>
+    </header>
+
+    <!-- Sidebar -->
+    <nav class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <a href="../index.html" class="logo">🇫🇮 Suomi A1</a>
+            <button class="dark-toggle" id="darkToggle">🌙</button>
+        </div>
+        <ul class="nav-menu">
+            <li><a href="../index.html" class="nav-link"><span class="icon">🏠</span> Trang chủ</a></li>
+            <li><a href="alphabet.html" class="nav-link"><span class="icon">🔤</span> Bảng chữ cái</a></li>
+            <li><a href="pronunciation.html" class="nav-link"><span class="icon">🎯</span> Phát âm</a></li>
+            <li><a href="grammar.html" class="nav-link active"><span class="icon">📖</span> Ngữ pháp</a></li>
+            <li><a href="verbs.html" class="nav-link"><span class="icon">⚡</span> Chia động từ</a></li>
+            <li><a href="vocabulary.html" class="nav-link"><span class="icon">📚</span> Từ vựng</a></li>
+            <li><a href="phrases.html" class="nav-link"><span class="icon">💬</span> Mẫu câu</a></li>
+            <li><a href="practice.html" class="nav-link"><span class="icon">✏️</span> Luyện tập</a></li>
+            <li><a href="roadmap.html" class="nav-link"><span class="icon">🗺️</span> Lộ trình 30 ngày</a></li>
+        </ul>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="page-header">
+            <h1>📖 Ngữ Pháp Tiếng Phần Lan</h1>
+            <p>Cấu trúc ngữ pháp cơ bản A1 với sơ đồ dễ hiểu</p>
+        </div>
+
+        <div class="page-content">
+            <!-- Grammar Mind Map -->
+            <div class="tree">
+                <div class="tree-root">🗂️ NGỮ PHÁP TIẾNG PHẦN LAN A1</div>
+
+                <div class="tree-branches">
+                    <!-- Branch 1: Pronouns -->
+                    <div class="tree-branch">
+                        <div class="branch-header" onclick="toggleBranch(this)">
+                            <h3>👤 1. Đại từ nhân xưng (Persoonapronominit)</h3>
+                            <p>6 đại từ cơ bản - Click để xem chi tiết</p>
+                        </div>
+                        <div class="branch-content">
+                            <div class="info-box tip">
+                                <strong>💡 Đặc biệt:</strong> "Hän" dùng cho cả nam và nữ - tiếng Phần Lan không phân biệt giới tính!
+                            </div>
+
+                            <div class="conj-table-wrapper">
+                                <table class="conj-table">
+                                    <thead>
+                                        <tr>
+                                            <th>Số ít</th>
+                                            <th>Phần Lan</th>
+                                            <th>Nghĩa</th>
+                                            <th>Ví dụ</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>Ngôi 1</td>
+                                            <td class="finnish">Minä</td>
+                                            <td>Tôi</td>
+                                            <td><span class="fi" onclick="speak('Minä olen opiskelija')">Minä olen opiskelija.</span> <span class="vi">(Tôi là sinh viên)</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Ngôi 2</td>
+                                            <td class="finnish">Sinä</td>
+                                            <td>Bạn</td>
+                                            <td><span class="fi" onclick="speak('Sinä olet opettaja')">Sinä olet opettaja.</span> <span class="vi">(Bạn là giáo viên)</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Ngôi 3</td>
+                                            <td class="finnish">Hän</td>
+                                            <td>Anh/Chị ấy</td>
+                                            <td><span class="fi" onclick="speak('Hän on lääkäri')">Hän on lääkäri.</span> <span class="vi">(Anh/Chị ấy là bác sĩ)</span></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+
+                                <table class="conj-table" style="margin-top: 1rem;">
+                                    <thead>
+                                        <tr>
+                                            <th>Số nhiều</th>
+                                            <th>Phần Lan</th>
+                                            <th>Nghĩa</th>
+                                            <th>Ví dụ</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>Ngôi 1</td>
+                                            <td class="finnish">Me</td>
+                                            <td>Chúng tôi</td>
+                                            <td><span class="fi" onclick="speak('Me olemme opiskelijat')">Me olemme opiskelijat.</span> <span class="vi">(Chúng tôi là sinh viên)</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Ngôi 2</td>
+                                            <td class="finnish">Te</td>
+                                            <td>Các bạn</td>
+                                            <td><span class="fi" onclick="speak('Te olette opettajat')">Te olette opettajat.</span> <span class="vi">(Các bạn là giáo viên)</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Ngôi 3</td>
+                                            <td class="finnish">He</td>
+                                            <td>Họ</td>
+                                            <td><span class="fi" onclick="speak('He ovat lääkärit')">He ovat lääkärit.</span> <span class="vi">(Họ là bác sĩ)</span></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Branch 2: OLLA verb -->
+                    <div class="tree-branch">
+                        <div class="branch-header" onclick="toggleBranch(this)">
+                            <h3>🔵 2. Động từ OLLA (Là/Ở)</h3>
+                            <p>Động từ quan trọng nhất - tương đương "to be" tiếng Anh</p>
+                        </div>
+                        <div class="branch-content">
+                            <div class="info-box warning">
+                                <strong>⚠️ Quan trọng:</strong> OLLA là động từ BẤT QUY TẮC, cần học thuộc!
+                            </div>
+
+                            <table class="conj-table">
+                                <thead>
+                                    <tr>
+                                        <th>Đại từ</th>
+                                        <th>OLLA</th>
+                                        <th>Ví dụ thực tế</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Minä</td>
+                                        <td class="finnish">olen</td>
+                                        <td onclick="speak('Minä olen vietnamilainen')"><span class="fi">Minä olen vietnamilainen.</span> <span class="vi">(Tôi là người Việt Nam)</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Sinä</td>
+                                        <td class="finnish">olet</td>
+                                        <td onclick="speak('Sinä olet kaunis')"><span class="fi">Sinä olet kaunis.</span> <span class="vi">(Bạn đẹp)</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Hän</td>
+                                        <td class="finnish">on</td>
+                                        <td onclick="speak('Hän on kotona')"><span class="fi">Hän on kotona.</span> <span class="vi">(Anh ấy ở nhà)</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Me</td>
+                                        <td class="finnish">olemme</td>
+                                        <td onclick="speak('Me olemme Suomessa')"><span class="fi">Me olemme Suomessa.</span> <span class="vi">(Chúng tôi ở Phần Lan)</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Te</td>
+                                        <td class="finnish">olette</td>
+                                        <td onclick="speak('Te olette tervetulleita')"><span class="fi">Te olette tervetulleita.</span> <span class="vi">(Các bạn được chào đón)</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>He</td>
+                                        <td class="finnish">ovat</td>
+                                        <td onclick="speak('He ovat ystäviä')"><span class="fi">He ovat ystäviä.</span> <span class="vi">(Họ là bạn bè)</span></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+                            <h4 style="margin-top: 1.5rem; color: var(--primary);">📝 Luyện tập nhanh:</h4>
+                            <div class="exercise-box">
+                                <div class="exercise-item" onclick="speak('Minä olen iloinen')">
+                                    <span class="fi">Minä olen iloinen.</span> → <span class="vi">Tôi vui.</span>
+                                </div>
+                                <div class="exercise-item" onclick="speak('Hän on väsynyt')">
+                                    <span class="fi">Hän on väsynyt.</span> → <span class="vi">Anh ấy mệt.</span>
+                                </div>
+                                <div class="exercise-item" onclick="speak('Me olemme nälkäisiä')">
+                                    <span class="fi">Me olemme nälkäisiä.</span> → <span class="vi">Chúng tôi đói.</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Branch 3: Negation -->
+                    <div class="tree-branch">
+                        <div class="branch-header" onclick="toggleBranch(this)">
+                            <h3>❌ 3. Phủ định với EI</h3>
+                            <p>Cách tạo câu phủ định trong tiếng Phần Lan</p>
+                        </div>
+                        <div class="branch-content">
+                            <div class="info-box tip">
+                                <strong>💡 Quy tắc:</strong> EI chia theo ngôi + Gốc động từ (không thêm đuôi)
+                            </div>
+
+                            <table class="conj-table">
+                                <thead>
+                                    <tr>
+                                        <th>Đại từ</th>
+                                        <th>EI</th>
+                                        <th>+ Gốc</th>
+                                        <th>Ví dụ</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Minä</td>
+                                        <td class="finnish">en</td>
+                                        <td>puhu</td>
+                                        <td onclick="speak('Minä en puhu suomea')"><span class="fi">Minä en puhu suomea.</span> <span class="vi">(Tôi không nói tiếng Phần Lan)</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Sinä</td>
+                                        <td class="finnish">et</td>
+                                        <td>puhu</td>
+                                        <td onclick="speak('Sinä et ymmärrä')"><span class="fi">Sinä et ymmärrä.</span> <span class="vi">(Bạn không hiểu)</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Hän</td>
+                                        <td class="finnish">ei</td>
+                                        <td>puhu</td>
+                                        <td onclick="speak('Hän ei tiedä')"><span class="fi">Hän ei tiedä.</span> <span class="vi">(Anh ấy không biết)</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Me</td>
+                                        <td class="finnish">emme</td>
+                                        <td>puhu</td>
+                                        <td onclick="speak('Me emme asu täällä')"><span class="fi">Me emme asu täällä.</span> <span class="vi">(Chúng tôi không sống ở đây)</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Te</td>
+                                        <td class="finnish">ette</td>
+                                        <td>puhu</td>
+                                        <td onclick="speak('Te ette halua')"><span class="fi">Te ette halua.</span> <span class="vi">(Các bạn không muốn)</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>He</td>
+                                        <td class="finnish">eivät</td>
+                                        <td>puhu</td>
+                                        <td onclick="speak('He eivät tule')"><span class="fi">He eivät tule.</span> <span class="vi">(Họ không đến)</span></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+                            <h4 style="margin-top: 1.5rem; color: var(--primary);">🔄 So sánh Khẳng định vs Phủ định:</h4>
+                            <div class="exercise-box">
+                                <div class="exercise-item">
+                                    <span class="fi" onclick="speak('Minä puhun suomea')">Minä <strong>puhun</strong> suomea.</span> ↔
+                                    <span class="fi" onclick="speak('Minä en puhu suomea')">Minä <strong>en puhu</strong> suomea.</span>
+                                </div>
+                                <div class="exercise-item">
+                                    <span class="fi" onclick="speak('Hän syö')">Hän <strong>syö</strong>.</span> ↔
+                                    <span class="fi" onclick="speak('Hän ei syö')">Hän <strong>ei syö</strong>.</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Branch 4: Cases -->
+                    <div class="tree-branch">
+                        <div class="branch-header" onclick="toggleBranch(this)">
+                            <h3>📚 4. Các Cách (Sijamuodot)</h3>
+                            <p>9 cách quan trọng nhất cho A1 - Tiếng Phần Lan có 15 cách!</p>
+                        </div>
+                        <div class="branch-content">
+                            <div class="info-box important">
+                                <strong>⚠️ Đây là phần KHÓ NHẤT!</strong> Hãy học từ từ, mỗi ngày 1-2 cách.
+                            </div>
+
+                            <!-- Sub-tree for cases -->
+                            <div class="tree" style="margin-top: 1rem;">
+                                <div class="tree-root" style="font-size: 1rem;">📍 CÁC CÁCH TRONG TIẾNG PHẦN LAN</div>
+                                <div class="tree-branches">
+                                    <!-- Nominative -->
+                                    <div class="leaf">
+                                        <h4 style="color: var(--primary);">1️⃣ Nominatiivi (Danh cách) - Gốc từ</h4>
+                                        <p><strong>Dùng cho:</strong> Chủ ngữ của câu</p>
+                                        <div class="leaf-example" onclick="speak('Talo on iso')">
+                                            <span class="fi"><strong>Talo</strong> on iso.</span>
+                                            <span class="vi">Nhà thì to.</span>
+                                        </div>
+                                        <div class="leaf-example" onclick="speak('Koira juoksee')">
+                                            <span class="fi"><strong>Koira</strong> juoksee.</span>
+                                            <span class="vi">Con chó chạy.</span>
+                                        </div>
+                                    </div>
+
+                                    <!-- Partitive -->
+                                    <div class="leaf">
+                                        <h4 style="color: var(--primary);">2️⃣ Partitiivi (Bộ phận cách) - thêm -a/-ä, -ta/-tä</h4>
+                                        <p><strong>Dùng cho:</strong> Tân ngữ không xác định, sau số đếm, với "ei"</p>
+                                        <div class="leaf-example" onclick="speak('Juon kahvia')">
+                                            <span class="fi">Juon <strong>kahvia</strong>.</span>
+                                            <span class="vi">Tôi uống cà phê (một ít).</span>
+                                        </div>
+                                        <div class="leaf-example" onclick="speak('Minulla on kaksi koiraa')">
+                                            <span class="fi">Minulla on kaksi <strong>koiraa</strong>.</span>
+                                            <span class="vi">Tôi có 2 con chó.</span>
+                                        </div>
+                                        <div class="leaf-example" onclick="speak('En näe autoa')">
+                                            <span class="fi">En näe <strong>autoa</strong>.</span>
+                                            <span class="vi">Tôi không thấy ô tô.</span>
+                                        </div>
+                                    </div>
+
+                                    <!-- Genitive -->
+                                    <div class="leaf">
+                                        <h4 style="color: var(--primary);">3️⃣ Genetiivi (Sở hữu cách) - thêm -n</h4>
+                                        <p><strong>Dùng cho:</strong> Sở hữu, tân ngữ xác định</p>
+                                        <div class="leaf-example" onclick="speak('Minun nimeni on Minh')">
+                                            <span class="fi"><strong>Minun</strong> nimeni on Minh.</span>
+                                            <span class="vi">Tên của tôi là Minh.</span>
+                                        </div>
+                                        <div class="leaf-example" onclick="speak('Otan kirjan')">
+                                            <span class="fi">Otan <strong>kirjan</strong>.</span>
+                                            <span class="vi">Tôi lấy (cả) quyển sách.</span>
+                                        </div>
+                                    </div>
+
+                                    <!-- Internal Local Cases -->
+                                    <div class="leaf" style="background: #dbeafe;">
+                                        <h4 style="color: var(--primary);">📦 Cách chỉ vị trí BÊN TRONG (Sisäpaikallissijat)</h4>
+
+                                        <p><strong>4️⃣ Inessiivi (-ssa/-ssä):</strong> Ở trong</p>
+                                        <div class="leaf-example" onclick="speak('Olen Suomessa')">
+                                            <span class="fi">Olen <strong>Suomessa</strong>.</span>
+                                            <span class="vi">Tôi ở (trong) Phần Lan.</span>
+                                        </div>
+                                        <div class="leaf-example" onclick="speak('Hän on kaupassa')">
+                                            <span class="fi">Hän on <strong>kaupassa</strong>.</span>
+                                            <span class="vi">Anh ấy ở trong cửa hàng.</span>
+                                        </div>
+
+                                        <p style="margin-top: 1rem;"><strong>5️⃣ Elatiivi (-sta/-stä):</strong> Từ trong ra</p>
+                                        <div class="leaf-example" onclick="speak('Tulen Vietnamista')">
+                                            <span class="fi">Tulen <strong>Vietnamista</strong>.</span>
+                                            <span class="vi">Tôi đến từ Việt Nam.</span>
+                                        </div>
+                                        <div class="leaf-example" onclick="speak('Hän tulee kaupasta')">
+                                            <span class="fi">Hän tulee <strong>kaupasta</strong>.</span>
+                                            <span class="vi">Anh ấy đi từ cửa hàng ra.</span>
+                                        </div>
+
+                                        <p style="margin-top: 1rem;"><strong>6️⃣ Illatiivi (-an/-en/-iin/...):</strong> Vào trong</p>
+                                        <div class="leaf-example" onclick="speak('Menen kauppaan')">
+                                            <span class="fi">Menen <strong>kauppaan</strong>.</span>
+                                            <span class="vi">Tôi đi vào cửa hàng.</span>
+                                        </div>
+                                        <div class="leaf-example" onclick="speak('Hän menee Suomeen')">
+                                            <span class="fi">Hän menee <strong>Suomeen</strong>.</span>
+                                            <span class="vi">Anh ấy đi đến Phần Lan.</span>
+                                        </div>
+                                    </div>
+
+                                    <!-- External Local Cases -->
+                                    <div class="leaf" style="background: #fef3c7;">
+                                        <h4 style="color: var(--primary);">📍 Cách chỉ vị trí BÊN NGOÀI/TRÊN (Ulkopaikallissijat)</h4>
+
+                                        <p><strong>7️⃣ Adessiivi (-lla/-llä):</strong> Ở trên/tại</p>
+                                        <div class="leaf-example" onclick="speak('Olen torilla')">
+                                            <span class="fi">Olen <strong>torilla</strong>.</span>
+                                            <span class="vi">Tôi ở (tại) chợ.</span>
+                                        </div>
+                                        <div class="leaf-example" onclick="speak('Kirja on pöydällä')">
+                                            <span class="fi">Kirja on <strong>pöydällä</strong>.</span>
+                                            <span class="vi">Sách ở trên bàn.</span>
+                                        </div>
+
+                                        <p style="margin-top: 1rem;"><strong>8️⃣ Ablatiivi (-lta/-ltä):</strong> Từ trên/từ</p>
+                                        <div class="leaf-example" onclick="speak('Tulen torilta')">
+                                            <span class="fi">Tulen <strong>torilta</strong>.</span>
+                                            <span class="vi">Tôi đi từ chợ.</span>
+                                        </div>
+                                        <div class="leaf-example" onclick="speak('Otan kirjan pöydältä')">
+                                            <span class="fi">Otan kirjan <strong>pöydältä</strong>.</span>
+                                            <span class="vi">Tôi lấy sách từ trên bàn.</span>
+                                        </div>
+
+                                        <p style="margin-top: 1rem;"><strong>9️⃣ Allatiivi (-lle):</strong> Đến/lên/cho</p>
+                                        <div class="leaf-example" onclick="speak('Menen torille')">
+                                            <span class="fi">Menen <strong>torille</strong>.</span>
+                                            <span class="vi">Tôi đi đến chợ.</span>
+                                        </div>
+                                        <div class="leaf-example" onclick="speak('Annan kirjan sinulle')">
+                                            <span class="fi">Annan kirjan <strong>sinulle</strong>.</span>
+                                            <span class="vi">Tôi đưa sách cho bạn.</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Cases Summary Table -->
+                            <h4 style="margin-top: 1.5rem; color: var(--primary);">📊 Tóm tắt các cách chỉ vị trí:</h4>
+                            <table class="conj-table">
+                                <thead>
+                                    <tr>
+                                        <th></th>
+                                        <th>Ở đâu? (Missä?)</th>
+                                        <th>Từ đâu? (Mistä?)</th>
+                                        <th>Đi đâu? (Mihin?)</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><strong>Bên trong</strong></td>
+                                        <td>-ssa/-ssä<br><small>kaupa<strong>ssa</strong></small></td>
+                                        <td>-sta/-stä<br><small>kaupa<strong>sta</strong></small></td>
+                                        <td>-an/-en/-iin<br><small>kaupp<strong>aan</strong></small></td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Bên ngoài</strong></td>
+                                        <td>-lla/-llä<br><small>tori<strong>lla</strong></small></td>
+                                        <td>-lta/-ltä<br><small>tori<strong>lta</strong></small></td>
+                                        <td>-lle<br><small>tori<strong>lle</strong></small></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <!-- Branch 5: MINULLA ON -->
+                    <div class="tree-branch">
+                        <div class="branch-header" onclick="toggleBranch(this)">
+                            <h3>✋ 5. Cấu trúc MINULLA ON (Tôi có)</h3>
+                            <p>Cách diễn đạt "có" - dùng Adessiivi + on</p>
+                        </div>
+                        <div class="branch-content">
+                            <div class="info-box tip">
+                                <strong>💡 Tư duy:</strong> Tiếng Phần Lan nói "Ở tôi có..." thay vì "Tôi có..."
+                            </div>
+
+                            <table class="conj-table">
+                                <thead>
+                                    <tr>
+                                        <th>Đại từ</th>
+                                        <th>+ Adessiivi</th>
+                                        <th>Nghĩa</th>
+                                        <th>Ví dụ</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Minä</td>
+                                        <td class="finnish">Minulla on</td>
+                                        <td>Tôi có</td>
+                                        <td onclick="speak('Minulla on auto')"><span class="fi">Minulla on auto.</span> <span class="vi">(Tôi có ô tô)</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Sinä</td>
+                                        <td class="finnish">Sinulla on</td>
+                                        <td>Bạn có</td>
+                                        <td onclick="speak('Sinulla on kaunis talo')"><span class="fi">Sinulla on kaunis talo.</span> <span class="vi">(Bạn có nhà đẹp)</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Hän</td>
+                                        <td class="finnish">Hänellä on</td>
+                                        <td>Anh/Chị ấy có</td>
+                                        <td onclick="speak('Hänellä on koira')"><span class="fi">Hänellä on koira.</span> <span class="vi">(Anh ấy có chó)</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Me</td>
+                                        <td class="finnish">Meillä on</td>
+                                        <td>Chúng tôi có</td>
+                                        <td onclick="speak('Meillä on kaksi lasta')"><span class="fi">Meillä on kaksi lasta.</span> <span class="vi">(Chúng tôi có 2 con)</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Te</td>
+                                        <td class="finnish">Teillä on</td>
+                                        <td>Các bạn có</td>
+                                        <td onclick="speak('Teillä on hyvä opettaja')"><span class="fi">Teillä on hyvä opettaja.</span> <span class="vi">(Các bạn có giáo viên tốt)</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>He</td>
+                                        <td class="finnish">Heillä on</td>
+                                        <td>Họ có</td>
+                                        <td onclick="speak('Heillä on suuri perhe')"><span class="fi">Heillä on suuri perhe.</span> <span class="vi">(Họ có gia đình lớn)</span></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+                            <h4 style="margin-top: 1.5rem; color: var(--primary);">😊 Diễn đạt cảm xúc/trạng thái:</h4>
+                            <div class="vocab-grid" style="margin-top: 1rem;">
+                                <div class="vocab-item" onclick="speak('Minulla on nälkä')">
+                                    <span class="word">Minulla on nälkä.</span>
+                                    <span class="meaning">Tôi đói.</span>
+                                </div>
+                                <div class="vocab-item" onclick="speak('Minulla on jano')">
+                                    <span class="word">Minulla on jano.</span>
+                                    <span class="meaning">Tôi khát.</span>
+                                </div>
+                                <div class="vocab-item" onclick="speak('Minulla on kylmä')">
+                                    <span class="word">Minulla on kylmä.</span>
+                                    <span class="meaning">Tôi lạnh.</span>
+                                </div>
+                                <div class="vocab-item" onclick="speak('Minulla on kuuma')">
+                                    <span class="word">Minulla on kuuma.</span>
+                                    <span class="meaning">Tôi nóng.</span>
+                                </div>
+                                <div class="vocab-item" onclick="speak('Minulla on kiire')">
+                                    <span class="word">Minulla on kiire.</span>
+                                    <span class="meaning">Tôi vội.</span>
+                                </div>
+                                <div class="vocab-item" onclick="speak('Minulla on aikaa')">
+                                    <span class="word">Minulla on aikaa.</span>
+                                    <span class="meaning">Tôi có thời gian.</span>
+                                </div>
+                            </div>
+
+                            <h4 style="margin-top: 1.5rem; color: var(--primary);">❌ Phủ định: Minulla EI OLE</h4>
+                            <div class="exercise-box">
+                                <div class="exercise-item" onclick="speak('Minulla ei ole autoa')">
+                                    <span class="fi">Minulla <strong>ei ole</strong> autoa.</span> → <span class="vi">Tôi không có ô tô.</span>
+                                </div>
+                                <div class="exercise-item" onclick="speak('Hänellä ei ole aikaa')">
+                                    <span class="fi">Hänellä <strong>ei ole</strong> aikaa.</span> → <span class="vi">Anh ấy không có thời gian.</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Branch 6: Questions -->
+                    <div class="tree-branch">
+                        <div class="branch-header" onclick="toggleBranch(this)">
+                            <h3>❓ 6. Câu hỏi (Kysymykset)</h3>
+                            <p>Từ để hỏi và cách tạo câu hỏi Yes/No</p>
+                        </div>
+                        <div class="branch-content">
+                            <h4 style="color: var(--primary);">📝 Từ để hỏi quan trọng:</h4>
+                            <div class="vocab-grid" style="margin-top: 1rem;">
+                                <div class="vocab-item" onclick="speak('Mikä tämä on')">
+                                    <span class="word">Mikä?</span>
+                                    <span class="meaning">Cái gì?</span>
+                                    <div class="example">
+                                        <span class="fi">Mikä tämä on?</span>
+                                        <span class="vi">Cái này là gì?</span>
+                                    </div>
+                                </div>
+                                <div class="vocab-item" onclick="speak('Kuka hän on')">
+                                    <span class="word">Kuka?</span>
+                                    <span class="meaning">Ai?</span>
+                                    <div class="example">
+                                        <span class="fi">Kuka hän on?</span>
+                                        <span class="vi">Anh ấy là ai?</span>
+                                    </div>
+                                </div>
+                                <div class="vocab-item" onclick="speak('Missä sinä asut')">
+                                    <span class="word">Missä?</span>
+                                    <span class="meaning">Ở đâu?</span>
+                                    <div class="example">
+                                        <span class="fi">Missä sinä asut?</span>
+                                        <span class="vi">Bạn sống ở đâu?</span>
+                                    </div>
+                                </div>
+                                <div class="vocab-item" onclick="speak('Mistä olet kotoisin')">
+                                    <span class="word">Mistä?</span>
+                                    <span class="meaning">Từ đâu?</span>
+                                    <div class="example">
+                                        <span class="fi">Mistä olet kotoisin?</span>
+                                        <span class="vi">Bạn đến từ đâu?</span>
+                                    </div>
+                                </div>
+                                <div class="vocab-item" onclick="speak('Mihin sinä menet')">
+                                    <span class="word">Mihin?</span>
+                                    <span class="meaning">Đi đâu?</span>
+                                    <div class="example">
+                                        <span class="fi">Mihin sinä menet?</span>
+                                        <span class="vi">Bạn đi đâu?</span>
+                                    </div>
+                                </div>
+                                <div class="vocab-item" onclick="speak('Milloin tulet')">
+                                    <span class="word">Milloin?</span>
+                                    <span class="meaning">Khi nào?</span>
+                                    <div class="example">
+                                        <span class="fi">Milloin tulet?</span>
+                                        <span class="vi">Bạn đến khi nào?</span>
+                                    </div>
+                                </div>
+                                <div class="vocab-item" onclick="speak('Miksi olet täällä')">
+                                    <span class="word">Miksi?</span>
+                                    <span class="meaning">Tại sao?</span>
+                                    <div class="example">
+                                        <span class="fi">Miksi olet täällä?</span>
+                                        <span class="vi">Tại sao bạn ở đây?</span>
+                                    </div>
+                                </div>
+                                <div class="vocab-item" onclick="speak('Miten voit')">
+                                    <span class="word">Miten?</span>
+                                    <span class="meaning">Như thế nào?</span>
+                                    <div class="example">
+                                        <span class="fi">Miten voit?</span>
+                                        <span class="vi">Bạn khỏe không?</span>
+                                    </div>
+                                </div>
+                                <div class="vocab-item" onclick="speak('Paljonko tämä maksaa')">
+                                    <span class="word">Paljonko?</span>
+                                    <span class="meaning">Bao nhiêu (tiền)?</span>
+                                    <div class="example">
+                                        <span class="fi">Paljonko tämä maksaa?</span>
+                                        <span class="vi">Cái này bao nhiêu?</span>
+                                    </div>
+                                </div>
+                                <div class="vocab-item" onclick="speak('Kuinka vanha olet')">
+                                    <span class="word">Kuinka vanha?</span>
+                                    <span class="meaning">Bao nhiêu tuổi?</span>
+                                    <div class="example">
+                                        <span class="fi">Kuinka vanha olet?</span>
+                                        <span class="vi">Bạn bao nhiêu tuổi?</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <h4 style="margin-top: 1.5rem; color: var(--primary);">🔄 Câu hỏi Yes/No: Thêm -KO/-KÖ vào động từ</h4>
+                            <div class="info-box tip">
+                                <strong>💡 Quy tắc:</strong> Động từ + KO/KÖ đứng đầu câu
+                            </div>
+                            <div class="exercise-box">
+                                <div class="exercise-item" onclick="speak('Puhutko suomea')">
+                                    <span class="fi">Puhu<strong>tko</strong> suomea?</span> → <span class="vi">Bạn nói tiếng Phần Lan không?</span>
+                                </div>
+                                <div class="exercise-item" onclick="speak('Oletko suomalainen')">
+                                    <span class="fi">Ole<strong>tko</strong> suomalainen?</span> → <span class="vi">Bạn là người Phần Lan không?</span>
+                                </div>
+                                <div class="exercise-item" onclick="speak('Haluatko kahvia')">
+                                    <span class="fi">Haluat<strong>ko</strong> kahvia?</span> → <span class="vi">Bạn muốn cà phê không?</span>
+                                </div>
+                                <div class="exercise-item" onclick="speak('Onko sinulla aikaa')">
+                                    <span class="fi">On<strong>ko</strong> sinulla aikaa?</span> → <span class="vi">Bạn có thời gian không?</span>
+                                </div>
+                            </div>
+
+                            <h4 style="margin-top: 1.5rem; color: var(--primary);">✅ Trả lời:</h4>
+                            <div class="exercise-box">
+                                <div class="exercise-item">
+                                    <span class="fi" onclick="speak('Kyllä')"><strong>Kyllä</strong></span> = Có/Vâng
+                                </div>
+                                <div class="exercise-item">
+                                    <span class="fi" onclick="speak('Ei')"><strong>Ei</strong></span> = Không
+                                </div>
+                                <div class="exercise-item">
+                                    <span class="fi" onclick="speak('Joo')"><strong>Joo</strong></span> = Ừ (thân mật)
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Navigation -->
+            <div style="display: flex; justify-content: space-between; margin-top: 2rem; padding-top: 2rem; border-top: 1px solid var(--border);">
+                <a href="pronunciation.html" class="btn btn-secondary">← Phát âm</a>
+                <a href="verbs.html" class="btn btn-primary">Chia động từ →</a>
+            </div>
+        </div>
+    </main>
+
+    <div class="overlay" id="overlay"></div>
+
+    <script src="../js/data.js"></script>
+    <script src="../js/app.js"></script>
+    <script>
+        function toggleBranch(header) {
+            const content = header.nextElementSibling;
+            content.classList.toggle('active');
+        }
+    </script>
+</body>
+</html>
