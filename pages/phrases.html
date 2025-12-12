@@ -827,9 +827,15 @@
                 const chunks = [];
 
                 recorder.ondataavailable = (e) => chunks.push(e.data);
-                recorder.onstop = () => {
-                    recordings.set(id, new Blob(chunks, { type: 'audio/webm' }));
+                recorder.onstop = async () => {
+                    const blob = new Blob(chunks, { type: 'audio/webm' });
+                    recordings.set(id, blob);
                     stream.getTracks().forEach(t => t.stop());
+
+                    // Upload to Supabase
+                    if (window.supabaseStorage) {
+                        await window.supabaseStorage.uploadRecording(id, blob);
+                    }
                 };
 
                 recorder.start();
@@ -878,6 +884,31 @@
 
             activeRecorder = null;
         }
+
+        // Load saved recordings from Supabase on page load
+        async function loadSavedRecordings() {
+            if (!window.supabaseStorage) return;
+
+            document.querySelectorAll('.phrase-item').forEach(async (item) => {
+                const id = item.dataset.id;
+                if (practiced[id]) {
+                    const blob = await window.supabaseStorage.getRecording(id);
+                    if (blob && blob.size > 0) {
+                        recordings.set(id, blob);
+                        const playBtn = item.querySelector('.play');
+                        const recordBtn = item.querySelector('.record');
+                        if (playBtn) {
+                            playBtn.disabled = false;
+                            playBtn.classList.add('has-rec');
+                        }
+                        if (recordBtn) {
+                            recordBtn.classList.add('has-rec');
+                        }
+                    }
+                }
+            });
+        }
+        loadSavedRecordings();
 
         function updateProgress() {
             const essentialIds = Array.from({ length: 20 }, (_, i) => `ess-${i}`);

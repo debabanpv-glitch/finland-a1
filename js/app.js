@@ -3,6 +3,99 @@
 // Shared JavaScript for all pages
 // ============================
 
+// ============================
+// Supabase Configuration
+// ============================
+const SUPABASE_URL = 'https://vfrgdhcltkgxurbalora.supabase.co';
+const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InZmcmdkaGNsdGtneHVyYmFsb3JhIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjU1MTg1NDYsImV4cCI6MjA4MTA5NDU0Nn0.a0OmbOCQOouJoKMS7t0dPT8TrrwMT6cBgj3BFv7stYI';
+
+// Simple Supabase Storage client
+const supabaseStorage = {
+    // Get user ID from localStorage (anonymous user)
+    getUserId() {
+        let userId = localStorage.getItem('visitorId');
+        if (!userId) {
+            userId = 'user_' + Date.now() + '_' + Math.random().toString(36).substr(2, 9);
+            localStorage.setItem('visitorId', userId);
+        }
+        return userId;
+    },
+
+    // Upload audio blob to Supabase Storage
+    async uploadRecording(cardId, blob) {
+        const userId = this.getUserId();
+        const fileName = `${userId}/${cardId}.webm`;
+
+        try {
+            const response = await fetch(`${SUPABASE_URL}/storage/v1/object/recordings/${fileName}`, {
+                method: 'POST',
+                headers: {
+                    'Authorization': `Bearer ${SUPABASE_ANON_KEY}`,
+                    'apikey': SUPABASE_ANON_KEY,
+                    'Content-Type': 'audio/webm',
+                    'x-upsert': 'true' // Overwrite if exists
+                },
+                body: blob
+            });
+
+            if (response.ok) {
+                console.log('Recording uploaded:', cardId);
+                return true;
+            } else {
+                console.error('Upload failed:', await response.text());
+                return false;
+            }
+        } catch (err) {
+            console.error('Upload error:', err);
+            return false;
+        }
+    },
+
+    // Download audio from Supabase Storage
+    async getRecording(cardId) {
+        const userId = this.getUserId();
+        const fileName = `${userId}/${cardId}.webm`;
+
+        try {
+            const response = await fetch(`${SUPABASE_URL}/storage/v1/object/public/recordings/${fileName}`, {
+                headers: {
+                    'apikey': SUPABASE_ANON_KEY
+                }
+            });
+
+            if (response.ok) {
+                const blob = await response.blob();
+                return blob;
+            }
+            return null;
+        } catch (err) {
+            console.error('Download error:', err);
+            return null;
+        }
+    },
+
+    // Check if recording exists
+    async hasRecording(cardId) {
+        const userId = this.getUserId();
+        const fileName = `${userId}/${cardId}.webm`;
+
+        try {
+            const response = await fetch(`${SUPABASE_URL}/storage/v1/object/public/recordings/${fileName}`, {
+                method: 'HEAD',
+                headers: {
+                    'apikey': SUPABASE_ANON_KEY
+                }
+            });
+            return response.ok;
+        } catch {
+            return false;
+        }
+    }
+};
+
+// Make available globally
+window.supabaseStorage = supabaseStorage;
+
 // DOM Ready
 document.addEventListener('DOMContentLoaded', function() {
     initApp();
