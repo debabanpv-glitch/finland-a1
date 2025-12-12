@@ -9,12 +9,27 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
 <body>
+    <!-- User Selector Modal -->
+    <div class="user-modal" id="userModal">
+        <div class="user-modal-content">
+            <h3>👤 Chọn tài khoản</h3>
+            <div id="userList"></div>
+            <div class="user-new">
+                <input type="text" id="newUserName" placeholder="Nhập tên mới..." maxlength="20">
+                <button onclick="createUser()">Tạo</button>
+            </div>
+        </div>
+    </div>
+
     <!-- Mobile Header -->
     <header class="mobile-header">
         <a href="index.html" class="logo">🇫🇮 Suomi A1</a>
-        <button class="menu-toggle" id="menuToggle">
-            <span></span><span></span><span></span>
-        </button>
+        <div class="header-right">
+            <button class="user-btn" id="userBtn" onclick="toggleUserModal()">👤</button>
+            <button class="menu-toggle" id="menuToggle">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
     </header>
 
     <!-- Sidebar Navigation -->
@@ -197,5 +212,59 @@
 
     <script src="js/data.js"></script>
     <script src="js/app.js"></script>
+    <script>
+        // User account functions
+        function toggleUserModal() {
+            const modal = document.getElementById('userModal');
+            modal.classList.toggle('active');
+            renderUserList();
+        }
+
+        function renderUserList() {
+            const list = document.getElementById('userList');
+            const users = userAccount.getUsers();
+            const current = userAccount.getCurrentUser();
+
+            if (users.length === 0) {
+                list.innerHTML = '<p style="color: var(--text-light); font-size: 0.85rem;">Chưa có tài khoản nào</p>';
+                return;
+            }
+
+            list.innerHTML = users.map(name => `
+                <div class="user-item ${name === current ? 'active' : ''}" onclick="selectUser('${name}')">
+                    <span>👤 ${name}</span>
+                    ${name === current ? '<span class="check">✓</span>' : ''}
+                </div>
+            `).join('');
+        }
+
+        function selectUser(name) {
+            userAccount.setCurrentUser(name);
+        }
+
+        function createUser() {
+            const input = document.getElementById('newUserName');
+            const name = input.value.trim();
+            if (name) {
+                userAccount.addUser(name);
+                userAccount.setCurrentUser(name);
+            }
+        }
+
+        // Update user button with current name
+        document.addEventListener('DOMContentLoaded', () => {
+            const current = userAccount.getCurrentUser();
+            const btn = document.getElementById('userBtn');
+            if (current) {
+                btn.textContent = current.charAt(0).toUpperCase();
+                btn.title = current;
+            }
+        });
+
+        // Close modal when clicking outside
+        document.getElementById('userModal').addEventListener('click', (e) => {
+            if (e.target.id === 'userModal') toggleUserModal();
+        });
+    </script>
 </body>
 </html>

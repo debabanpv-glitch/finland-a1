@@ -9,16 +9,58 @@
 const SUPABASE_URL = 'https://vfrgdhcltkgxurbalora.supabase.co';
 const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InZmcmdkaGNsdGtneHVyYmFsb3JhIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjU1MTg1NDYsImV4cCI6MjA4MTA5NDU0Nn0.a0OmbOCQOouJoKMS7t0dPT8TrrwMT6cBgj3BFv7stYI';
 
+// User Account System (simple, no password)
+const userAccount = {
+    getCurrentUser() {
+        return localStorage.getItem('currentUser') || null;
+    },
+
+    setCurrentUser(name) {
+        localStorage.setItem('currentUser', name);
+        // Reload to apply new user data
+        window.location.reload();
+    },
+
+    logout() {
+        localStorage.removeItem('currentUser');
+        window.location.reload();
+    },
+
+    getUsers() {
+        return JSON.parse(localStorage.getItem('usersList') || '[]');
+    },
+
+    addUser(name) {
+        const users = this.getUsers();
+        if (!users.includes(name)) {
+            users.push(name);
+            localStorage.setItem('usersList', JSON.stringify(users));
+        }
+    }
+};
+window.userAccount = userAccount;
+
 // Simple Supabase Storage client
 const supabaseStorage = {
-    // Get user ID from localStorage (anonymous user)
+    // Get user ID based on current user name
     getUserId() {
-        let userId = localStorage.getItem('visitorId');
-        if (!userId) {
-            userId = 'user_' + Date.now() + '_' + Math.random().toString(36).substr(2, 9);
-            localStorage.setItem('visitorId', userId);
+        const currentUser = userAccount.getCurrentUser();
+        if (currentUser) {
+            return 'user_' + currentUser.toLowerCase().replace(/\s+/g, '_');
         }
-        return userId;
+        // Fallback for anonymous
+        let visitorId = localStorage.getItem('visitorId');
+        if (!visitorId) {
+            visitorId = 'anon_' + Date.now() + '_' + Math.random().toString(36).substr(2, 9);
+            localStorage.setItem('visitorId', visitorId);
+        }
+        return visitorId;
+    },
+
+    // Get progress key for current user
+    getProgressKey(baseKey) {
+        const user = userAccount.getCurrentUser();
+        return user ? `${baseKey}_${user}` : baseKey;
     },
 
     // Upload audio blob to Supabase Storage

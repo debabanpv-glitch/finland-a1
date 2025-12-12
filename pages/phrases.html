@@ -673,7 +673,9 @@
 
         // ==================== STATE ====================
         const recordings = new Map();
-        const practiced = JSON.parse(localStorage.getItem('essentialPhrases') || '{}');
+        // Get progress key based on current user
+        const progressKey = window.supabaseStorage ? window.supabaseStorage.getProgressKey('essentialPhrases') : 'essentialPhrases';
+        const practiced = JSON.parse(localStorage.getItem(progressKey) || '{}');
         let activeRecorder = null;
         let currentPhrase = '';
         let currentId = '';
@@ -976,7 +978,7 @@
                 playBtn.classList.add('has-rec');
 
                 practiced[id] = true;
-                localStorage.setItem('essentialPhrases', JSON.stringify(practiced));
+                localStorage.setItem(progressKey, JSON.stringify(practiced));
                 mastery.classList.add('done');
                 mastery.textContent = '✓';
 
