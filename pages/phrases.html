@@ -915,6 +915,8 @@
             if (activeRecorder) activeRecorder.stop();
             recognizedText = '';
 
+            console.log('Starting recording for:', id, fi);
+
             try {
                 const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
                 const recorder = new MediaRecorder(stream);
@@ -922,12 +924,20 @@
 
                 // Bắt đầu nhận dạng giọng nói
                 if (recognition) {
-                    try { recognition.start(); } catch(e) {}
+                    try {
+                        recognition.start();
+                        console.log('Speech recognition started');
+                    } catch(e) {
+                        console.log('Speech recognition error:', e);
+                    }
+                } else {
+                    console.log('Speech recognition not available');
                 }
 
                 recorder.ondataavailable = (e) => chunks.push(e.data);
                 recorder.onstop = async () => {
                     const blob = new Blob(chunks, { type: 'audio/webm' });
+                    console.log('Recording stopped, blob size:', blob.size);
                     recordings.set(id, blob);
                     stream.getTracks().forEach(t => t.stop());
 
@@ -936,9 +946,13 @@
                         try { recognition.stop(); } catch(e) {}
                     }
 
+                    console.log('Recognized text:', recognizedText);
+
                     // Upload to Supabase
                     if (window.supabaseStorage) {
-                        await window.supabaseStorage.uploadRecording(id, blob);
+                        console.log('Uploading to Supabase...');
+                        const result = await window.supabaseStorage.uploadRecording(id, blob);
+                        console.log('Upload result:', result);
                     }
                 };
 
