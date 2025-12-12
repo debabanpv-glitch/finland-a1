@@ -445,6 +445,15 @@
     <div class="compare-modal" id="compareModal">
         <button class="compare-close" onclick="closeCompare()">×</button>
         <h4>🎧 So sánh phát âm</h4>
+
+        <!-- Kết quả nhận dạng -->
+        <div id="recognitionResult" style="margin-bottom: 1rem; padding: 0.75rem; background: var(--bg-alt); border-radius: var(--radius); display: none;">
+            <div style="font-size: 0.75rem; color: var(--text-light); margin-bottom: 0.25rem;">Bạn nói:</div>
+            <div id="yourText" style="font-weight: 600; color: var(--primary); font-size: 1.1rem;"></div>
+            <div id="expectedText" style="font-size: 0.8rem; color: var(--text-light); margin-top: 0.25rem;"></div>
+            <div id="matchScore" style="margin-top: 0.5rem; font-weight: 700; font-size: 1.2rem;"></div>
+        </div>
+
         <div class="compare-btns">
             <button onclick="playStandard()">🔊 Chuẩn</button>
             <button onclick="playYours()">🎤 Của bạn</button>
@@ -818,19 +827,112 @@
         }
         attachEvents();
 
+        // Speech Recognition để nhận dạng giọng nói
+        let recognition = null;
+        let recognizedText = '';
+
+        if ('webkitSpeechRecognition' in window || 'SpeechRecognition' in window) {
+            const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+            recognition = new SpeechRecognition();
+            recognition.lang = 'fi-FI';
+            recognition.continuous = false;
+            recognition.interimResults = false;
+
+            recognition.onresult = (event) => {
+                recognizedText = event.results[0][0].transcript.toLowerCase();
+                console.log('Recognized:', recognizedText);
+            };
+
+            recognition.onerror = (event) => {
+                console.log('Speech recognition error:', event.error);
+            };
+        }
+
+        // So sánh text (tính % giống nhau)
+        function compareTexts(spoken, expected) {
+            const s = spoken.toLowerCase().trim();
+            const e = expected.toLowerCase().trim();
+
+            if (s === e) return 100;
+
+            // Tính khoảng cách Levenshtein
+            const matrix = [];
+            for (let i = 0; i <= e.length; i++) {
+                matrix[i] = [i];
+            }
+            for (let j = 0; j <= s.length; j++) {
+                matrix[0][j] = j;
+            }
+            for (let i = 1; i <= e.length; i++) {
+                for (let j = 1; j <= s.length; j++) {
+                    if (e[i-1] === s[j-1]) {
+                        matrix[i][j] = matrix[i-1][j-1];
+                    } else {
+                        matrix[i][j] = Math.min(
+                            matrix[i-1][j-1] + 1,
+                            matrix[i][j-1] + 1,
+                            matrix[i-1][j] + 1
+                        );
+                    }
+                }
+            }
+
+            const distance = matrix[e.length][s.length];
+            const maxLen = Math.max(e.length, s.length);
+            return Math.round((1 - distance / maxLen) * 100);
+        }
+
+        function showCompareResult() {
+            const resultDiv = document.getElementById('recognitionResult');
+            const yourTextDiv = document.getElementById('yourText');
+            const expectedDiv = document.getElementById('expectedText');
+            const scoreDiv = document.getElementById('matchScore');
+
+            if (recognizedText) {
+                resultDiv.style.display = 'block';
+                yourTextDiv.textContent = `"${recognizedText}"`;
+                expectedDiv.textContent = `Chuẩn: "${currentPhrase}"`;
+
+                const score = compareTexts(recognizedText, currentPhrase);
+                if (score >= 80) {
+                    scoreDiv.innerHTML = `✅ ${score}% - Tuyệt vời!`;
+                    scoreDiv.style.color = 'var(--success)';
+                } else if (score >= 50) {
+                    scoreDiv.innerHTML = `🔶 ${score}% - Khá tốt!`;
+                    scoreDiv.style.color = 'var(--accent)';
+                } else {
+                    scoreDiv.innerHTML = `❌ ${score}% - Thử lại nhé!`;
+                    scoreDiv.style.color = 'var(--danger)';
+                }
+            } else {
+                resultDiv.style.display = 'none';
+            }
+        }
+
         async function startRecording(id, fi, item) {
             if (activeRecorder) activeRecorder.stop();
+            recognizedText = '';
 
             try {
                 const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
                 const recorder = new MediaRecorder(stream);
                 const chunks = [];
 
+                // Bắt đầu nhận dạng giọng nói
+                if (recognition) {
+                    try { recognition.start(); } catch(e) {}
+                }
+
                 recorder.ondataavailable = (e) => chunks.push(e.data);
                 recorder.onstop = async () => {
                     const blob = new Blob(chunks, { type: 'audio/webm' });
                     recordings.set(id, blob);
                     stream.getTracks().forEach(t => t.stop());
+
+                    // Dừng nhận dạng
+                    if (recognition) {
+                        try { recognition.stop(); } catch(e) {}
+                    }
 
                     // Upload to Supabase
                     if (window.supabaseStorage) {
@@ -879,7 +981,12 @@
                 mastery.textContent = '✓';
 
                 updateProgress();
-                document.getElementById('compareModal').classList.add('active');
+
+                // Hiện kết quả so sánh
+                setTimeout(() => {
+                    showCompareResult();
+                    document.getElementById('compareModal').classList.add('active');
+                }, 300);
             }, 200);
 
             activeRecorder = null;
