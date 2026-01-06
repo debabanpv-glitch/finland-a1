@@ -1,0 +1,65 @@
+{
+  "title": "Số đếm tiếng Phần Lan",
+  "description": "Học các số từ 0 đến 1000 trong tiếng Phần Lan",
+  "sections": [
+    {
+      "title": "Số 0-10",
+      "items": [
+        { "finnish": "nolla", "vietnamese": "0 - không" },
+        { "finnish": "yksi", "vietnamese": "1 - một" },
+        { "finnish": "kaksi", "vietnamese": "2 - hai" },
+        { "finnish": "kolme", "vietnamese": "3 - ba" },
+        { "finnish": "neljä", "vietnamese": "4 - bốn" },
+        { "finnish": "viisi", "vietnamese": "5 - năm" },
+        { "finnish": "kuusi", "vietnamese": "6 - sáu" },
+        { "finnish": "seitsemän", "vietnamese": "7 - bảy" },
+        { "finnish": "kahdeksan", "vietnamese": "8 - tám" },
+        { "finnish": "yhdeksän", "vietnamese": "9 - chín" },
+        { "finnish": "kymmenen", "vietnamese": "10 - mười" }
+      ]
+    },
+    {
+      "title": "Số 11-19",
+      "items": [
+        { "finnish": "yksitoista", "vietnamese": "11 - mười một" },
+        { "finnish": "kaksitoista", "vietnamese": "12 - mười hai" },
+        { "finnish": "kolmetoista", "vietnamese": "13 - mười ba" },
+        { "finnish": "neljätoista", "vietnamese": "14 - mười bốn" },
+        { "finnish": "viisitoista", "vietnamese": "15 - mười lăm" },
+        { "finnish": "kuusitoista", "vietnamese": "16 - mười sáu" },
+        { "finnish": "seitsemäntoista", "vietnamese": "17 - mười bảy" },
+        { "finnish": "kahdeksantoista", "vietnamese": "18 - mười tám" },
+        { "finnish": "yhdeksäntoista", "vietnamese": "19 - mười chín" }
+      ]
+    },
+    {
+      "title": "Số chục (20-90)",
+      "items": [
+        { "finnish": "kaksikymmentä", "vietnamese": "20 - hai mươi" },
+        { "finnish": "kolmekymmentä", "vietnamese": "30 - ba mươi" },
+        { "finnish": "neljäkymmentä", "vietnamese": "40 - bốn mươi" },
+        { "finnish": "viisikymmentä", "vietnamese": "50 - năm mươi" },
+        { "finnish": "kuusikymmentä", "vietnamese": "60 - sáu mươi" },
+        { "finnish": "seitsemänkymmentä", "vietnamese": "70 - bảy mươi" },
+        { "finnish": "kahdeksankymmentä", "vietnamese": "80 - tám mươi" },
+        { "finnish": "yhdeksänkymmentä", "vietnamese": "90 - chín mươi" }
+      ]
+    },
+    {
+      "title": "Số lớn",
+      "items": [
+        { "finnish": "sata", "vietnamese": "100 - một trăm" },
+        { "finnish": "kaksisataa", "vietnamese": "200 - hai trăm" },
+        { "finnish": "tuhat", "vietnamese": "1000 - một nghìn" },
+        { "finnish": "miljoona", "vietnamese": "1.000.000 - một triệu" }
+      ]
+    }
+  ],
+  "examples": [
+    { "finnish": "kaksikymmentäyksi", "vietnamese": "21" },
+    { "finnish": "kolmekymmentäviisi", "vietnamese": "35" },
+    { "finnish": "neljäkymmentäseitsemän", "vietnamese": "47" },
+    { "finnish": "viisikymmentäkaksi", "vietnamese": "52" },
+    { "finnish": "satakaksikymmentäkolme", "vietnamese": "123" }
+  ]
+}
